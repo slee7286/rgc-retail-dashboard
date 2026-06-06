@@ -15,4 +15,4 @@ Skeleton repository for the Really Good Culture technical assessment.
 1. Implement frontend dashboard screens and filters.
 2. Build backend endpoints or static data loading as needed.
 3. Add preprocessing logic in `scripts/preprocess.py`.
-4. Wire deployment with Docker / Nginx.
+4. Wire deployment with Docker / Caddy.
