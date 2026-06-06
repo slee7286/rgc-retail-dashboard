@@ -1,0 +1,245 @@
+RGC — Full Stack Intern Technical Assessment
+Role
+Time limit
+Data files
+Deliverables
+Focus
+
+Full Stack Intern
+24 hours from receiving the task
+transcripts.json, users.json, products.csv, brands.csv
+Hosted app, Repository/source code, Submission-Notes, Working log
+Full-stack delivery, data enrichment, retail/category insight, commercial storytelling
+
+Context
+At RGC, we work with product, retail, SKU, reviewer, packaging, brand, and AI-enriched data to help brands
+understand markets, products, and customers.
+For this assessment, we want to see how you approach a realistic, data-centred product problem. We are not
+looking for a perfect production system. We are looking for clear thinking, thoughtful prioritisation, good technical
+foundations, and the ability to ship something useful within a short timebox.
+
+The Task
+Build a hosted full-stack dashboard application that helps a brand, product, retail, or insights team understand
+the provided category dataset.
+The dataset combines two broad types of signals:
+1. Consumer voice signals from reviewer transcripts, ratings, user profiles, and evidence-backed suggested
+tags.
+2. Retail, product, and brand intelligence signals from the enriched products and brands data.
+Your job is not simply to display the files separately. Your job is to turn the data into a useful intelligence tool:
+something that helps a commercial user understand what consumers are saying, how products and brands are
+positioned, how brands compare within the category, and what opportunities or tensions may be worth
+investigating.
+In your submission notes, please include a brief section explaining what you would do with more time. This can
+include product or technical improvements, as well as any additional data you would want access to, what that
+data might contain, and how you would use it to improve the dashboard or generate stronger insights.
+Note: You do not need to use every column in the provided data. The dataset contains many columns because
+we want to see how you prioritise different types of information, choose which signals matter and use the data
+creatively.
+
+Who is this dashboard for?
+Imagine this as a client-facing dashboard inside the RGC platform, built from an anonymised
+product/reviewer/category dataset.
+The user is a commercial, product, insights, retail, or category team at a brand. They want to understand
+consumer perception, product strengths and weaknesses, usage occasions, purchase drivers, competitor
+context, and opportunities worth investigating.
+For this assessment, do not spend time on authentication, permissions, or client-specific data access. Treat
+the provided dataset as a shared anonymised sample designed to show what a useful brand-facing insight
+experience could look like.
+
+Provided Dataset
+You will receive four data files. The files are a mix of JSON and CSV. You are not expected to use every field.
+We care more about thoughtful selection, joining, and explanation of signals than exhaustive display of every
+column.
+File
+transcripts.json
+
+Records
+130
+
+users.json
+
+130
+
+products.csv
+
+35
+
+brands.csv
+
+9
+
+Purpose
+Reviewer transcript records, including
+review text and related review-level
+information.
+Anonymised reviewer profile
+information, including demographics,
+behavioural tags, shopper archetypes,
+and onboarding answers.
+Product-level retail and AI-enriched
+information, including product
+metadata, pricing, ingredients, claims,
+positioning, usage scenarios, target
+users, product attributes, labels, and
+category context.
+Brand-level intelligence, including
+brand context, performance signals,
+social/web metrics,
+audience/archetype information, and
+wider category benchmark data.
+
+The files can be joined using shared identifiers and fields. Transcripts link to products using productId. Users
+link to transcripts using reviewId and personId. Products link to brands using the brand field.
+
+Important note on transcript coverage
+Transcript coverage is intentionally partial. Some brands and products have reviewer transcripts, while others
+are included without transcripts to provide wider retail, category, and competitive context.
+In this dataset, 15 products have linked reviewer transcripts. The remaining catalogue-only products still include
+product, retail, enrichment, and brand intelligence fields. Missing transcript data should not be treated as an
+error.
+Use transcript-backed brands to understand consumer voice. Use the wider product and brand data to
+understand category context, competitor positioning, and retail comparisons. A strong dashboard may connect
+these two views, rather than treating them as separate datasets.
+
+About products.csv and brands.csv
+products.csv is not just basic product metadata. It includes standard retail fields such as name, brand, category,
+price, pack size, ingredients, retailers, and imagery, as well as enriched fields such as health and dietary
+attributes, environmental and packaging attributes, market positioning, target users, usage scenarios,
+companion products, and machine-generated labels with confidence scores.
+brands.csv adds a brand-level intelligence layer, including brand context, performance and traction signals,
+social/web metrics, archetype affinity, and category benchmark information.
+Some enriched fields are AI-generated or pipeline-derived. Treat these as useful directional signals rather than
+perfect ground truth. Strong submissions may compare these signals against transcript evidence where
+transcript data exists.
+To reiterate, please do not spend time trying to incorporate every column. There is no single correct answer. We
+are interested in what you choose to focus on, how you connect the available signals, and what useful insight
+you can create from the data.
+
+Core Challenges
+1. Extract useful transcript-backed signals
+Some users already have broad profile tags. The transcript text may reveal additional useful signals that are not
+currently captured.
+
+These do not need to be personality tags. They could be behaviours, usage occasions, routines, shopper
+needs, product preferences, retailer mentions, complaints, competitor comparisons, purchase drivers, coconsumption habits, or anything else you believe would help a brand understand the customer.
+If your app suggests a tag, attribute, theme, or signal, it should show the evidence behind it. For example, the
+phrase or sentence in the transcript that supports the suggestion.
+
+2. Build a commercial dashboard from joined signals
+The dashboard should help someone understand what the data means and why it might matter commercially.
+We are especially interested in how you combine consumer voice data with product, retail, and brand
+intelligence. For example, you might compare what products claim or are positioned for against what reviewers
+actually say, or use catalogue-only competitor products to provide pricing, category, attribute, or brand context.
+A strong submission does not need to use every field. It should make deliberate choices about what to connect,
+what to ignore, and what commercial story the data supports.
+
+What You Should Build
+•
+•
+•
+•
+•
+•
+•
+•
+
+A hosted web application using the provided dataset.
+A dashboard view that surfaces useful summary insights.
+A way to browse or explore products, brands, users, transcripts, existing tags, and suggested signals.
+A data enrichment feature that suggests useful tags, attributes, themes, or behavioural signals from
+transcript text.
+Evidence for suggested transcript signals, such as the transcript sentence or phrase that supports them.
+Filtering, searching, or sorting that makes the data easier to explore.
+At least one brand-facing or commercially useful insight feature that joins transcript/user signals with
+product, retail, or brand intelligence.
+A README.md explaining how to run the project, your approach, assumptions, tradeoffs, AI/tool usage, and
+what you would improve with more time.
+
+Possible Directions
+You are free to decide what is most valuable. Strong directions might include:
+•
+•
+•
+•
+
+Suggested consumer signals with confidence levels and transcript evidence.
+Product or brand views showing common themes, praise, complaints, usage occasions, user segments, or
+competitor context.
+Insight cards such as “what customers love”, “what frustrates users”, “where positioning matches consumer
+voice”, or “what to investigate next”.
+Comparisons by brand, product, retailer, rating, price tier, product attributes, category benchmark, or user
+segment.
+
+Required Deliverables
+• Live hosted application URL.
+• GitHub repository URL or zipped source code.
+• README.md with setup instructions and notes on your approach.
+• Submission notes as a pdf.
+• A working log as a separate working-log file.
+Submission notes should briefly explain what you built and how to use it. They should cover the main views,
+features, charts, tables, or insight cards in the app; the key insights or relationships you found in the data; how
+you connected transcript/user signals with product, retail, or brand intelligence; any assumptions, limitations, or
+tradeoffs; whether you used AI tools and how you verified the output; and what you would improve with more
+time.
+
+Working Log / Thought Process
+We are interested not only in what you ship, but in how you think while building. Please keep a lightweight
+working log as you go.
+We recommend using Wispr Flow to quickly dictate thoughts while you work, or any equivalent note-taking
+approach that lets you capture decisions, questions, blockers, tradeoffs, and changes in direction without
+slowing yourself down.
+Your log does not need to be polished. We are looking for a genuine trail of your reasoning: what you prioritised,
+where you got stuck, what you tried, how you used AI/tools, what you changed your mind about, and what you
+would do next with more time.
+
+Time Limit
+You will have 24 hours from receiving the assessment to submit your work. We do not expect you to spend the
+full 24 hours actively coding. Focus on a clear, useful application rather than trying to build every possible
+feature.
+
+Technology
+Use whichever stack lets you ship a high-quality result quickly. React, Next.js, Node, Python, FastAPI, Flask,
+SQLite, Supabase, or any other sensible stack are all fine. The important thing is that the app runs, the data is
+handled correctly, and the approach is understandable.
+
+What We Care About
+•
+•
+•
+•
+•
+•
+•
+•
+
+A working, hosted application that is easy to use.
+Thoughtful handling of structured, nested, and unstructured data.
+Explainable enrichment: if a signal is suggested, the user should be able to see why.
+Smart joining of transcript/user signals with product, retail, brand, and category intelligence.
+Commercial thinking: what would a brand, category owner, retail team, or competitive brand actually want to
+learn?
+Insight storytelling: the application should help someone understand what action or decision the data might
+support.
+Clear technical decisions and sensible tradeoffs for the timebox.
+Readable code, a clear README, and a useful working log.
+
+What Not to Spend Too Much Time On
+•
+•
+•
+•
+•
+
+Authentication, permissions, client-specific access rules, or user accounts.
+Pixel-perfect design.
+Complex infrastructure.
+Using every possible column or building every possible chart.
+Over-engineering the enrichment system if a simpler explainable approach works well.
+
+Submission Format
+1. Live URL
+2. Repository URL or zipped source code
+3. Submission Notes
+4. Working log / thought-process notes
+
+

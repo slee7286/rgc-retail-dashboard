@@ -1,0 +1,48 @@
+services:
+  backend:
+    build: ./app/backend
+    container_name: dashboard-backend
+    restart: unless-stopped
+    environment:
+      PORT: 5000
+    expose:
+      - "5000"
+    networks:
+      - app-net
+
+  frontend:
+    build: ./app/frontend
+    container_name: dashboard-frontend
+    restart: unless-stopped
+    environment:
+      PORT: 3000
+    expose:
+      - "3000"
+    depends_on:
+      - backend
+    networks:
+      - app-net
+
+  caddy:
+    image: caddy:2
+    container_name: dashboard-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-net
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  app-net:
