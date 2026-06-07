@@ -1366,7 +1366,7 @@ function CommercialContextSection() {
                 type={
                   index === 0
                     ? "Messaging gap"
-                    : opportunity.status.includes("validated")
+                    : opportunity.status.toLowerCase().includes("validated")
                       ? "Validated strength"
                       : "Watchlist"
                 }
