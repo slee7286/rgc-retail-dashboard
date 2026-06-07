@@ -191,3 +191,12 @@ At the same time, I iterated the following to refine signals:
 **Why:** This is the fastest way to achieve a polished hosted result within the timebox while keeping the UI readable, credible, and aligned with the Breakthrough Suite-inspired direction.  
 **Next:** Do the same with the Consumer Voice Explorer section.
 
+### 11:40
+**Objective:** Set up the deployment foundation early by preparing a live VPS hosting path with Docker, Caddy, and a public domain with Hetzner.
+**What I did:** Pushed the repo and started configuring the app for live hosting on a VPS using Docker for containerization and Caddy as the reverse proxy and HTTPS layer. Prepared the deployment approach so the application can be attached to a public domain and exposed through a shareable hosted URL.  
+**Observations:** Infrastructure and domain issues can easily consume the final hour if left too late, especially when container networking, reverse proxy routing, and public access all need to work together.  
+**Decision:** Treat live deployment setup as part of the core build, not a final polish step. Prioritize getting the Docker + Caddy + domain path working so the app can be deployed to a VPS.  
+**Why:** A public hosted URL is a required deliverable.  
+**Next:** Write up README.md and Submission Notes
+
+### 12:10
