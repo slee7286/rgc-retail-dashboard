@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useMemo, useState } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { dashboardData } from "../lib/dashboardData";
 import type {
   CommercialBrandGroup,
@@ -22,18 +23,30 @@ type SignalRow = {
 };
 
 const signalGroupLabels: Record<string, string> = {
-  benefits: "Benefits",
-  painPoints: "Pain Points",
+  benefits: "Positive",
+  painPoints: "Frustrations",
   occasions: "Occasions",
   marketContext: "Market Context",
 };
 
 const signalGroupAccents: Record<string, string> = {
-  benefits: "#39d98a",
-  painPoints: "#ff9f43",
-  occasions: "#8ea7ff",
-  marketContext: "#41d7e7",
+  benefits: "#14b8a6",
+  painPoints: "#ec4899",
+  occasions: "#8b5cf6",
+  marketContext: "#22c55e",
 };
+
+const tabMeta: Record<ActiveSection, { label: string; accent: string }> = {
+  Overview: { label: "Overview", accent: "#8b5cf6" },
+  "Consumer Voice": { label: "Consumer Voice", accent: "#22d3ee" },
+  "Commercial Context": { label: "Commercial Context", accent: "#22c55e" },
+};
+
+const DELTA_POSITIONING_NOTE =
+  "Reviewer mention rate minus structured positioning score. Negative means the brand is positioned around this idea more than reviewers mention it; positive means reviewers mention it more than the catalogue positioning suggests.";
+
+const PRIORITY_SCORE_NOTE =
+  "Directional ranking score: 60% absolute gap vs positioning plus 40% absolute gap vs reviewed-category baseline, multiplied by sample confidence capped at 20 reviews.";
 
 const tabs: ActiveSection[] = ["Overview", "Consumer Voice", "Commercial Context"];
 const implementedTabs: ActiveSection[] = [
@@ -85,9 +98,98 @@ function formatCurrency(value: number | null | undefined) {
 }
 
 function formatCategoryLabel(value: string) {
-  return value
+  return displayCopy(
+    value
     .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .replace(/^\w/, (letter) => letter.toUpperCase());
+      .replace(/^\w/, (letter) => letter.toUpperCase())
+  );
+}
+
+function displayCopy(value: string) {
+  return value
+    .replace(/\bpain points\b/gi, "frustrations")
+    .replace(/\bpain point\b/gi, "frustration")
+    .replace(/\bpain\b/gi, "frustration")
+    .replace(/\bbenefits\b/gi, "positives")
+    .replace(/\bbenefit\b/gi, "positive");
+}
+
+function getCoverageRoleClass(role: string) {
+  return role.toLowerCase().includes("catalogue")
+    ? "role-pill catalogue"
+    : "role-pill reviewed";
+}
+
+function getStatusClass(status: string) {
+  const normalized = status.toLowerCase();
+  if (
+    normalized.includes("validated") ||
+    normalized.includes("supported") ||
+    normalized.includes("strong benefit")
+  ) {
+    return "status-badge positive";
+  }
+  if (
+    normalized.includes("risk") ||
+    normalized.includes("friction") ||
+    normalized.includes("under")
+  ) {
+    return "status-badge risk";
+  }
+  if (normalized.includes("catalogue") || normalized.includes("no transcript")) {
+    return "status-badge contextual";
+  }
+  return "status-badge opportunity";
+}
+
+function getSentimentClass(sentiment: string) {
+  const normalized = sentiment.toLowerCase();
+  if (normalized.includes("positive")) {
+    return "semantic-pill sentiment-positive";
+  }
+  if (normalized.includes("negative")) {
+    return "semantic-pill sentiment-negative";
+  }
+  if (normalized.includes("mixed")) {
+    return "semantic-pill sentiment-mixed";
+  }
+  return "semantic-pill";
+}
+
+function getConfidenceClass(confidenceLabel: string) {
+  const normalized = confidenceLabel.toLowerCase();
+  if (normalized.includes("high")) {
+    return "confidence-pill high";
+  }
+  if (normalized.includes("medium")) {
+    return "confidence-pill medium";
+  }
+  return "confidence-pill low";
+}
+
+function getSignalCategoryClass(category: string) {
+  const normalized = category.toLowerCase();
+  if (normalized.includes("pain") || normalized.includes("complaint")) {
+    return "category-pill pain";
+  }
+  if (normalized.includes("occasion") || normalized.includes("routine")) {
+    return "category-pill occasion";
+  }
+  if (
+    normalized.includes("retailer") ||
+    normalized.includes("competitor") ||
+    normalized.includes("comparison")
+  ) {
+    return "category-pill context";
+  }
+  if (
+    normalized.includes("purchase") ||
+    normalized.includes("shopper") ||
+    normalized.includes("preference")
+  ) {
+    return "category-pill driver";
+  }
+  return "category-pill benefit";
 }
 
 function getRatingBand(rating: number | null | undefined) {
@@ -117,6 +219,88 @@ function flattenTranscriptSignals(rows: TranscriptRow[]): SignalRow[] {
   );
 }
 
+function Badge({
+  children,
+  className = "semantic-pill",
+  title,
+}: {
+  children: ReactNode;
+  className?: string;
+  title?: string;
+}) {
+  return (
+    <span className={className} title={title}>
+      {children}
+    </span>
+  );
+}
+
+function InfoNote({ note }: { note: string }) {
+  return (
+    <span className="tooltip-note" tabIndex={0} aria-label={note}>
+      <span className="tooltip-trigger" aria-hidden="true">
+        ?
+      </span>
+      <span className="tooltip-content" role="tooltip">
+        {note}
+      </span>
+    </span>
+  );
+}
+
+function RateCell({
+  value,
+  label,
+  hasEvidence = true,
+}: {
+  value: number | null | undefined;
+  label: string;
+  hasEvidence?: boolean;
+}) {
+  if (!hasEvidence || value === null || value === undefined) {
+    return (
+      <Badge
+        className="no-data-pill"
+        title="Catalogue-only or unavailable transcript-backed metric"
+      >
+        No transcript evidence
+      </Badge>
+    );
+  }
+
+  const width = Math.max(2, Math.round(value * 100));
+
+  return (
+    <span
+      className="rate-cell"
+      aria-label={`${label}: ${formatPercent(value)}`}
+      style={{ "--rate-width": `${width}%` } as CSSProperties}
+    >
+      <span className="rate-cell-track" aria-hidden="true">
+        <span className="rate-cell-fill" />
+      </span>
+      <span>{formatPercent(value)}</span>
+    </span>
+  );
+}
+
+function EvidenceBlock({
+  label,
+  children,
+  variant = "cyan",
+}: {
+  label: string;
+  children: ReactNode;
+  variant?: "cyan" | "violet" | "green" | "amber" | "magenta";
+}) {
+  return (
+    <blockquote className={`evidence-block ${variant}`}>
+      <span>{label}</span>
+      {children}
+    </blockquote>
+  );
+}
+
 function MetricCard({
   title,
   value,
@@ -129,9 +313,13 @@ function MetricCard({
   accent: string;
 }) {
   return (
-    <article className="metric-card">
+    <article
+      className="metric-card"
+      style={{ "--metric-accent": accent } as CSSProperties}
+      aria-label={`${title}: ${value}. ${detail}`}
+    >
       <div className="metric-header">
-        <span className="accent-dot" style={{ background: accent }} />
+        <span className="accent-dot" aria-hidden="true" />
         <span>{title}</span>
       </div>
       <strong>{value}</strong>
@@ -154,7 +342,15 @@ function RateBar({
   const width = value === null ? 0 : Math.max(2, Math.round(value * 100));
 
   return (
-    <div className="rate-row">
+    <div
+      className="rate-row"
+      style={
+        {
+          "--bar-accent": accent,
+          "--bar-width": `${width}%`,
+        } as CSSProperties
+      }
+    >
       <div className="rate-label">
         <span>{label}</span>
         <span>
@@ -162,11 +358,12 @@ function RateBar({
           {count !== null ? ` - ${count} mentions` : ""}
         </span>
       </div>
-      <div className="bar-track" aria-hidden="true">
-        <div
-          className="bar-fill"
-          style={{ width: `${width}%`, background: accent }}
-        />
+      <div
+        className="bar-track"
+        aria-label={`${label}: ${formatPercent(value)}`}
+        role="img"
+      >
+        <div className="bar-fill" />
       </div>
     </div>
   );
@@ -186,10 +383,14 @@ function SignalList({
       <h3>{title}</h3>
       <div className="signal-items">
         {items.slice(0, 4).map((item) => (
-          <div className="signal-item" key={item.label}>
+          <div
+            className="signal-item"
+            key={item.label}
+            style={{ "--signal-accent": accent } as CSSProperties}
+          >
             <span className="signal-name">
-              <span className="mini-dot" style={{ background: accent }} />
-              {item.label}
+              <span className="mini-dot" aria-hidden="true" />
+              {displayCopy(item.label)}
             </span>
             <span className="signal-meta">
               {item.count} - {formatPercent(item.shareOfReviews)}
@@ -204,15 +405,18 @@ function SignalList({
 function BrandComparisonTable({ brands }: { brands: CommercialBrandGroup[] }) {
   return (
     <div className="table-wrap">
-      <table>
+      <table className="brand-comparison-table">
         <thead>
           <tr>
             <th>Brand</th>
             <th>Role</th>
             <th>Reviews</th>
-            <th>Benefit</th>
-            <th>Pain</th>
+            <th>Positive</th>
+            <th>Frustrations</th>
+            <th>Occasion</th>
+            <th>Market</th>
             <th>Avg Rating</th>
+            <th>Would Buy</th>
             <th>BTS</th>
           </tr>
         </thead>
@@ -223,12 +427,51 @@ function BrandComparisonTable({ brands }: { brands: CommercialBrandGroup[] }) {
                 <strong>{brand.brand}</strong>
               </td>
               <td>
-                <span className="role-pill">{brand.transcriptCoverageRole}</span>
+                <Badge
+                  className={getCoverageRoleClass(
+                    brand.transcriptCoverageRole
+                  )}
+                >
+                  {brand.transcriptCoverageRole}
+                </Badge>
               </td>
               <td>{brand.reviewCount}</td>
-              <td>{formatPercent(brand.mentionRates.benefits)}</td>
-              <td>{formatPercent(brand.mentionRates.painPoints)}</td>
+              <td>
+                <RateCell
+                  label={`${brand.brand} positive mention rate`}
+                  value={brand.mentionRates.benefits}
+                  hasEvidence={brand.reviewCount > 0}
+                />
+              </td>
+              <td>
+                <RateCell
+                  label={`${brand.brand} frustration mention rate`}
+                  value={brand.mentionRates.painPoints}
+                  hasEvidence={brand.reviewCount > 0}
+                />
+              </td>
+              <td>
+                <RateCell
+                  label={`${brand.brand} occasion mention rate`}
+                  value={brand.mentionRates.occasions}
+                  hasEvidence={brand.reviewCount > 0}
+                />
+              </td>
+              <td>
+                <RateCell
+                  label={`${brand.brand} market context mention rate`}
+                  value={brand.mentionRates.marketContext}
+                  hasEvidence={brand.reviewCount > 0}
+                />
+              </td>
               <td>{formatScore(brand.averageRating)}</td>
+              <td>
+                <RateCell
+                  label={`${brand.brand} would buy after trying rate`}
+                  value={brand.wouldBuyAfterTryingRate}
+                  hasEvidence={brand.reviewCount > 0}
+                />
+              </td>
               <td>
                 <span className="score-pill">
                   {formatScore(brand.breakthroughScore)}
@@ -253,17 +496,21 @@ function CommercialRateTable({
     <div>
       <h3 className="subsection-heading">{title}</h3>
       <div className="table-wrap">
-        <table>
+        <table className="aggregation-table">
           <thead>
             <tr>
               <th>Group</th>
               <th>Products</th>
+              <th>Reviewed</th>
               <th>Reviews</th>
               <th>Avg Rating</th>
               <th>Would Buy</th>
-              <th>Benefit</th>
-              <th>Pain</th>
+              <th>Positive</th>
+              <th>Neg/Mixed</th>
+              <th>Positive</th>
+              <th>Frustrations</th>
               <th>Occasion</th>
+              <th>Market</th>
             </tr>
           </thead>
           <tbody>
@@ -273,12 +520,58 @@ function CommercialRateTable({
                   <strong>{row.group}</strong>
                 </td>
                 <td>{row.productCount}</td>
+                <td>{row.reviewedProductCount}</td>
                 <td>{row.reviewCount}</td>
                 <td>{formatScore(row.averageRating)}</td>
-                <td>{formatPercent(row.wouldBuyAfterTryingRate)}</td>
-                <td>{formatPercent(row.mentionRates.benefits)}</td>
-                <td>{formatPercent(row.mentionRates.painPoints)}</td>
-                <td>{formatPercent(row.mentionRates.occasions)}</td>
+                <td>
+                  <RateCell
+                    label={`${row.group} would buy after trying rate`}
+                    value={row.wouldBuyAfterTryingRate}
+                    hasEvidence={row.reviewCount > 0}
+                  />
+                </td>
+                <td>
+                  <RateCell
+                    label={`${row.group} positive sentiment share`}
+                    value={row.positiveSentimentShare}
+                    hasEvidence={row.reviewCount > 0}
+                  />
+                </td>
+                <td>
+                  <RateCell
+                    label={`${row.group} negative or mixed sentiment share`}
+                    value={row.negativeOrMixedSentimentShare}
+                    hasEvidence={row.reviewCount > 0}
+                  />
+                </td>
+                <td>
+                  <RateCell
+                    label={`${row.group} positive mention rate`}
+                    value={row.mentionRates.benefits}
+                    hasEvidence={row.reviewCount > 0}
+                  />
+                </td>
+                <td>
+                  <RateCell
+                    label={`${row.group} frustration mention rate`}
+                    value={row.mentionRates.painPoints}
+                    hasEvidence={row.reviewCount > 0}
+                  />
+                </td>
+                <td>
+                  <RateCell
+                    label={`${row.group} occasion mention rate`}
+                    value={row.mentionRates.occasions}
+                    hasEvidence={row.reviewCount > 0}
+                  />
+                </td>
+                <td>
+                  <RateCell
+                    label={`${row.group} market context mention rate`}
+                    value={row.mentionRates.marketContext}
+                    hasEvidence={row.reviewCount > 0}
+                  />
+                </td>
               </tr>
             ))}
           </tbody>
@@ -295,35 +588,82 @@ function PositioningGapTable({
 }) {
   return (
     <div className="table-wrap">
-      <table>
+      <table className="gap-analysis-table">
         <thead>
           <tr>
             <th>Brand</th>
             <th>Dimension</th>
             <th>Status</th>
             <th>Reviews</th>
+            <th>Products</th>
+            <th>Structured</th>
+            <th>Mentions</th>
             <th>Reviewer Rate</th>
             <th>Baseline</th>
-            <th>Priority</th>
+            <th>
+              <span className="header-with-note">
+                Delta vs Positioning
+                <InfoNote note={DELTA_POSITIONING_NOTE} />
+              </span>
+            </th>
+            <th>Delta Category</th>
+            <th>
+              <span className="header-with-note">
+                Priority score
+                <InfoNote note={PRIORITY_SCORE_NOTE} />
+              </span>
+            </th>
+            <th>Evidence</th>
           </tr>
         </thead>
         <tbody>
-          {opportunities.slice(0, 10).map((item) => (
+          {opportunities.map((item) => (
             <tr key={`${item.brand}-${item.dimension}`}>
               <td>
                 <strong>{item.brand}</strong>
               </td>
               <td>{item.dimension}</td>
               <td>
-                <span className="role-pill">{item.status}</span>
+                <Badge className={getStatusClass(item.status)}>
+                  {displayCopy(item.status)}
+                </Badge>
               </td>
               <td>{item.reviewCount}</td>
-              <td>{formatPercent(item.reviewerMentionRate)}</td>
-              <td>{formatPercent(item.reviewedCategoryBaselineRate)}</td>
+              <td>{item.productCount}</td>
+              <td>{formatPercent(item.structuredPositioningScore)}</td>
+              <td>{item.reviewerMentionCount}</td>
+              <td>
+                <RateCell
+                  label={`${item.brand} ${item.dimension} reviewer mention rate`}
+                  value={item.reviewerMentionRate}
+                  hasEvidence={item.reviewCount > 0}
+                />
+              </td>
+              <td>
+                <RateCell
+                  label={`${item.brand} ${item.dimension} category baseline rate`}
+                  value={item.reviewedCategoryBaselineRate}
+                />
+              </td>
+              <td>
+                <span className="delta-pill">
+                  {formatPercent(item.deltaVsStructuredPositioning)}
+                </span>
+              </td>
+              <td>
+                <span className="delta-pill">
+                  {formatPercent(item.deltaVsReviewedCategory)}
+                </span>
+              </td>
               <td>
                 <span className="score-pill">
                   {formatScore(item.priorityScore)}
                 </span>
+              </td>
+              <td className="evidence-cell">
+                {item.transcriptEvidence
+                  ? truncate(item.transcriptEvidence.snippet, 120)
+                  : "No transcript evidence"}
               </td>
             </tr>
           ))}
@@ -336,18 +676,20 @@ function PositioningGapTable({
 function PriceCheckTable({ checks }: { checks: PricePositioningCheck[] }) {
   return (
     <div className="table-wrap">
-      <table>
+      <table className="price-check-table">
         <thead>
           <tr>
             <th>Brand</th>
             <th>Status</th>
             <th>Tier</th>
+            <th>Tier Mix</th>
             <th>Products</th>
             <th>Reviews</th>
             <th>Avg Price</th>
-            <th>Benefit</th>
-            <th>Pain</th>
+            <th>Positive</th>
+            <th>Frustrations</th>
             <th>Would Buy</th>
+            <th>Evidence</th>
           </tr>
         </thead>
         <tbody>
@@ -357,15 +699,45 @@ function PriceCheckTable({ checks }: { checks: PricePositioningCheck[] }) {
                 <strong>{check.brand}</strong>
               </td>
               <td>
-                <span className="role-pill">{check.status}</span>
+                <Badge className={getStatusClass(check.status)}>
+                  {displayCopy(check.status)}
+                </Badge>
               </td>
               <td>{check.dominantPriceTier}</td>
+              <td className="tier-mix-cell">
+                {Object.entries(check.priceTierCounts)
+                  .map(([tier, count]) => `${tier}: ${count}`)
+                  .join(", ")}
+              </td>
               <td>{check.productCount}</td>
               <td>{check.reviewCount}</td>
               <td>{formatCurrency(check.averagePrice)}</td>
-              <td>{formatPercent(check.benefitMentionRate)}</td>
-              <td>{formatPercent(check.painPointMentionRate)}</td>
-              <td>{formatPercent(check.wouldBuyAfterTryingRate)}</td>
+              <td>
+                <RateCell
+                  label={`${check.brand} positive mention rate`}
+                  value={check.benefitMentionRate}
+                  hasEvidence={check.reviewCount > 0}
+                />
+              </td>
+              <td>
+                <RateCell
+                  label={`${check.brand} frustration mention rate`}
+                  value={check.painPointMentionRate}
+                  hasEvidence={check.reviewCount > 0}
+                />
+              </td>
+              <td>
+                <RateCell
+                  label={`${check.brand} would buy after trying rate`}
+                  value={check.wouldBuyAfterTryingRate}
+                  hasEvidence={check.reviewCount > 0}
+                />
+              </td>
+              <td className="evidence-cell">
+                {check.evidence
+                  ? truncate(check.evidence.snippet, 120)
+                  : "No transcript evidence"}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -381,8 +753,8 @@ function CommercialOpportunityCard({
 }) {
   if (!opportunity) {
     return (
-      <section className="card opportunity-card">
-        <p>No commercial opportunity signal is available.</p>
+      <section className="card opportunity-card empty-card">
+        <p>No ranked opportunity is available from the processed layer.</p>
       </section>
     );
   }
@@ -399,15 +771,18 @@ function CommercialOpportunityCard({
       <div className="card-heading">
         <div>
           <span className="eyebrow">Commercial Opportunity Signal</span>
-          <h2>{opportunity.status}</h2>
+          <h2>{displayCopy(opportunity.status)}</h2>
         </div>
-        <span className="priority-pill">
-          Priority {formatScore(opportunity.priorityScore)}
-        </span>
+        <Badge className="priority-pill" title={PRIORITY_SCORE_NOTE}>
+          Priority score {formatScore(opportunity.priorityScore)}
+        </Badge>
       </div>
 
       <div className="opportunity-grid">
         <div>
+          <Badge className={getStatusClass(opportunity.status)}>
+            {displayCopy(opportunity.status)}
+          </Badge>
           <p className="opportunity-statement">
             <strong>{opportunity.brand}</strong> shows a{" "}
             <strong>{opportunity.dimension}</strong> gap between catalogue
@@ -440,7 +815,12 @@ function CommercialOpportunityCard({
             <dd>{opportunity.dimension}</dd>
           </div>
           <div>
-            <dt>Delta vs Positioning</dt>
+            <dt>
+              <span className="term-with-note">
+                Delta vs Positioning
+                <InfoNote note={DELTA_POSITIONING_NOTE} />
+              </span>
+            </dt>
             <dd>{formatPercent(opportunity.deltaVsStructuredPositioning)}</dd>
           </div>
           <div>
@@ -451,15 +831,13 @@ function CommercialOpportunityCard({
       </div>
 
       {evidence ? (
-        <blockquote>
-          <span>Transcript evidence</span>
+        <EvidenceBlock label="Transcript evidence" variant="cyan">
           {truncate(evidence.snippet, 260)}
-        </blockquote>
+        </EvidenceBlock>
       ) : (
-        <blockquote>
-          <span>Transcript evidence</span>
+        <EvidenceBlock label="Transcript evidence" variant="violet">
           No transcript evidence is available for this signal.
-        </blockquote>
+        </EvidenceBlock>
       )}
     </section>
   );
@@ -492,49 +870,49 @@ function OverviewSection({ overview }: { overview: CommercialGroupRecord }) {
           title="Transcript Coverage"
           value={`${coverage.reviewedProducts}/${kpis.products}`}
           detail={`${coverage.brandsWithTranscripts} of ${kpis.brands} brands have review evidence`}
-          accent="#41d7e7"
+          accent="#22d3ee"
         />
         <MetricCard
           title="Average Rating"
           value={formatScore(kpis.averageRating)}
           detail={`Based on n=${kpis.transcripts} transcript-linked reviews`}
-          accent="#8ea7ff"
+          accent="#8b5cf6"
         />
         <MetricCard
           title="Would Buy After Trying"
           value={formatPercent(kpis.wouldBuyAfterTryingRate)}
           detail="Purchase intent from review metadata"
-          accent="#39d98a"
+          accent="#22c55e"
         />
         <MetricCard
           title="Positive Sentiment"
           value={formatPercent(kpis.positiveSentimentShare)}
-          detail="Sentiment skews positive; inspect pain signals too"
-          accent="#ffcc66"
+          detail="Sentiment skews positive; inspect frustrations too"
+          accent="#14b8a6"
         />
         <MetricCard
-          title="Top Benefit Signal"
-          value={topBenefit?.label ?? "No data"}
+          title="Top Positive Signal"
+          value={topBenefit ? displayCopy(topBenefit.label) : "No data"}
           detail={
             topBenefit
               ? `${topBenefit.count} mentions - ${formatPercent(
                   topBenefit.shareOfReviews
                 )}`
-              : "No benefit signals available"
+              : "No positive signals available"
           }
-          accent="#39d98a"
+          accent="#14b8a6"
         />
         <MetricCard
-          title="Top Pain Point"
-          value={topPainPoint?.label ?? "No data"}
+          title="Top Frustration"
+          value={topPainPoint ? displayCopy(topPainPoint.label) : "No data"}
           detail={
             topPainPoint
               ? `${topPainPoint.count} mentions - ${formatPercent(
                   topPainPoint.shareOfReviews
                 )}`
-              : "No pain signals available"
+              : "No frustration signals available"
           }
-          accent="#ff9f43"
+          accent="#ec4899"
         />
       </div>
 
@@ -562,24 +940,24 @@ function OverviewSection({ overview }: { overview: CommercialGroupRecord }) {
 
           <div className="signal-summary-grid">
             <SignalList
-              title="Top Benefits"
+              title="Top Positive Signals"
               items={overview.topBenefits}
-              accent="#39d98a"
+              accent="#14b8a6"
             />
             <SignalList
-              title="Top Pain Points"
+              title="Top Frustrations"
               items={overview.topPainPoints}
-              accent="#ff9f43"
+              accent="#ec4899"
             />
             <SignalList
               title="Top Occasions"
               items={overview.topOccasions}
-              accent="#8ea7ff"
+              accent="#8b5cf6"
             />
             <SignalList
               title="Market Context"
               items={overview.topMarketContext}
-              accent="#41d7e7"
+              accent="#22c55e"
             />
           </div>
         </section>
@@ -619,6 +997,7 @@ function DetailStat({
 
 function ConsumerVoiceSection() {
   const [selectedSignalId, setSelectedSignalId] = useState<string>("");
+  const [showFullTranscript, setShowFullTranscript] = useState(false);
   const [filters, setFilters] = useState({
     ageBucket: "All",
     archetype: "All",
@@ -813,6 +1192,7 @@ function ConsumerVoiceSection() {
       theme: "All",
     });
     setSelectedSignalId("");
+    setShowFullTranscript(false);
   };
 
   return (
@@ -1007,28 +1387,38 @@ function ConsumerVoiceSection() {
             {visibleSignalRows.length ? (
               visibleSignalRows.map((item) => (
                 <button
+                  aria-pressed={item.id === selectedSignal?.id}
                   className={
                     item.id === selectedSignal?.id
                       ? "signal-row active"
                       : "signal-row"
                   }
                   key={item.id}
-                  onClick={() => setSelectedSignalId(item.id)}
+                  onClick={() => {
+                    setSelectedSignalId(item.id);
+                    setShowFullTranscript(false);
+                  }}
                   type="button"
                 >
                   <span className="signal-row-top">
-                    <span className="category-pill">
+                    <span className={getSignalCategoryClass(item.category)}>
                       {formatCategoryLabel(item.category)}
                     </span>
-                    <span>{item.signal.confidenceLabel}</span>
+                    <span className={getConfidenceClass(item.signal.confidenceLabel)}>
+                      {item.signal.confidenceLabel} -{" "}
+                      {formatScore(item.signal.confidence)}
+                    </span>
                   </span>
-                  <strong>{item.signal.label}</strong>
-                  <span className="signal-snippet">
+                  <strong>{displayCopy(item.signal.label)}</strong>
+                  <span className="signal-snippet evidence-inline">
                     {truncate(item.signal.snippet, 170)}
                   </span>
                   <span className="signal-row-meta">
-                    {item.row.brand} - {item.row.productName} - Rating{" "}
-                    {formatScore(item.row.rating)}
+                    <span>{item.row.brand}</span>
+                    <span>{item.row.productName}</span>
+                    <span>Rating {formatScore(item.row.rating)}</span>
+                    <span>{item.row.primaryArchetype}</span>
+                    <span>{item.row.region}</span>
                   </span>
                 </button>
               ))
@@ -1048,7 +1438,7 @@ function ConsumerVoiceSection() {
                   <span className="eyebrow">Evidence Detail</span>
                   <h2>{selectedRow.productName}</h2>
                 </div>
-                <span className="category-pill">
+                <span className={getSignalCategoryClass(selectedSignal.category)}>
                   {formatCategoryLabel(selectedSignal.category)}
                 </span>
               </div>
@@ -1060,6 +1450,12 @@ function ConsumerVoiceSection() {
                   value={formatScore(selectedRow.rating)}
                 />
                 <DetailStat label="Sentiment" value={selectedRow.sentiment} />
+                <DetailStat
+                  label="Signal Confidence"
+                  value={`${selectedSignal.signal.confidenceLabel} (${formatScore(
+                    selectedSignal.signal.confidence
+                  )})`}
+                />
                 <DetailStat
                   label="Would Buy"
                   value={selectedRow.wouldBuyAfterTrying || "No data"}
@@ -1074,18 +1470,21 @@ function ConsumerVoiceSection() {
                 />
               </div>
 
-              <blockquote>
-                <span>Selected signal evidence</span>
+              <EvidenceBlock label="Selected signal evidence" variant="cyan">
                 {selectedSignal.signal.snippet || "No snippet available."}
-              </blockquote>
+              </EvidenceBlock>
 
               <div className="detail-block">
                 <h3>Reviewer Context</h3>
                 <div className="chip-row">
-                  <span>{selectedRow.primaryArchetype}</span>
-                  <span>{selectedRow.region}</span>
-                  <span>{selectedRow.ageBucket}</span>
-                  <span>{selectedRow.videoReviewerTier}</span>
+                  <span>Archetype: {selectedRow.primaryArchetype}</span>
+                  <span>Region: {selectedRow.region}</span>
+                  <span>Age: {selectedRow.ageBucket}</span>
+                  <span>Gender: {selectedRow.gender || "Unknown"}</span>
+                  <span>Tier: {selectedRow.videoReviewerTier}</span>
+                  {selectedRow.reviewerTags.slice(0, 6).map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
                 </div>
               </div>
 
@@ -1098,20 +1497,28 @@ function ConsumerVoiceSection() {
                     : "No retailer metadata"}
                 </p>
                 <div className="chip-row">
-                  {selectedRow.productLabels.slice(0, 8).map((label) => (
-                    <span key={label.name}>{label.name}</span>
-                  ))}
+                  {selectedRow.productLabels.length ? (
+                    selectedRow.productLabels
+                      .slice(0, 8)
+                      .map((label) => <span key={label.name}>{label.name}</span>)
+                  ) : (
+                    <span>No product labels</span>
+                  )}
                 </div>
               </div>
 
               <div className="detail-block">
                 <h3>Themes</h3>
                 <div className="chip-row">
-                  {selectedRow.themes.map((theme) => (
-                    <span key={theme.theme}>
-                      {theme.theme} ({formatScore(theme.confidence)})
-                    </span>
-                  ))}
+                  {selectedRow.themes.length ? (
+                    selectedRow.themes.map((theme) => (
+                      <span key={theme.theme}>
+                        {theme.theme} ({formatScore(theme.confidence)})
+                      </span>
+                    ))
+                  ) : (
+                    <span>No extracted themes</span>
+                  )}
                 </div>
               </div>
 
@@ -1127,8 +1534,16 @@ function ConsumerVoiceSection() {
                     .filter(([, signals]) => signals.length)
                     .map(([category, signals]) => (
                       <div key={category}>
-                        <strong>{formatCategoryLabel(category)}</strong>
-                        <p>{signals.map((signal) => signal.label).join(", ")}</p>
+                        <div className="grouped-signal-heading">
+                          <strong>{formatCategoryLabel(category)}</strong>
+                          <span>{signals.length} signals</span>
+                        </div>
+                        {signals.slice(0, 3).map((signal) => (
+                          <p key={signal.label}>
+                            <strong>{displayCopy(signal.label)}</strong>:{" "}
+                            {truncate(signal.snippet, 140)}
+                          </p>
+                        ))}
                       </div>
                     ))}
                 </div>
@@ -1138,25 +1553,25 @@ function ConsumerVoiceSection() {
                 <h3>Commercial Context</h3>
                 <div className="detail-stat-grid compact">
                   <DetailStat
-                    label="Brand Benefit Rate"
+                    label="Brand Positive Rate"
                     value={formatPercent(
                       selectedBrandContext?.mentionRates.benefits
                     )}
                   />
                   <DetailStat
-                    label="Brand Pain Rate"
+                    label="Brand Frustration Rate"
                     value={formatPercent(
                       selectedBrandContext?.mentionRates.painPoints
                     )}
                   />
                   <DetailStat
-                    label="Product Benefit Rate"
+                    label="Product Positive Rate"
                     value={formatPercent(
                       selectedProductContext?.mentionRates.benefits
                     )}
                   />
                   <DetailStat
-                    label="Product Pain Rate"
+                    label="Product Frustration Rate"
                     value={formatPercent(
                       selectedProductContext?.mentionRates.painPoints
                     )}
@@ -1167,6 +1582,28 @@ function ConsumerVoiceSection() {
               <div className="detail-block">
                 <h3>Transcript Summary</h3>
                 <p>{selectedRow.summary || "No summary available."}</p>
+              </div>
+
+              <div className="detail-block">
+                <div className="detail-block-header">
+                  <h3>Expanded Transcript Evidence</h3>
+                  {selectedRow.transcriptText ? (
+                    <button
+                      className="text-button"
+                      type="button"
+                      onClick={() => setShowFullTranscript((current) => !current)}
+                    >
+                      {showFullTranscript ? "Show less" : "Show full transcript"}
+                    </button>
+                  ) : null}
+                </div>
+                <div className="transcript-evidence">
+                  {selectedRow.transcriptText
+                    ? showFullTranscript
+                      ? selectedRow.transcriptText
+                      : truncate(selectedRow.transcriptText, 520)
+                    : "Transcript unavailable."}
+                </div>
               </div>
             </>
           ) : (
@@ -1189,23 +1626,109 @@ function RecommendationTile({
 
   return (
     <article className="recommendation-tile">
-      <span className="category-pill">{type}</span>
+      <Badge className={getStatusClass(type)}>{type}</Badge>
       <h3>
         {opportunity.brand}: {opportunity.dimension}
       </h3>
-      <p>{opportunity.status}</p>
+      <p>{displayCopy(opportunity.status)}</p>
       <div className="tile-metrics">
         <span>n={opportunity.reviewCount}</span>
         <span>{formatPercent(opportunity.reviewerMentionRate)} reviewer rate</span>
-        <span>Priority {formatScore(opportunity.priorityScore)}</span>
+        <span className="metric-with-note">
+          Priority score {formatScore(opportunity.priorityScore)}
+          <InfoNote note={PRIORITY_SCORE_NOTE} />
+        </span>
       </div>
       {evidence ? (
-        <blockquote>
-          <span>Evidence</span>
+        <EvidenceBlock label="Evidence" variant="violet">
           {truncate(evidence.snippet, 180)}
-        </blockquote>
+        </EvidenceBlock>
       ) : null}
     </article>
+  );
+}
+
+function BaselineRates({ baselines }: { baselines: Record<string, number> }) {
+  const entries = Object.entries(baselines);
+
+  if (!entries.length) {
+    return <p className="empty-state">No baseline rates are available.</p>;
+  }
+
+  return (
+    <div className="baseline-grid" aria-label="Baseline rates by dimension">
+      {entries.map(([dimension, rate]) => (
+        <div
+          className="baseline-rate"
+          key={dimension}
+          style={
+            {
+              "--bar-accent": "#8b5cf6",
+              "--bar-width": `${Math.round(rate * 100)}%`,
+            } as CSSProperties
+          }
+        >
+          <div className="baseline-rate-label">
+            <span>{dimension}</span>
+            <strong>{formatPercent(rate)}</strong>
+          </div>
+          <div
+            className="bar-track"
+            role="img"
+            aria-label={`${dimension}: ${formatPercent(rate)}`}
+          >
+            <div className="bar-fill" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function RankedOpportunityList({
+  opportunities,
+}: {
+  opportunities: PositioningOpportunity[];
+}) {
+  if (!opportunities.length) {
+    return <p className="empty-state">No ranked opportunities are available.</p>;
+  }
+
+  return (
+    <div className="ranked-opportunity-list">
+      {opportunities.slice(0, 4).map((opportunity, index) => (
+        <article
+          className="ranked-opportunity-row"
+          key={`${opportunity.brand}-${opportunity.dimension}`}
+        >
+          <span className="rank-badge">#{index + 1}</span>
+          <div>
+            <div className="ranked-opportunity-heading">
+              <strong>
+                {opportunity.brand}: {opportunity.dimension}
+              </strong>
+              <Badge className={getStatusClass(opportunity.status)}>
+                {displayCopy(opportunity.status)}
+              </Badge>
+            </div>
+            <p>
+              {formatPercent(opportunity.reviewerMentionRate)} reviewer rate,{" "}
+              {formatPercent(opportunity.reviewedCategoryBaselineRate)} reviewed
+              category baseline, priority score{" "}
+              {formatScore(opportunity.priorityScore)}{" "}
+              <InfoNote note={PRIORITY_SCORE_NOTE} />.
+            </p>
+            {opportunity.transcriptEvidence ? (
+              <span className="row-evidence">
+                {truncate(opportunity.transcriptEvidence.snippet, 150)}
+              </span>
+            ) : (
+              <span className="row-evidence muted">No transcript evidence</span>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
   );
 }
 
@@ -1275,15 +1798,17 @@ function CommercialContextSection() {
             </span>
             <h2>{commercial.insightFeature.description}</h2>
           </div>
-          <span className="sample-pill">
+          <Badge className="sample-pill">
             {commercial.insightFeature.brandGaps.length} brand-dimension checks
-          </span>
+          </Badge>
         </div>
 
         {leadOpportunity ? (
           <div className="lead-gap">
             <div>
-              <span className="category-pill">{leadOpportunity.status}</span>
+              <Badge className={getStatusClass(leadOpportunity.status)}>
+                {displayCopy(leadOpportunity.status)}
+              </Badge>
               <h3>
                 {leadOpportunity.brand} - {leadOpportunity.dimension}
               </h3>
@@ -1307,16 +1832,44 @@ function CommercialContextSection() {
                 <dd>{formatPercent(leadOpportunity.reviewedCategoryBaselineRate)}</dd>
               </div>
               <div>
-                <dt>Delta vs Positioning</dt>
+                <dt>
+                  <span className="term-with-note">
+                    Delta vs Positioning
+                    <InfoNote note={DELTA_POSITIONING_NOTE} />
+                  </span>
+                </dt>
                 <dd>{formatPercent(leadOpportunity.deltaVsStructuredPositioning)}</dd>
               </div>
               <div>
-                <dt>Priority</dt>
+                <dt>
+                  <span className="term-with-note">
+                    Priority score
+                    <InfoNote note={PRIORITY_SCORE_NOTE} />
+                  </span>
+                </dt>
                 <dd>{formatScore(leadOpportunity.priorityScore)}</dd>
               </div>
             </dl>
           </div>
         ) : null}
+
+        <div className="positioning-support-grid">
+          <section className="support-panel">
+            <div className="support-panel-heading">
+              <span className="eyebrow">Reviewed Category Baselines</span>
+              <h3>Baseline rates by positioning dimension</h3>
+            </div>
+            <BaselineRates baselines={commercial.insightFeature.baselines} />
+          </section>
+
+          <section className="support-panel">
+            <div className="support-panel-heading">
+              <span className="eyebrow">Ranked Opportunities</span>
+              <h3>Top evidence-backed gaps and validations</h3>
+            </div>
+            <RankedOpportunityList opportunities={topOpportunities} />
+          </section>
+        </div>
 
         <PositioningGapTable
           opportunities={commercial.insightFeature.brandGaps}
@@ -1380,7 +1933,7 @@ function CommercialContextSection() {
         <div className="card-heading">
           <div>
             <span className="eyebrow">Price And Positioning Checks</span>
-            <h2>Pricing context alongside benefit, pain, and intent rates</h2>
+            <h2>Pricing context alongside positive, frustration, and intent rates</h2>
           </div>
         </div>
         <PriceCheckTable
@@ -1393,8 +1946,13 @@ function CommercialContextSection() {
 
 export default function Home() {
   const overview = dashboardData.commercialAggregationLayer.overview;
-  const summary = `${dashboardData.kpis.transcripts} transcripts | ${dashboardData.kpis.products} products | ${dashboardData.kpis.brands} brands | ${dashboardData.kpis.reviewedProducts} reviewed products`;
   const [activeSection, setActiveSection] = useState<ActiveSection>("Overview");
+  const summaryItems = [
+    `${dashboardData.kpis.transcripts} transcripts`,
+    `${dashboardData.kpis.products} products`,
+    `${dashboardData.kpis.brands} brands`,
+    `${dashboardData.kpis.reviewedProducts} reviewed products`,
+  ];
 
   return (
     <>
@@ -1416,7 +1974,11 @@ export default function Home() {
             </div>
             <div className="status-block">
               <span className="status-pill">Processed dataset</span>
-              <span>{summary}</span>
+              <div className="dataset-summary" aria-label="Dataset summary">
+                {summaryItems.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -1428,9 +1990,11 @@ export default function Home() {
                 disabled={!implementedTabs.includes(tab)}
                 key={tab}
                 onClick={() => setActiveSection(tab)}
+                style={{ "--tab-accent": tabMeta[tab].accent } as CSSProperties}
                 type="button"
               >
-                {tab}
+                <span className="tab-dot" aria-hidden="true" />
+                {tabMeta[tab].label}
               </button>
             ))}
           </nav>
@@ -1445,7 +2009,8 @@ export default function Home() {
         )}
       </main>
 
-      <style jsx>{`
+      {false ? (
+        <style jsx>{`
         :global(*) {
           box-sizing: border-box;
         }
@@ -2291,7 +2856,8 @@ export default function Home() {
             min-height: auto;
           }
         }
-      `}</style>
+        `}</style>
+      ) : null}
     </>
   );
 }

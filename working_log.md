@@ -182,3 +182,11 @@ At the same time, I iterated the following to refine signals:
 **Decision:** Tomorrow morning is for app assembly and deployment first; polish only after live URL exists.
 **Why:** Hosted working app is the core deliverable.
 **Next:** Resume with fresh eyes and build the UI.
+
+### 10:00
+**Objective:** Use Next.js and Tailwind CSS to turn the application into a polished page rather than a raw data dump
+**What I did:** Structured the landing page in Next.js and used Tailwind CSS utilities to style the Overview content with a dark dashboard shell, card-based layout, responsive grids, typography hierarchy, spacing, badges, borders, and accent colors. Applied consistent visual treatment across the header, KPI cards, signal bars, summary lists, comparison table, and opportunity card so the page reads like a productized dashboard rather than a collection of components.  
+**Observations:** Even with relatively simple components, layout and styling make a large difference to perceived quality and usability. Color, font hierarchy, and spacing help separate executive summary content from supporting detail, making the commercial story easier to scan quickly.  
+**Decision:** Use Tailwind for fast, consistent styling and keep the visual system restrained: dark background, muted supporting text, clear card boundaries, and selective accent colors for positive, negative, and contextual signals.  
+**Why:** This is the fastest way to achieve a polished hosted result within the timebox while keeping the UI readable, credible, and aligned with the Breakthrough Suite-inspired direction.  
+**Next:** Do the same with the Consumer Voice Explorer section.

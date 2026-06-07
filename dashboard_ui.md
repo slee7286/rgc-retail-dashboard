@@ -1,0 +1,2566 @@
+# Dashboard UI Style Guide
+
+This style guide translates the dashboard specification into an implementation-ready visual system. It is inspired by compact premium intelligence products with dark operational panels, luminous but controlled accents, dense metric layouts, and evidence-led analytical surfaces.
+
+The guide preserves the existing information architecture:
+
+1. Header
+2. Overview
+3. Consumer Voice Explorer
+4. Commercial Context
+
+The dashboard uses static preprocessed JSON artifacts. The interface can feel current and operational, but the data language must remain "processed dataset", "static intelligence layer", or "preprocessed evidence", not "real-time analytics".
+
+# 1. Visual Principles
+
+## Premium Operational Intelligence
+- Purpose
+  - Make the application feel like a focused brand and retail intelligence workspace, not a generic admin dashboard.
+- Visual role
+  - Establish trust, density, and clarity through restrained dark surfaces, compact controls, and strong evidence presentation.
+- Placement
+  - Applies to every view, panel, table, chart, filter, and evidence block.
+- Layout
+  - Prioritize scanability: metrics first, evidence next, tables and detail panels below or beside them.
+  - Use compact grid systems rather than large decorative compositions.
+- Sizing
+  - Keep panels dense but readable. Avoid oversized hero cards, oversized chart canvases, and large blank areas.
+- Spacing
+  - Use tight spacing inside analytical panels and more breathing room between major sections.
+- Typography
+  - Use concise labels, strong numeric hierarchy, and muted explanatory copy.
+- Color and surface treatment
+  - Base the UI on near-black and dark navy surfaces.
+  - Use magenta, violet, cyan, teal, green, and amber as analytical accents, not as full-page decoration.
+- Border and elevation
+  - Use thin low-contrast borders, slight surface contrast shifts, and soft shadows.
+- Data visualization treatment
+  - Charts, bars, and points should glow subtly against dark panels without becoming flashy.
+- States
+  - Active states should be clear through fill, border, and accent color.
+  - Disabled and no-data states should remain calm, not alarming.
+- Empty/no-data behavior
+  - Show absence as context. Catalogue-only products and brands are intentional comparison data.
+- Responsive behavior
+  - Collapse grids into stacked panels while preserving the order: summary, controls, evidence, detail.
+- Accessibility notes
+  - Do not rely on color alone. Pair color with text labels, icons, or status wording.
+
+## Evidence-Led Visual Language
+- Purpose
+  - Make every insight traceable to sample size, rate, status, or transcript evidence.
+- Visual role
+  - Evidence snippets and sample-size labels should visually ground the more predictive-looking metrics.
+- Placement
+  - Evidence belongs directly inside signal rows, opportunity cards, transcript detail panels, and gap tables.
+- Layout
+  - Put evidence after the metric or recommendation it supports.
+  - Avoid separating claims from their evidence into distant panels.
+- Sizing
+  - Evidence snippets should be compact, usually 2 to 4 lines before expansion.
+- Spacing
+  - Use inset evidence boxes with slightly tighter padding than parent cards.
+- Typography
+  - Use readable body text with a muted quote or evidence label.
+- Color and surface treatment
+  - Use darker inset panels with a faint cyan, violet, or green left edge depending on signal type.
+- Border and elevation
+  - Use subtle inset border and no heavy shadow.
+- Data visualization treatment
+  - Evidence does not need chart decoration. Keep it textual and verifiable.
+- States
+  - Expanded state should reveal more transcript text without changing the card width.
+- Empty/no-data behavior
+  - If no transcript text exists, show "Transcript unavailable" or "No transcript evidence".
+- Responsive behavior
+  - Evidence blocks should wrap cleanly and never require horizontal scrolling.
+- Accessibility notes
+  - Expanded transcript controls must have clear button text and focus states.
+
+## Controlled Luminous Accent System
+- Purpose
+  - Bring the reference-image energy into the product without making it feel like a crypto or gaming interface.
+- Visual role
+  - Accents guide attention to selected tabs, high-value metrics, rates, insight cards, and signal categories.
+- Placement
+  - Use accents on top borders, left edges, progress bars, badges, selected tabs, and chart primitives.
+- Layout
+  - Accent placement should reinforce structure: one accent per panel or one accent per data category.
+- Sizing
+  - Accent edges should be 2px to 4px. Progress bars should be 4px to 8px high.
+- Spacing
+  - Leave enough dark negative space around luminous elements so they feel intentional.
+- Typography
+  - Accent text should be used sparingly for numbers, labels, and status chips.
+- Color and surface treatment
+  - Use magenta/violet for selected navigation and positioning gaps.
+  - Use cyan/teal for transcript-backed signal rates and analytical comparisons.
+  - Use green for supported strengths, positive sentiment, and processed dataset status.
+  - Use amber or red only for caution, friction, pain points, or pricing risk.
+- Border and elevation
+  - Pair glow with thin borders, not thick neon outlines.
+- Data visualization treatment
+  - Lines and bars may use a subtle outer glow, but axes and gridlines stay low contrast.
+- States
+  - Hover may increase border contrast and glow intensity slightly.
+- Empty/no-data behavior
+  - No-data states use muted slate and a dashed border, not bright warning color.
+- Responsive behavior
+  - Accent behavior remains consistent at all breakpoints.
+- Accessibility notes
+  - Ensure accent colors meet contrast when used for text.
+
+# 2. Design Tokens
+
+## Color Palette
+- Purpose
+  - Define reusable named colors for the entire dashboard.
+- Visual role
+  - Keep the UI cohesive, dark, premium, and operational.
+- Placement
+  - Use these tokens across app shell, panels, charts, badges, filters, tables, and evidence.
+- Layout
+  - Color should clarify hierarchy and state, not create decorative zones.
+- Sizing
+  - Not applicable.
+- Spacing
+  - Not applicable.
+- Typography
+  - Text colors must maintain hierarchy and contrast.
+- Color and surface treatment
+  - `canvas-950`: `#030612` for page background.
+  - `canvas-900`: `#070B18` for main shell.
+  - `panel-900`: `#0B1020` for primary cards.
+  - `panel-850`: `#111729` for raised cards.
+  - `panel-800`: `#171D31` for controls and table rows.
+  - `panel-tint-violet`: `rgba(139, 92, 246, 0.10)` for selected or insight surfaces.
+  - `panel-tint-cyan`: `rgba(34, 211, 238, 0.08)` for signal-rate surfaces.
+  - `panel-tint-green`: `rgba(34, 197, 94, 0.08)` for supported or positive surfaces.
+  - `line-700`: `rgba(148, 163, 184, 0.16)` for default borders.
+  - `line-600`: `rgba(148, 163, 184, 0.24)` for hover borders.
+  - `text-strong`: `#F8FAFC` for page title and key numbers.
+  - `text-primary`: `#DCE6F5` for primary copy.
+  - `text-secondary`: `#94A3B8` for labels and secondary data.
+  - `text-muted`: `#64748B` for hints, footnotes, and disabled text.
+  - `accent-violet`: `#8B5CF6`.
+  - `accent-magenta`: `#EC4899`.
+  - `accent-cyan`: `#22D3EE`.
+  - `accent-teal`: `#14B8A6`.
+  - `accent-green`: `#22C55E`.
+  - `accent-amber`: `#F59E0B`.
+  - `accent-red`: `#F43F5E`.
+  - `accent-blue`: `#3B82F6`.
+- Border and elevation
+  - Borders use `line-700` by default and `line-600` on hover or selected states.
+- Data visualization treatment
+  - Benefits: cyan or teal.
+  - Pain points: magenta or red.
+  - Occasions: violet.
+  - Market context: green.
+  - Pricing risk: amber or red.
+- States
+  - Positive: green.
+  - Mixed: amber.
+  - Negative: red or magenta.
+  - Selected: violet-magenta gradient.
+  - Focus: cyan outline.
+  - Disabled: muted text and low-contrast border.
+- Empty/no-data behavior
+  - Use `panel-900`, `text-muted`, and dashed `line-700`.
+- Responsive behavior
+  - Keep palette consistent across breakpoints.
+- Accessibility notes
+  - Text on colored badges must meet WCAG AA where possible. Use dark badge fills with colored text rather than saturated fills for small text.
+
+## Typography Scale
+- Purpose
+  - Create compact hierarchy for a dense analytics interface.
+- Visual role
+  - Separate executive metrics, panel titles, labels, metadata, and evidence.
+- Placement
+  - Global.
+- Layout
+  - Keep text left-aligned except numeric table cells, which can align right where useful.
+- Sizing
+  - Page title: 24px to 30px, weight 700.
+  - Section title: 18px to 22px, weight 700.
+  - Panel title: 14px to 16px, weight 700.
+  - KPI value: 28px to 40px, weight 700 or 800.
+  - Table body: 12px to 13px.
+  - Labels and chips: 11px to 12px, weight 600.
+  - Evidence text: 12px to 14px, line-height 1.55.
+  - Footnotes and sample-size labels: 11px to 12px.
+- Spacing
+  - Use line-height 1.15 for large numbers, 1.25 for headings, and 1.45 to 1.6 for paragraphs and evidence.
+- Typography
+  - Prefer a modern sans-serif stack such as Inter, system-ui, Segoe UI, Arial, sans-serif.
+  - Letter spacing should be 0 for body copy.
+  - Uppercase may be used only for tiny labels and should have subtle letter spacing.
+- Color and surface treatment
+  - Strong numbers use `text-strong`.
+  - Labels use `text-secondary`.
+  - Supporting notes use `text-muted`.
+- Border and elevation
+  - Not applicable.
+- Data visualization treatment
+  - Chart labels should be small and muted.
+- States
+  - Disabled text uses `text-muted` with reduced opacity.
+- Empty/no-data behavior
+  - Empty-state headings should not be larger than panel titles.
+- Responsive behavior
+  - Do not scale font size with viewport width. Use breakpoint-specific fixed sizes if needed.
+- Accessibility notes
+  - Body text should not drop below 12px. Interactive text should not drop below 12px.
+
+## Spacing Scale
+- Purpose
+  - Maintain dense, consistent dashboard spacing.
+- Visual role
+  - Make the page feel intentionally compact rather than cramped.
+- Placement
+  - Global.
+- Layout
+  - Use smaller spacing inside panels and larger spacing between sections.
+- Sizing
+  - `space-1`: 4px.
+  - `space-2`: 8px.
+  - `space-3`: 12px.
+  - `space-4`: 16px.
+  - `space-5`: 20px.
+  - `space-6`: 24px.
+  - `space-8`: 32px.
+  - `space-10`: 40px.
+- Spacing
+  - Page outer padding: 24px desktop, 16px tablet, 12px mobile.
+  - Section gap: 24px to 32px.
+  - Card gap: 12px to 16px.
+  - Card padding: 16px to 20px desktop, 14px to 16px mobile.
+  - Table cell padding: 10px to 12px horizontal, 9px to 12px vertical.
+- Typography
+  - Keep label-value spacing tight: 4px to 8px.
+- Color and surface treatment
+  - Not applicable.
+- Border and elevation
+  - Not applicable.
+- Data visualization treatment
+  - Bar groups should have 8px to 12px between rows.
+- States
+  - Hover should not shift layout.
+- Empty/no-data behavior
+  - Empty states use the same card padding as populated states.
+- Responsive behavior
+  - Reduce gaps before reducing typography.
+- Accessibility notes
+  - Interactive controls need enough hit area: minimum 36px height for compact controls.
+
+## Radius Scale
+- Purpose
+  - Define restrained rounded corners.
+- Visual role
+  - Soften dark enterprise panels without becoming playful.
+- Placement
+  - Cards, controls, badges, tables, evidence boxes.
+- Layout
+  - Radius should be consistent across repeated elements.
+- Sizing
+  - `radius-xs`: 4px for chips, badges, and tiny tags.
+  - `radius-sm`: 6px for inputs, table rows, and compact buttons.
+  - `radius-md`: 8px for cards and panels.
+  - `radius-lg`: 10px only for larger page-level surfaces if already established.
+- Spacing
+  - Inner padding should visually match radius. Do not use tiny padding with large radius.
+- Typography
+  - Not applicable.
+- Color and surface treatment
+  - Rounded surfaces should retain dark fills and low-contrast borders.
+- Border and elevation
+  - Cards should not exceed 8px radius unless they contain a larger composite module.
+- Data visualization treatment
+  - Bars should have 999px radius only when they are progress pills.
+- States
+  - Hover must not change radius.
+- Empty/no-data behavior
+  - Dashed empty-state boxes use same radius as equivalent populated component.
+- Responsive behavior
+  - Radius remains stable across breakpoints.
+- Accessibility notes
+  - Focus outlines should follow component radius.
+
+## Border Rules
+- Purpose
+  - Use borders to create panel layering and state clarity.
+- Visual role
+  - Replace heavy shadows with crisp low-contrast structure.
+- Placement
+  - Panels, cards, table rows, controls, evidence boxes, selected rows.
+- Layout
+  - Default border: 1px solid `line-700`.
+  - Hover border: 1px solid `line-600`.
+  - Selected border: 1px solid translucent violet or cyan.
+- Sizing
+  - Use 1px borders almost everywhere.
+  - Accent edges can be 2px to 4px.
+- Spacing
+  - Borders should not compress content. Use consistent padding.
+- Typography
+  - Not applicable.
+- Color and surface treatment
+  - Border colors should be visible but quiet.
+- Border and elevation
+  - Avoid thick outlines and bright full-card borders.
+- Data visualization treatment
+  - Chart container borders should be subtler than chart lines.
+- States
+  - Focus uses a 2px cyan outline outside the component or a visible ring.
+- Empty/no-data behavior
+  - Use dashed border only for true empty or unavailable states.
+- Responsive behavior
+  - Borders stay consistent.
+- Accessibility notes
+  - Focus border must not be color-only if a component already has a colored border; add ring or outline offset.
+
+## Shadow and Elevation Rules
+- Purpose
+  - Create subtle depth without glossy skeuomorphism.
+- Visual role
+  - Distinguish page background, section panels, cards, and selected modules.
+- Placement
+  - Section containers and key cards.
+- Layout
+  - Shadows should sit close to surfaces and avoid large colored glows.
+- Sizing
+  - Base panel shadow: `0 12px 30px rgba(0, 0, 0, 0.24)`.
+  - Raised card shadow: `0 18px 44px rgba(0, 0, 0, 0.32)`.
+  - Selected glow: `0 0 24px rgba(139, 92, 246, 0.18)`.
+- Spacing
+  - Avoid overlapping shadow-heavy surfaces.
+- Typography
+  - Not applicable.
+- Color and surface treatment
+  - Use black shadows for depth; use colored glow only for selected or insight modules.
+- Border and elevation
+  - Elevation should always be paired with a border.
+- Data visualization treatment
+  - Glow belongs to chart strokes and bars, not entire chart backgrounds.
+- States
+  - Hover may raise shadow by one level for clickable cards.
+- Empty/no-data behavior
+  - Empty states should have little or no shadow.
+- Responsive behavior
+  - Reduce heavy shadows on mobile to keep surfaces clean.
+- Accessibility notes
+  - Do not rely on shadow alone for state.
+
+## Glow Rules
+- Purpose
+  - Bring controlled reference-image luminosity into metrics, charts, and active controls.
+- Visual role
+  - Highlight meaningful analytical state.
+- Placement
+  - Selected tabs, KPI accent bars, progress bars, chart lines/points, opportunity cards, confidence indicators.
+- Layout
+  - Glow must sit inside or immediately around the component it describes.
+- Sizing
+  - Glow blur should be 12px to 28px with opacity below 0.25.
+- Spacing
+  - Do not layer multiple glows in one small card.
+- Typography
+  - Colored numeric text can have no glow or only a very subtle text shadow.
+- Color and surface treatment
+  - Violet-magenta glow for selected navigation and positioning modules.
+  - Cyan glow for transcript-backed rates.
+  - Green glow for positive validation or supported strengths.
+  - Amber/red glow only for caution states.
+- Border and elevation
+  - Glow should never replace readable borders.
+- Data visualization treatment
+  - Line charts and bars can use a faint same-color shadow.
+- States
+  - Hover glow increases slightly; focus ring remains clearer than glow.
+- Empty/no-data behavior
+  - No glow for no-data states.
+- Responsive behavior
+  - Keep glow low on mobile.
+- Accessibility notes
+  - Glow is decorative enhancement; text and labels carry meaning.
+
+## Gradient Rules
+- Purpose
+  - Use gradients as subtle surface tints, not decorative hero backgrounds.
+- Visual role
+  - Add depth inside cards and selected controls.
+- Placement
+  - App shell, section cards, selected tabs, KPI backgrounds, callout cards.
+- Layout
+  - Gradients should be low opacity and anchored to a corner or edge.
+- Sizing
+  - Keep gradients within surfaces; avoid full-page neon washes.
+- Spacing
+  - Leave enough dark space so gradients remain premium and restrained.
+- Typography
+  - Text on gradients must remain readable.
+- Color and surface treatment
+  - App background: near-black to dark navy.
+  - Panels: dark navy with faint violet or cyan tint.
+  - Selected tab: violet to magenta or violet to blue.
+  - Positive callout: green tint on dark surface.
+  - Risk callout: amber/red tint on dark surface.
+- Border and elevation
+  - Gradient surfaces still need borders.
+- Data visualization treatment
+  - Bars may use left-to-right accent gradients if values remain readable.
+- States
+  - Active and selected states can use brighter gradients than default states.
+- Empty/no-data behavior
+  - Empty states should not use bright gradients.
+- Responsive behavior
+  - Gradients should not obscure text at narrow widths.
+- Accessibility notes
+  - Avoid gradients behind small table text unless very low contrast.
+
+## Icon Sizing Rules
+- Purpose
+  - Support compact enterprise controls and status labels.
+- Visual role
+  - Icons aid recognition without replacing text for critical meaning.
+- Placement
+  - Tabs, pills, filters, status badges, recommendation tiles, tooltips, table status cells.
+- Layout
+  - Icons sit before labels with 6px to 8px gap.
+- Sizing
+  - Primary nav icons: 14px to 16px.
+  - Button icons: 14px to 16px.
+  - Table icons: 12px to 14px.
+  - KPI icons: 16px to 20px.
+- Spacing
+  - Icon buttons need minimum 36px hit area.
+- Typography
+  - Do not use icons as the only indicator for important states.
+- Color and surface treatment
+  - Icons inherit label color by default and use accent color when selected or semantic.
+- Border and elevation
+  - Icon-only controls need visible focus and hover states.
+- Data visualization treatment
+  - Chart legends can use small colored dots instead of icons.
+- States
+  - Disabled icons use muted opacity.
+- Empty/no-data behavior
+  - Empty states may use a simple muted icon, not an illustration.
+- Responsive behavior
+  - Hide nonessential icons before hiding labels on mobile.
+- Accessibility notes
+  - Icon-only controls require accessible labels and tooltips.
+
+## Table Row Height Rules
+- Purpose
+  - Make tables dense, premium, and readable.
+- Visual role
+  - Support comparison across brands, products, retailers, and dimensions.
+- Placement
+  - Brand comparison, gap analysis, aggregation tables, price checks.
+- Layout
+  - Use sticky or visually persistent headers where tables scroll inside cards.
+- Sizing
+  - Header row: 36px to 40px.
+  - Body row compact: 44px to 52px.
+  - Body row with evidence snippet: 64px to 84px.
+- Spacing
+  - Cell padding: 10px to 12px horizontal.
+- Typography
+  - Header text: 11px to 12px uppercase or semibold.
+  - Body text: 12px to 13px.
+  - Numeric values can be tabular and right-aligned.
+- Color and surface treatment
+  - Header uses a slightly darker fill than body.
+  - Rows alternate through subtle fill shifts, not high-contrast striping.
+- Border and elevation
+  - Use row dividers with `line-700`.
+- Data visualization treatment
+  - Rate cells may include mini bars or colored numeric pills.
+- States
+  - Hover row fill increases slightly.
+  - Selected row uses violet/cyan left edge plus raised surface.
+- Empty/no-data behavior
+  - Empty table body shows one full-width calm message row.
+- Responsive behavior
+  - On mobile, tables can become horizontally scrollable inside their card.
+- Accessibility notes
+  - Preserve table semantics when implemented.
+
+## Card Padding Rules
+- Purpose
+  - Keep cards consistent across metrics, insights, filters, and evidence.
+- Visual role
+  - Establish a compact but polished information rhythm.
+- Placement
+  - All cards and panel containers.
+- Layout
+  - Card header, body, and footer spacing should be predictable.
+- Sizing
+  - KPI cards: 14px to 16px padding.
+  - Standard panels: 16px to 20px padding.
+  - Dense table cards: 12px to 16px padding around the table container.
+  - Evidence inset: 12px to 14px padding.
+- Spacing
+  - Header-to-body gap: 12px to 16px.
+  - Dense list row gap: 8px to 10px.
+- Typography
+  - Keep card titles compact.
+- Color and surface treatment
+  - Cards use `panel-900` or `panel-850`.
+- Border and elevation
+  - Default card border uses `line-700`.
+- Data visualization treatment
+  - Charts need internal margins so axes and labels do not touch borders.
+- States
+  - Clickable cards show hover border and slight shadow lift.
+- Empty/no-data behavior
+  - Empty cards keep the same padding.
+- Responsive behavior
+  - Mobile card padding can reduce by 2px to 4px.
+- Accessibility notes
+  - Maintain readable spacing around interactive controls.
+
+## Breakpoint Rules
+- Purpose
+  - Preserve dashboard usability across desktop, tablet, and mobile.
+- Visual role
+  - Keep operational density on desktop and coherent stacked reading on mobile.
+- Placement
+  - Global layout, grids, tables, filters, detail panels.
+- Layout
+  - Desktop large: 1200px and up, use multi-column dashboard grids.
+  - Desktop: 1024px to 1199px, use two-column panels where possible.
+  - Tablet: 768px to 1023px, reduce to one or two columns depending on content density.
+  - Mobile: below 768px, stack major panels and make tables horizontally scrollable.
+- Sizing
+  - Max content width can be 1440px to 1600px.
+  - Minimum control height remains 36px.
+- Spacing
+  - Reduce outer padding on mobile.
+- Typography
+  - Do not use viewport-width font scaling.
+- Color and surface treatment
+  - Same palette across breakpoints.
+- Border and elevation
+  - Simplify nested shadows on mobile.
+- Data visualization treatment
+  - Charts must preserve labels and values. Replace dense charts with bars/lists if space is limited.
+- States
+  - Touch targets must remain large enough on mobile.
+- Empty/no-data behavior
+  - Empty states stack naturally in the same order as content.
+- Accessibility notes
+  - Navigation, filters, and expandable details must be keyboard and touch accessible.
+
+# 3. Global Layout System
+
+## App Shell
+- Purpose
+  - Frame the entire single-page dashboard as a premium intelligence workspace.
+- Visual role
+  - Creates the dark, focused canvas and houses header, tabs, and all sections.
+- Placement
+  - Root page container.
+- Layout
+  - Use a single vertical flow: header, tab navigation, active or stacked sections, footer/help text if used.
+  - Keep the first viewport signal focused on the dashboard title, status badge, dataset summary, and first summary panels.
+- Sizing
+  - Minimum height: 100vh.
+  - Max content width: 1440px to 1600px centered.
+- Spacing
+  - Outer padding: 24px desktop, 16px tablet, 12px mobile.
+  - Section gap: 24px to 32px.
+- Typography
+  - Global body text uses 13px to 14px base size.
+- Color and surface treatment
+  - Background uses `canvas-950` with a restrained dark navy radial or linear tint.
+  - Do not use decorative marketing hero patterns, large blobs, or full-screen neon gradients.
+- Border and elevation
+  - The shell itself has no visible border. Depth comes from contained panels.
+- Data visualization treatment
+  - Charts sit in cards and inherit the dark panel system.
+- States
+  - Loading app shell should show skeleton panels in the same layout.
+- Empty/no-data behavior
+  - If data fails to load, show an error panel inside the shell rather than replacing the page with raw text.
+- Responsive behavior
+  - Preserve the single-page flow and stack sections cleanly on smaller screens.
+- Accessibility notes
+  - Include a clear page heading and logical landmark structure.
+
+## Page Background
+- Purpose
+  - Support high contrast while giving the product a distinctive intelligence-platform feel.
+- Visual role
+  - Recedes behind data panels and makes luminous accents legible.
+- Placement
+  - Body and root page background.
+- Layout
+  - Background should not compete with charts or evidence.
+- Sizing
+  - Full viewport and page height.
+- Spacing
+  - Not applicable.
+- Typography
+  - Not applicable.
+- Color and surface treatment
+  - Base: near-black navy.
+  - Optional subtle surface tint: faint violet in upper left and faint cyan/green in lower right, opacity below 0.12.
+  - Avoid standalone decorative orbs or bokeh shapes.
+- Border and elevation
+  - None.
+- Data visualization treatment
+  - Panels must remain visually distinct from the background.
+- States
+  - Loading/error states remain inside the same background.
+- Empty/no-data behavior
+  - No change.
+- Responsive behavior
+  - Background should not crop or create awkward bright areas on mobile.
+- Accessibility notes
+  - Maintain contrast for all text over background.
+
+## Section Containers
+- Purpose
+  - Separate Overview, Consumer Voice Explorer, and Commercial Context into clear workspaces.
+- Visual role
+  - Create soft panel layering with subtle contrast shifts.
+- Placement
+  - One container per major section.
+- Layout
+  - Section header at top, then summary panels, controls, tables, and details.
+  - Avoid nested card-in-card visuals. Use cards for repeated items or framed analytical modules.
+- Sizing
+  - Full width within app max width.
+- Spacing
+  - Section padding: 18px to 24px desktop, 14px to 18px mobile.
+  - Internal grid gap: 12px to 18px.
+- Typography
+  - Section title: 18px to 22px.
+  - Section eyebrow or context note: 12px to 13px.
+- Color and surface treatment
+  - Use `panel-900` with faint gradient tint.
+- Border and elevation
+  - 1px `line-700` border, 8px radius, base panel shadow.
+- Data visualization treatment
+  - Chart panels inside sections use slightly raised surfaces.
+- States
+  - Active section can have a faint accent top edge if using tabs.
+- Empty/no-data behavior
+  - Section-level empty state explains which data artifact was unavailable.
+- Responsive behavior
+  - Stack child grids at mobile widths.
+- Accessibility notes
+  - Each section should have an accessible heading.
+
+## Card Containers
+- Purpose
+  - House metrics, charts, lists, tables, evidence, and insight modules.
+- Visual role
+  - Provide reusable dark analytical surfaces.
+- Placement
+  - Inside section containers.
+- Layout
+  - Use card header, optional meta row, body, and optional footer.
+- Sizing
+  - Standard card min-height should fit content, not force empty space.
+- Spacing
+  - Padding follows card padding tokens.
+- Typography
+  - Card titles are compact and high contrast.
+- Color and surface treatment
+  - `panel-850` for raised cards.
+  - Optional subtle inner gradient tint for key cards only.
+- Border and elevation
+  - 1px low-contrast border, 8px radius, soft shadow.
+- Data visualization treatment
+  - Include chart legends and sample sizes inside cards.
+- States
+  - Hover on interactive cards: brighter border, slight lift, no layout shift.
+  - Selected cards: accent left edge and faint glow.
+  - Disabled cards: reduced opacity and no hover lift.
+- Empty/no-data behavior
+  - Replace content with a compact no-data message using the same card dimensions where possible.
+- Responsive behavior
+  - Cards stack and preserve reading order.
+- Accessibility notes
+  - Interactive cards need keyboard focus and role/button semantics where applicable.
+
+## Grid Rules
+- Purpose
+  - Organize dense data into predictable panels.
+- Visual role
+  - Create a structured operating console.
+- Placement
+  - KPI strip, overview panels, consumer voice list/detail layout, commercial context modules.
+- Layout
+  - KPI grid: 4 to 6 columns desktop, 2 columns tablet, 1 column mobile.
+  - Overview analytical grid: 2 columns desktop, 1 column mobile.
+  - Consumer voice grid: signal list and detail panel can use 55/45 or 60/40 split desktop.
+  - Commercial context grid: feature card full width, supporting tables in 2-column or stacked layout.
+- Sizing
+  - Use minmax columns so cards do not collapse below readable widths.
+- Spacing
+  - Grid gap: 12px to 18px.
+- Typography
+  - Not applicable.
+- Color and surface treatment
+  - Grids should not use separate background fills.
+- Border and elevation
+  - Individual cards handle borders.
+- Data visualization treatment
+  - Give chart cards enough width before placing them side by side.
+- States
+  - Reordering should not occur unexpectedly on interaction.
+- Empty/no-data behavior
+  - Empty cards occupy the same grid slot to avoid layout jumps.
+- Responsive behavior
+  - Stack in logical order: summary, controls, primary insight, supporting evidence, tables.
+- Accessibility notes
+  - DOM order should match visual reading order.
+
+# 4. Navigation and Header
+
+## Header
+- Purpose
+  - Introduce the dashboard, clarify dataset status, and provide section navigation.
+- Visual role
+  - Compact command header, similar to premium enterprise analytics products.
+- Placement
+  - Top of app shell.
+- Layout
+  - Left: title and subtitle.
+  - Right: processed dataset badge and dataset summary.
+  - Bottom or following row: compact tabs.
+- Sizing
+  - Header height should be content-driven and compact, around 96px to 132px including tabs.
+- Spacing
+  - Use 12px to 16px between title block and navigation.
+- Typography
+  - Title: 24px to 30px, weight 700.
+  - Subtitle: 12px to 14px, muted.
+- Color and surface treatment
+  - Header background can be transparent over the app shell or use a very subtle dark panel tint.
+- Border and elevation
+  - Optional bottom divider with `line-700`.
+- Data visualization treatment
+  - None.
+- States
+  - Sticky behavior is optional. If sticky, add dark backdrop blur and border.
+- Empty/no-data behavior
+  - Header remains visible even if data load fails.
+- Responsive behavior
+  - Stack title, status badge, summary row, and tabs on mobile.
+- Accessibility notes
+  - Title should be the page `h1`.
+
+## Title
+- Purpose
+  - Name the product and assessment dashboard.
+- Visual role
+  - First visual anchor.
+- Placement
+  - Top-left of header.
+- Layout
+  - Single line on desktop if possible; wrap naturally on mobile.
+- Sizing
+  - 24px to 30px desktop; 22px to 24px mobile.
+- Spacing
+  - 4px to 6px above subtitle.
+- Typography
+  - Weight 700, `text-strong`.
+- Color and surface treatment
+  - Optional subtle cyan/violet highlight on one short product phrase only if it remains readable.
+- Border and elevation
+  - None.
+- Data visualization treatment
+  - None.
+- States
+  - Static.
+- Empty/no-data behavior
+  - Static.
+- Responsive behavior
+  - Allow wrap; do not truncate the title.
+- Accessibility notes
+  - Must remain plain text, not image text.
+
+## Subtitle
+- Purpose
+  - Clarify the dashboard scope: consumer voice, product context, and brand positioning signals.
+- Visual role
+  - Sets expectations and avoids overclaiming.
+- Placement
+  - Directly beneath title.
+- Layout
+  - One or two lines.
+- Sizing
+  - 12px to 14px.
+- Spacing
+  - 4px below title.
+- Typography
+  - Weight 400 or 500, muted.
+- Color and surface treatment
+  - `text-secondary`.
+- Border and elevation
+  - None.
+- Data visualization treatment
+  - None.
+- States
+  - Static.
+- Empty/no-data behavior
+  - Static.
+- Responsive behavior
+  - Wrap cleanly.
+- Accessibility notes
+  - Should not include "live data" wording.
+
+## Processed Dataset Badge
+- Purpose
+  - Communicate that data is static and preprocessed.
+- Visual role
+  - Status indicator with controlled green confidence styling.
+- Placement
+  - Header right on desktop; below title on mobile.
+- Layout
+  - Compact pill with optional dot icon.
+- Sizing
+  - Height: 24px to 30px.
+  - Padding: 8px to 12px horizontal.
+- Spacing
+  - 8px gap from dataset summary.
+- Typography
+  - 11px to 12px, weight 700.
+- Color and surface treatment
+  - Dark green-tinted fill, green text, faint green border.
+  - Label should be "Processed dataset" or "Static processed dataset".
+- Border and elevation
+  - 1px translucent green border, optional faint green glow.
+- Data visualization treatment
+  - None.
+- States
+  - Static. Do not animate as if streaming.
+- Empty/no-data behavior
+  - If artifacts fail to load, badge can change to "Data unavailable" with amber/red treatment.
+- Responsive behavior
+  - Remains visible and wraps with header metadata.
+- Accessibility notes
+  - Include text label, not just colored dot.
+
+## Dataset Summary Row
+- Purpose
+  - Show coverage at a glance.
+- Visual role
+  - Grounds the interface in sample size and scope.
+- Placement
+  - Header right or below subtitle.
+- Layout
+  - Inline metadata chips or one compact text line.
+- Sizing
+  - 11px to 13px text.
+- Spacing
+  - 6px to 10px between metrics.
+- Typography
+  - Muted semibold labels with stronger numbers.
+- Color and surface treatment
+  - Use `text-secondary`; numbers can be `text-primary`.
+- Border and elevation
+  - If chips are used, low-contrast border and dark fill.
+- Data visualization treatment
+  - None.
+- States
+  - Static after data load.
+- Empty/no-data behavior
+  - Show "Coverage unavailable" only when validation data cannot load.
+- Responsive behavior
+  - Wrap metrics into two lines on narrow screens.
+- Accessibility notes
+  - Use separators or labels so screen readers can parse metrics.
+
+## Tabs
+- Purpose
+  - Navigate the single-page dashboard sections: Overview, Consumer Voice, Commercial Context.
+- Visual role
+  - Compact enterprise segmented navigation inspired by the reference images.
+- Placement
+  - Under header title/status row.
+- Layout
+  - Horizontal pill group with three tab buttons.
+- Sizing
+  - Height: 34px to 40px.
+  - Padding: 10px to 14px horizontal per tab.
+- Spacing
+  - 4px to 6px gap between tabs, or one segmented container with inner separators.
+- Typography
+  - 12px to 13px, weight 700.
+- Color and surface treatment
+  - Inactive: `panel-800` fill, muted text, low border.
+  - Active: violet-magenta gradient fill or brighter dark fill with violet edge.
+  - Hover: border brightens and text moves to `text-primary`.
+- Border and elevation
+  - 1px border, 6px radius for each pill or 8px for segmented container.
+- Data visualization treatment
+  - Optional tiny icon or colored dot per section.
+- States
+  - Active tab has clear selected styling and `aria-selected`.
+  - Focus uses cyan ring.
+  - Disabled state only if data for a section fails.
+- Empty/no-data behavior
+  - Tabs remain available unless the whole data payload fails.
+- Responsive behavior
+  - Horizontal scroll on small screens, no wrapping that creates uneven tab rows.
+- Accessibility notes
+  - Use button or tab semantics and visible focus.
+
+# 5. Overview Section
+
+## Overview Section Container
+- Purpose
+  - Present the executive summary from KPIs, validation coverage, and commercial overview.
+- Visual role
+  - First analytical workspace and landing view.
+- Placement
+  - First section after header/tabs.
+- Layout
+  - KPI strip, consumer signal distribution, brand signal comparison, and commercial opportunity signal.
+- Sizing
+  - Full width.
+- Spacing
+  - 16px to 20px between major overview groups.
+- Typography
+  - Section title: 18px to 22px.
+- Color and surface treatment
+  - Dark panel with subtle violet/cyan tint.
+- Border and elevation
+  - Low-contrast border and soft shadow.
+- Data visualization treatment
+  - Use compact bars and tables rather than large unsupported trend charts.
+- States
+  - Loading skeleton mirrors KPI strip and cards.
+- Empty/no-data behavior
+  - If commercial overview is missing, show the KPIs and a no-data panel for signal distribution.
+- Responsive behavior
+  - KPI strip stacks before charts/tables.
+- Accessibility notes
+  - Ensure metric cards have meaningful labels and sample sizes.
+
+## KPI Cards
+- Purpose
+  - Summarize coverage, rating, purchase intent, sentiment, top benefit, and top pain point.
+- Visual role
+  - Predictive/intelligence-oriented metric tiles rather than generic admin cards.
+- Placement
+  - Top of Overview in a 4 to 6 card strip.
+- Layout
+  - Label at top, large value, sample-size or supporting label, optional accent edge.
+- Sizing
+  - Min height: 104px to 128px.
+  - Desktop: equal-width grid cards.
+- Spacing
+  - 14px to 16px internal padding.
+- Typography
+  - KPI label: 11px to 12px, uppercase or semibold, muted.
+  - KPI value: 28px to 40px, strong.
+  - Sample-size label: 11px to 12px, muted.
+- Color and surface treatment
+  - Dark raised card with subtle inner gradient.
+  - Transcript-backed metrics use cyan/teal accent.
+  - Coverage uses violet/cyan.
+  - Positive sentiment and would-buy use green.
+  - Pain point uses magenta/red.
+- Border and elevation
+  - 1px border, 8px radius, faint glow only on the accent edge.
+- Data visualization treatment
+  - Optional tiny mini-bar or dot, but no unsupported time-series sparkline.
+- States
+  - Hover can brighten border if card is clickable or linked to section filter.
+  - Static cards need no hover lift.
+- Empty/no-data behavior
+  - Show "Unavailable" and keep sample-size label if metric cannot be computed.
+- Responsive behavior
+  - 2-column grid on tablet; 1-column on mobile.
+- Accessibility notes
+  - Do not rely on color to indicate positive or pain-point meaning; include text labels.
+
+## KPI Labels
+- Purpose
+  - Identify the metric.
+- Visual role
+  - Small muted hierarchy above values.
+- Placement
+  - Top of each KPI card.
+- Layout
+  - Single line where possible.
+- Sizing
+  - 11px to 12px.
+- Spacing
+  - 6px to 8px above KPI value.
+- Typography
+  - Semibold, muted, optional uppercase.
+- Color and surface treatment
+  - `text-secondary`.
+- Border and elevation
+  - None.
+- Data visualization treatment
+  - None.
+- States
+  - Static.
+- Empty/no-data behavior
+  - Label remains visible.
+- Responsive behavior
+  - Wrap only if necessary.
+- Accessibility notes
+  - Labels must be descriptive, such as "Would buy after trying", not "Rate".
+
+## KPI Values
+- Purpose
+  - Show the key number or top named signal.
+- Visual role
+  - Primary emphasis inside metric cards.
+- Placement
+  - Middle of KPI card.
+- Layout
+  - Large number or concise label with optional secondary rate.
+- Sizing
+  - 28px to 40px for numeric values; 16px to 20px for long text labels.
+- Spacing
+  - 4px to 8px from label and sample-size text.
+- Typography
+  - Weight 700 or 800, tabular numbers where numeric.
+- Color and surface treatment
+  - `text-strong`, with accent color for key status.
+- Border and elevation
+  - None.
+- Data visualization treatment
+  - Values can pair with a small progress underline.
+- States
+  - Static.
+- Empty/no-data behavior
+  - Use "Unavailable", not 0 unless the data truly equals 0.
+- Responsive behavior
+  - Long top signal names wrap to two lines.
+- Accessibility notes
+  - Include units such as percent or "products" in nearby text.
+
+## KPI Sample-Size Labels
+- Purpose
+  - Prevent overclaiming by showing `n=130 reviews` or equivalent scope.
+- Visual role
+  - Evidence anchor inside KPI card.
+- Placement
+  - Bottom of KPI card.
+- Layout
+  - Inline text or small muted chip.
+- Sizing
+  - 11px to 12px.
+- Spacing
+  - 6px below value.
+- Typography
+  - Muted, medium weight.
+- Color and surface treatment
+  - `text-muted`.
+- Border and elevation
+  - If chip: dark fill and low border.
+- Data visualization treatment
+  - None.
+- States
+  - Static.
+- Empty/no-data behavior
+  - If sample size is unavailable, show "sample unavailable".
+- Responsive behavior
+  - Wrap below value on mobile.
+- Accessibility notes
+  - Use explicit `n=` or descriptive wording.
+
+## Consumer Signal Distribution
+- Purpose
+  - Show normalized mention rates for benefits, pain points, occasions, and market context.
+- Visual role
+  - Compact operational signal map, not a momentum model.
+- Placement
+  - Overview panel beneath KPI cards.
+- Layout
+  - Horizontal rate bars with labels, percentages, counts, and top labels nearby.
+- Sizing
+  - Bar height: 6px to 8px.
+  - Row height: 32px to 44px.
+- Spacing
+  - 10px to 12px between rows.
+- Typography
+  - Label: 12px to 13px semibold.
+  - Rate: 12px to 13px tabular.
+- Color and surface treatment
+  - Benefits: cyan/teal bar.
+  - Pain points: magenta/red bar.
+  - Occasions: violet bar.
+  - Market context: green bar.
+  - Track: dark slate.
+- Border and elevation
+  - Bars can have subtle same-color glow; no thick outlines.
+- Data visualization treatment
+  - Bars represent mention rates only. Do not label as trend, momentum, or growth.
+- States
+  - Hover reveals tooltip with count, rate, and sample size.
+- Empty/no-data behavior
+  - If no rate exists, show a muted empty track and "No signal data".
+- Responsive behavior
+  - Stack labels above bars on narrow screens.
+- Accessibility notes
+  - Provide text values beside bars.
+
+## Signal Distribution Bars
+- Purpose
+  - Visualize rates inside Consumer Signal Distribution.
+- Visual role
+  - Controlled luminous analytical bars.
+- Placement
+  - Inside distribution panel rows.
+- Layout
+  - Label left, bar center, value right.
+- Sizing
+  - Track height 6px to 8px.
+- Spacing
+  - 8px gap between label/value and bar.
+- Typography
+  - Numeric value uses tabular figures.
+- Color and surface treatment
+  - Colored fill over dark track; optional gradient within same accent family.
+- Border and elevation
+  - Track radius 999px; fill radius 999px.
+- Data visualization treatment
+  - Fill length must map to the rate scale consistently.
+- States
+  - Hover can brighten fill and show tooltip.
+- Empty/no-data behavior
+  - Muted dashed or low-opacity track.
+- Responsive behavior
+  - Full-width bar below label on mobile.
+- Accessibility notes
+  - Include `aria-label` or adjacent text describing rate.
+
+## Label Chips
+- Purpose
+  - Show top benefit, pain point, occasion, and market-context labels.
+- Visual role
+  - Compact evidence-backed tags.
+- Placement
+  - Below or beside signal distribution bars.
+- Layout
+  - Wrap in rows.
+- Sizing
+  - Height: 24px to 28px.
+- Spacing
+  - 6px gap between chips.
+- Typography
+  - 11px to 12px semibold.
+- Color and surface treatment
+  - Dark fill with category-colored text and border.
+- Border and elevation
+  - 1px low-contrast border; no heavy shadow.
+- Data visualization treatment
+  - Optional count or rate suffix.
+- States
+  - Hover can brighten border.
+  - Selected chip can filter downstream rows and use stronger fill.
+- Empty/no-data behavior
+  - Show "No labels detected" in muted text.
+- Responsive behavior
+  - Chips wrap cleanly.
+- Accessibility notes
+  - If interactive, use button semantics and visible focus.
+
+## Brand Comparison Table
+- Purpose
+  - Compare reviewed and catalogue-only brands across transcript-derived rates and brand scores.
+- Visual role
+  - Dense premium comparison grid.
+- Placement
+  - Overview section below signal distribution or beside it on wide layouts.
+- Layout
+  - Columns: Brand, transcript role, review count, benefit rate, pain point rate, occasion rate, market context rate, average rating, would-buy-after-trying rate, breakthrough score.
+- Sizing
+  - Row height 44px to 64px.
+  - Header row 36px to 40px.
+- Spacing
+  - Compact cell padding.
+- Typography
+  - Header: muted semibold.
+  - Brand name: primary semibold.
+  - Numeric cells: tabular.
+- Color and surface treatment
+  - Table container uses dark panel.
+  - Reviewed brands can have cyan/teal accent.
+  - Catalogue-only brands use slate/violet contextual treatment.
+- Border and elevation
+  - Thin row dividers, outer border, 8px radius.
+- Data visualization treatment
+  - Rate cells may include tiny inline bars.
+  - Breakthrough score can use a violet pill.
+- States
+  - Hover row fill brightens slightly.
+  - Selected brand row uses left accent edge.
+- Empty/no-data behavior
+  - If a brand has `reviewCount = 0`, transcript-derived cells show "No transcript evidence" rather than 0%.
+- Responsive behavior
+  - Horizontal scroll on mobile with sticky first column if feasible.
+- Accessibility notes
+  - Preserve table semantics and explicit column headers.
+
+## No Transcript Evidence State
+- Purpose
+  - Represent intentional catalogue-only context without marking it as an error.
+- Visual role
+  - Calm unavailable state within transcript-derived cells or cards.
+- Placement
+  - Brand comparison table, product aggregates, catalogue-only brands/products, commercial context rows.
+- Layout
+  - Muted pill or text cell with optional info tooltip.
+- Sizing
+  - Pill height 22px to 26px.
+- Spacing
+  - Align with table cell content.
+- Typography
+  - 11px to 12px semibold.
+- Color and surface treatment
+  - Dark slate fill, muted text, dashed or low-contrast border.
+- Border and elevation
+  - 1px dashed `line-700`; no glow.
+- Data visualization treatment
+  - Do not render a zero-length bright bar for missing transcript data.
+- States
+  - Hover tooltip can explain "Catalogue-only context, no linked reviewer transcripts".
+- Empty/no-data behavior
+  - This is the no-data behavior for transcript metrics.
+- Responsive behavior
+  - Text may wrap to "No evidence" on narrow cells.
+- Accessibility notes
+  - Tooltip must not be required to understand the state.
+
+## Commercial Opportunity Signal
+- Purpose
+  - Present the leading brand-facing opportunity from `topOpportunities`.
+- Visual role
+  - Prominent analyst-style insight card, similar to reference intelligence/recommendation panels.
+- Placement
+  - Overview section after primary metric panels.
+- Layout
+  - Header with brand, dimension, and status; body with structured score, reviewer rate, baselines, deltas, and evidence.
+- Sizing
+  - Full-width or wide card; min-height 180px to 240px.
+- Spacing
+  - 18px to 20px padding; 12px grid gap.
+- Typography
+  - Card title: 16px to 18px.
+  - Status: 11px to 12px badge.
+  - Metrics: 14px to 20px depending importance.
+  - Analyst note: 13px to 14px.
+- Color and surface treatment
+  - Dark raised card with controlled violet/cyan gradient tint.
+  - Accent edge based on status: violet for under-discussed, green for validated, amber/red for risk.
+- Border and elevation
+  - 1px accent-tinted border, soft glow under 0.20 opacity.
+- Data visualization treatment
+  - Deltas can use mini bars or signed numeric pills.
+- States
+  - Hover can reveal richer evidence or highlight linked detail.
+- Empty/no-data behavior
+  - If no opportunity exists, show a calm card: "No ranked opportunity available from processed layer".
+- Responsive behavior
+  - Metrics stack above evidence on mobile.
+- Accessibility notes
+  - Status and deltas need text labels, not color alone.
+
+## Analyst Note Block
+- Purpose
+  - Turn rates and evidence into a concise, grounded interpretation.
+- Visual role
+  - Evidence-led narrative callout.
+- Placement
+  - Inside opportunity signal card and commercial context feature card.
+- Layout
+  - Short paragraph plus evidence snippet if available.
+- Sizing
+  - 2 to 4 lines, expandable if needed.
+- Spacing
+  - 12px to 14px padding.
+- Typography
+  - 13px to 14px, line-height 1.55.
+- Color and surface treatment
+  - Dark inset block with faint violet or cyan tint.
+- Border and elevation
+  - Left accent edge 3px; low border; no heavy shadow.
+- Data visualization treatment
+  - None.
+- States
+  - Expand/collapse for longer note if needed.
+- Empty/no-data behavior
+  - If no evidence exists, show structured evidence or a no-evidence note.
+- Responsive behavior
+  - Full width on mobile.
+- Accessibility notes
+  - Keep plain readable text.
+
+# 6. Consumer Voice Explorer Section
+
+## Consumer Voice Explorer Section
+- Purpose
+  - Provide the evidence workspace for transcript-backed rows.
+- Visual role
+  - Operational investigation surface combining filters, signal list, and transcript detail.
+- Placement
+  - Second major section or second tab.
+- Layout
+  - Filter bar at top, signal list and transcript detail below.
+  - Desktop can use two columns; mobile stacks filters, list, detail.
+- Sizing
+  - Full width.
+- Spacing
+  - 16px to 20px between filters and content.
+- Typography
+  - Section title: 18px to 22px.
+- Color and surface treatment
+  - Dark panel with subtle cyan/violet tint.
+- Border and elevation
+  - Low border and soft section shadow.
+- Data visualization treatment
+  - Use signal rows, confidence indicators, chips, and evidence blocks rather than complex charts.
+- States
+  - Loading state shows filter skeletons and row skeletons.
+- Empty/no-data behavior
+  - If filters return no rows, show a no-results panel with clear reset option.
+- Responsive behavior
+  - Detail panel moves below list on mobile.
+- Accessibility notes
+  - Filter controls and row selection must be keyboard accessible.
+
+## Filter Bar
+- Purpose
+  - Let users narrow transcript-backed signals by supported fields.
+- Visual role
+  - Compact command strip resembling reference pill/segmented controls.
+- Placement
+  - Top of Consumer Voice Explorer.
+- Layout
+  - Row or wrapped grid of dropdowns, pills, and search input.
+- Sizing
+  - Control height 36px to 40px.
+- Spacing
+  - 8px to 10px gap between controls.
+- Typography
+  - 12px to 13px semibold labels or selected values.
+- Color and surface treatment
+  - Dark control fill, low border, muted label, brighter selected text.
+- Border and elevation
+  - 1px border, 6px radius, no heavy shadow.
+- Data visualization treatment
+  - None.
+- States
+  - Hover: brighter border.
+  - Focus: cyan ring.
+  - Active/open: violet/cyan border and darker raised surface.
+  - Disabled: reduced opacity.
+- Empty/no-data behavior
+  - If a filter has no options, disable it and show "Unavailable".
+- Responsive behavior
+  - Wrap into two rows on tablet; stack search full-width on mobile.
+- Accessibility notes
+  - Each filter needs an accessible label.
+
+## Dropdowns
+- Purpose
+  - Select brand, subcategory, retailer availability, theme, sentiment, rating band, and other supported filter values.
+- Visual role
+  - Dense dark enterprise controls.
+- Placement
+  - Inside filter bar.
+- Layout
+  - Label can be visually hidden if control text is clear; selected value visible.
+- Sizing
+  - Height 36px to 40px, min width 140px to 180px depending field.
+- Spacing
+  - 8px internal horizontal padding.
+- Typography
+  - 12px to 13px.
+- Color and surface treatment
+  - `panel-800` fill, `text-primary` selected value, `text-muted` placeholder.
+- Border and elevation
+  - 1px low border, 6px radius.
+- Data visualization treatment
+  - None.
+- States
+  - Open menu uses `panel-850`, selected option violet/cyan tint.
+  - Focus ring cyan.
+  - Disabled muted and noninteractive.
+- Empty/no-data behavior
+  - Show "No options".
+- Responsive behavior
+  - Full width on mobile.
+- Accessibility notes
+  - Native selects are acceptable; custom dropdowns need keyboard navigation and ARIA roles.
+
+## Pills
+- Purpose
+  - Represent selected filters, signal categories, role states, and quick toggles.
+- Visual role
+  - Compact status and selection language.
+- Placement
+  - Filter bar, signal rows, tables, detail panels.
+- Layout
+  - Inline, wrapping.
+- Sizing
+  - Height 22px to 30px.
+- Spacing
+  - 4px to 6px between pills.
+- Typography
+  - 11px to 12px semibold.
+- Color and surface treatment
+  - Inactive: dark fill, muted text.
+  - Active: violet/cyan tinted fill, brighter text.
+  - Semantic: use category accent with low-opacity fill.
+- Border and elevation
+  - 1px low border; selected pills use accent border.
+- Data visualization treatment
+  - Optional count badge inside pill.
+- States
+  - Hover: border and text brighten.
+  - Selected: stronger fill and check/dot indicator.
+  - Focus: cyan ring.
+- Empty/no-data behavior
+  - Do not show pills for unsupported values.
+- Responsive behavior
+  - Wrap cleanly.
+- Accessibility notes
+  - Interactive pills need button semantics.
+
+## Search Input
+- Purpose
+  - Search transcript text and evidence.
+- Visual role
+  - Compact investigation control.
+- Placement
+  - Filter bar, preferably wider than dropdowns.
+- Layout
+  - Search icon, input text, optional clear button.
+- Sizing
+  - Height 36px to 40px.
+  - Desktop width 260px to 360px; mobile full width.
+- Spacing
+  - 10px to 12px horizontal padding.
+- Typography
+  - 13px.
+- Color and surface treatment
+  - Dark fill, muted placeholder, primary text.
+- Border and elevation
+  - 1px low border, 6px radius.
+- Data visualization treatment
+  - None.
+- States
+  - Focus: cyan ring.
+  - Filled: brighter border or subtle cyan tint.
+  - Disabled: muted.
+- Empty/no-data behavior
+  - If search has no results, show no-results state in signal list.
+- Responsive behavior
+  - Full-width at mobile.
+- Accessibility notes
+  - Use explicit accessible label such as "Search transcript text".
+
+## Signal List
+- Purpose
+  - Display extracted transcript-backed signals with evidence and metadata.
+- Visual role
+  - Primary browse surface for consumer voice.
+- Placement
+  - Left column or top panel in Consumer Voice Explorer.
+- Layout
+  - Vertical rows/cards with signal label, category badge, evidence snippet, brand/product metadata, rating, sentiment, intent, reviewer context, and confidence.
+- Sizing
+  - Row min-height 96px to 140px depending evidence length.
+- Spacing
+  - 8px to 12px between rows.
+- Typography
+  - Signal label: 13px to 15px semibold.
+  - Metadata: 11px to 12px.
+  - Evidence: 12px to 13px.
+- Color and surface treatment
+  - Dark row fill with subtle category-tinted accent.
+- Border and elevation
+  - 1px border, 6px to 8px radius.
+- Data visualization treatment
+  - Confidence indicator and rating can be compact pills or mini bars.
+- States
+  - Hover: brighter border.
+  - Selected: accent left edge, faint glow, raised fill.
+  - Focus: cyan outline.
+- Empty/no-data behavior
+  - No matching signals state with reset guidance.
+  - Rows with no transcript text should show unavailable state, not fabricated signals.
+- Responsive behavior
+  - Rows become full width; metadata wraps below evidence.
+- Accessibility notes
+  - Row selection must be keyboard accessible and announce selected state.
+
+## Signal Rows
+- Purpose
+  - Show one extracted signal instance from a transcript-backed review.
+- Visual role
+  - Evidence-first analytical row.
+- Placement
+  - Inside signal list.
+- Layout
+  - Top: signal label and category badge.
+  - Middle: evidence snippet.
+  - Bottom: metadata cells and confidence.
+- Sizing
+  - Min height 96px; expand only as needed.
+- Spacing
+  - 10px to 12px padding.
+- Typography
+  - Label strong, evidence regular, metadata muted.
+- Color and surface treatment
+  - Category-tinted dark fill.
+- Border and elevation
+  - Low border, selected accent edge.
+- Data visualization treatment
+  - Confidence can be shown as small bar or labeled pill.
+- States
+  - Hover/selected/focus as above.
+- Empty/no-data behavior
+  - Signal row should not render without evidence snippet unless marked unavailable.
+- Responsive behavior
+  - Metadata wraps into two or more lines on mobile.
+- Accessibility notes
+  - Include signal category and confidence as text.
+
+## Signal Category Badges
+- Purpose
+  - Identify signal type: praise themes, pain points, usage occasions, purchase drivers, shopper needs, preferences, routines, co-consumption, complaints, retailer mentions, competitor mentions, comparison mentions.
+- Visual role
+  - Color-coded semantic tags.
+- Placement
+  - Signal rows, detail panels, grouped signal lists.
+- Layout
+  - Badge appears near signal label.
+- Sizing
+  - Height 20px to 24px.
+- Spacing
+  - 6px gap from label.
+- Typography
+  - 10px to 12px semibold.
+- Color and surface treatment
+  - Praise/benefit: teal or green.
+  - Pain/complaint: magenta/red.
+  - Occasion/routine: violet.
+  - Purchase driver/shopper need: cyan.
+  - Retailer/competitor/comparison: amber or blue.
+- Border and elevation
+  - Low accent border and tinted fill.
+- Data visualization treatment
+  - Optional tiny colored dot.
+- States
+  - Hover tooltip can explain category if unfamiliar.
+- Empty/no-data behavior
+  - If category missing, use "Uncategorised signal" muted badge.
+- Responsive behavior
+  - Badge wraps below label when needed.
+- Accessibility notes
+  - Badge text must be explicit; color is secondary.
+
+## Evidence Snippets
+- Purpose
+  - Show the phrase or sentence supporting a tag, theme, or signal.
+- Visual role
+  - Trust anchor for extracted insights.
+- Placement
+  - Signal rows, opportunity cards, gap tables, price checks, recommendation tiles, transcript detail panel.
+- Layout
+  - Inset quote/evidence block with optional source label.
+- Sizing
+  - 2 to 4 lines collapsed; expandable for longer text.
+- Spacing
+  - 10px to 14px padding.
+- Typography
+  - 12px to 14px, line-height 1.55.
+- Color and surface treatment
+  - Inset dark fill; category accent left edge.
+- Border and elevation
+  - Low border, 6px radius, no heavy shadow.
+- Data visualization treatment
+  - None.
+- States
+  - Hover can reveal "View transcript" affordance.
+  - Expanded state increases height and preserves layout width.
+- Empty/no-data behavior
+  - Show "Evidence unavailable" only when source text truly absent.
+- Responsive behavior
+  - Wrap text naturally; no horizontal scroll.
+- Accessibility notes
+  - Do not rely on quotation marks alone; label as evidence where useful.
+
+## Metadata Cells
+- Purpose
+  - Show brand, product, rating, sentiment, purchase intent, primary archetype, and region.
+- Visual role
+  - Compact context grid under evidence.
+- Placement
+  - Signal rows and transcript detail panel.
+- Layout
+  - Inline chips or small grid cells.
+- Sizing
+  - Cell height 24px to 32px.
+- Spacing
+  - 6px to 8px gap.
+- Typography
+  - 11px to 12px; label muted, value primary.
+- Color and surface treatment
+  - Dark inset fill with low border.
+- Border and elevation
+  - 1px border, 4px to 6px radius.
+- Data visualization treatment
+  - Sentiment may use semantic color.
+- States
+  - Hover can show full product/brand if truncated.
+- Empty/no-data behavior
+  - Use "Unknown" or "Unavailable" based on field meaning.
+- Responsive behavior
+  - Wrap into multiple rows.
+- Accessibility notes
+  - Include text labels for each value.
+
+## Confidence Indicators
+- Purpose
+  - Communicate heuristic confidence without implying model certainty.
+- Visual role
+  - Small reliability cue tied to matched phrases and metadata support.
+- Placement
+  - Signal rows, extracted themes, grouped signals.
+- Layout
+  - Label plus numeric score or short bar.
+- Sizing
+  - Indicator height 20px to 28px; bar height 4px to 6px.
+- Spacing
+  - Keep near the signal or theme it describes.
+- Typography
+  - 11px to 12px.
+- Color and surface treatment
+  - High: green or teal.
+  - Medium: cyan or violet.
+  - Low: amber or muted.
+- Border and elevation
+  - If pill, low border with accent tint.
+- Data visualization treatment
+  - Use a short progress bar only if numeric confidence is shown beside it.
+- States
+  - Tooltip explains "deterministic heuristic confidence based on matched phrases".
+- Empty/no-data behavior
+  - If confidence unavailable, show "Confidence not scored".
+- Responsive behavior
+  - Remains inline or wraps under signal label.
+- Accessibility notes
+  - Never label confidence as certainty or probability of truth.
+
+## Transcript Detail Panel
+- Purpose
+  - Show full context for a selected transcript-backed row.
+- Visual role
+  - Right-side intelligence drawer/panel similar to reference supporting boxes.
+- Placement
+  - Beside signal list on desktop; below selected row on mobile.
+- Layout
+  - Header with product/brand, structured product context, reviewer profile, themes/signals, summary, transcript evidence, commercial mini-panel.
+- Sizing
+  - Desktop width 40% to 45% of explorer grid; min width 360px.
+- Spacing
+  - 16px to 20px padding; 12px between blocks.
+- Typography
+  - Product name: 16px to 18px.
+  - Metadata labels: 11px to 12px.
+  - Body/evidence: 13px to 14px.
+- Color and surface treatment
+  - Raised dark panel with subtle cyan/violet tint.
+- Border and elevation
+  - 1px border, 8px radius, soft shadow.
+- Data visualization treatment
+  - Mini rate bars may be used in commercial context box.
+- States
+  - Empty selection: show prompt to select a signal.
+  - Loading selection: skeleton blocks.
+- Empty/no-data behavior
+  - Missing transcript text shows "Transcript unavailable" and hides fabricated themes/signals.
+- Responsive behavior
+  - Full width on mobile, sticky behavior disabled.
+- Accessibility notes
+  - Selection change should move focus appropriately only when user expects it.
+
+## Reviewer Profile Block
+- Purpose
+  - Show primary archetype, age bucket, gender, region, reviewer tags, and reviewer context.
+- Visual role
+  - Human context panel supporting consumer interpretation.
+- Placement
+  - Inside transcript detail panel.
+- Layout
+  - Compact grid of labeled cells plus tag row.
+- Sizing
+  - Cells 28px to 40px high depending content.
+- Spacing
+  - 8px gap between cells and tags.
+- Typography
+  - Label: 11px muted.
+  - Value: 12px to 13px semibold.
+- Color and surface treatment
+  - Dark inset cells, reviewer tags as muted/violet chips.
+- Border and elevation
+  - Low borders, 6px radius.
+- Data visualization treatment
+  - None.
+- States
+  - Hover on truncated tags can reveal full text.
+- Empty/no-data behavior
+  - Use "Unknown" for missing demographics, not blank cells.
+- Responsive behavior
+  - Two columns desktop, one column mobile.
+- Accessibility notes
+  - Demographic fields must be labeled clearly and not overinterpreted.
+
+## Extracted Themes
+- Purpose
+  - Show theme tags such as Taste, Health & Function, Occasion, Mixer & Pairing, Packaging & Format, Value & Availability.
+- Visual role
+  - Compact transcript-backed theme layer.
+- Placement
+  - Transcript detail panel and possibly signal row expansion.
+- Layout
+  - Theme chips with confidence and optional matched keywords.
+- Sizing
+  - Chip height 24px to 30px.
+- Spacing
+  - 6px chip gap.
+- Typography
+  - 11px to 12px semibold.
+- Color and surface treatment
+  - Theme chips use violet/cyan/teal family with low-opacity fills.
+- Border and elevation
+  - Thin accent border.
+- Data visualization treatment
+  - Optional confidence dot or mini bar.
+- States
+  - Hover tooltip reveals matched keywords and evidence snippet.
+- Empty/no-data behavior
+  - Show "No extracted themes" for valid transcript with no matched themes.
+- Responsive behavior
+  - Wrap chips.
+- Accessibility notes
+  - Theme names and confidence labels must be text.
+
+## Grouped Signals by Category
+- Purpose
+  - Organize extracted signals by useful commercial categories.
+- Visual role
+  - Structured evidence map inside transcript detail.
+- Placement
+  - Transcript detail panel.
+- Layout
+  - Category heading, count, signal chips/rows, evidence snippets.
+- Sizing
+  - Category blocks can be compact accordions if many signals exist.
+- Spacing
+  - 10px between categories; 6px between signals.
+- Typography
+  - Category heading 12px to 13px semibold.
+  - Signal text 12px.
+- Color and surface treatment
+  - Each category uses a subtle semantic accent.
+- Border and elevation
+  - Inset block with low border.
+- Data visualization treatment
+  - Counts can appear in small pills.
+- States
+  - Expand/collapse if category has many items.
+- Empty/no-data behavior
+  - Hide empty categories or show "No signals in this category" only when useful.
+- Responsive behavior
+  - Full-width stacked blocks on mobile.
+- Accessibility notes
+  - Accordion controls require expanded/collapsed state labels.
+
+## Transcript Summary Block
+- Purpose
+  - Show the processed summary of the review.
+- Visual role
+  - Short contextual narrative before full evidence.
+- Placement
+  - Transcript detail panel.
+- Layout
+  - Titled text block.
+- Sizing
+  - 2 to 5 lines.
+- Spacing
+  - 12px padding.
+- Typography
+  - 13px to 14px, line-height 1.55.
+- Color and surface treatment
+  - Dark inset fill with low border.
+- Border and elevation
+  - 6px radius, no heavy shadow.
+- Data visualization treatment
+  - None.
+- States
+  - Static.
+- Empty/no-data behavior
+  - Show "No summary available" if missing.
+- Responsive behavior
+  - Full width.
+- Accessibility notes
+  - Keep summary text plain and readable.
+
+## Expanded Transcript/Evidence Block
+- Purpose
+  - Provide full or expanded transcript context for verification.
+- Visual role
+  - Deep evidence surface.
+- Placement
+  - Lower part of transcript detail panel.
+- Layout
+  - Collapsed preview with expand button; expanded full text in scrollable or naturally flowing block.
+- Sizing
+  - Collapsed: 120px to 180px max height.
+  - Expanded: up to 360px with internal scroll if necessary.
+- Spacing
+  - 12px to 14px padding.
+- Typography
+  - 13px to 14px, line-height 1.6.
+- Color and surface treatment
+  - Darkest inset fill, subtle cyan/violet left edge.
+- Border and elevation
+  - Low border, 6px radius.
+- Data visualization treatment
+  - Highlight matched phrases only if implemented accessibly and sparingly.
+- States
+  - Expand/collapse with clear button.
+- Empty/no-data behavior
+  - "Transcript unavailable" state with no theme/signal claims.
+- Responsive behavior
+  - Avoid fixed heights that trap content on mobile.
+- Accessibility notes
+  - Expand button must be keyboard accessible and announce state.
+
+## Commercial Context Mini-Panel
+- Purpose
+  - Connect selected transcript to brand/product/category or price-tier aggregate context.
+- Visual role
+  - Supporting intelligence box inside the transcript detail view.
+- Placement
+  - Transcript detail panel after evidence or before full transcript.
+- Layout
+  - Compact rate rows: brand-level mention rates, product-level rates, category/price-tier comparison.
+- Sizing
+  - 3 to 6 rows, each 28px to 40px high.
+- Spacing
+  - 8px to 10px between rows.
+- Typography
+  - 12px labels and tabular values.
+- Color and surface treatment
+  - Dark inset panel with cyan/green/violet rate accents.
+- Border and elevation
+  - Low border and optional top accent edge.
+- Data visualization treatment
+  - Mini bars for benefit, pain point, occasion, and market context rates.
+- States
+  - Hover tooltip shows count and sample size.
+- Empty/no-data behavior
+  - For catalogue-only or missing aggregate data, show no-evidence state without implying error.
+- Responsive behavior
+  - Full width on mobile.
+- Accessibility notes
+  - Rate values must be textual as well as visual.
+
+# 7. Commercial Context Section
+
+## Commercial Context Section
+- Purpose
+  - Connect transcript evidence with catalogue, retailer, pricing, product-label, and brand intelligence context.
+- Visual role
+  - Main brand-facing analytical workspace.
+- Placement
+  - Third major section or third tab.
+- Layout
+  - Positioning vs Reviewer Reality first, then aggregation tables, price checks, and recommendations.
+- Sizing
+  - Full width.
+- Spacing
+  - 16px to 20px between cards.
+- Typography
+  - Section title 18px to 22px.
+- Color and surface treatment
+  - Dark panel with subtle violet/green/cyan tints.
+- Border and elevation
+  - Low border and soft shadow.
+- Data visualization treatment
+  - Use ranked lists, tables, rate bars, status pills, and evidence snippets.
+- States
+  - Loading skeletons for feature card and tables.
+- Empty/no-data behavior
+  - If commercial layer is missing, show an error/no-data card naming the missing artifact.
+- Responsive behavior
+  - Stack all commercial cards on mobile.
+- Accessibility notes
+  - Keep table semantics and evidence links clear.
+
+## Positioning vs Reviewer Reality Module
+- Purpose
+  - Show where reviewer discussion aligns or misaligns with structured brand/product positioning.
+- Visual role
+  - Centerpiece intelligence feature.
+- Placement
+  - First card in Commercial Context.
+- Layout
+  - Header with feature name and method summary.
+  - Baseline rates by positioning dimension.
+  - Ranked opportunities list.
+  - Broader brand gaps table.
+- Sizing
+  - Full-width card; internal grid can use 2 columns desktop.
+- Spacing
+  - 18px to 20px card padding.
+- Typography
+  - Feature title 16px to 18px.
+  - Method summary 12px to 13px muted.
+  - Status labels 11px to 12px.
+- Color and surface treatment
+  - Dark raised card with controlled violet/cyan gradient tint.
+- Border and elevation
+  - Accent border and faint glow.
+- Data visualization treatment
+  - Baselines use compact horizontal bars.
+  - Deltas use signed pills or small diverging bars.
+- States
+  - Hover on opportunity row highlights related gap table row if implemented.
+  - Selected opportunity can show stronger border.
+- Empty/no-data behavior
+  - If no opportunities exist, show "No positioning gaps detected in processed layer".
+- Responsive behavior
+  - Baselines, ranked list, and table stack vertically on mobile.
+- Accessibility notes
+  - Explain method without overclaiming model certainty.
+
+## Ranked Opportunities List
+- Purpose
+  - Prioritize actionable gaps from `topOpportunities`.
+- Visual role
+  - Recommendation-style list similar to reference intelligence panels.
+- Placement
+  - Inside Positioning vs Reviewer Reality module and What to Investigate Next source logic.
+- Layout
+  - Ranked rows/cards with brand, dimension, status, priority score, key rates, and evidence.
+- Sizing
+  - Row height 72px to 120px.
+- Spacing
+  - 8px to 10px between rows.
+- Typography
+  - Rank number: 12px to 14px semibold.
+  - Brand/dimension: 13px to 15px semibold.
+  - Evidence: 12px to 13px.
+- Color and surface treatment
+  - Dark row fill; top opportunities use violet/cyan accent edge.
+- Border and elevation
+  - 1px border, 6px to 8px radius.
+- Data visualization treatment
+  - Priority score can use a small pill or progress bar.
+- States
+  - Hover row highlight.
+  - Selected row accent border.
+- Empty/no-data behavior
+  - Calm no-ranked-opportunities message.
+- Responsive behavior
+  - Metrics wrap below rationale on mobile.
+- Accessibility notes
+  - Rank should be text, not only visual ordering.
+
+## Gap Analysis Table
+- Purpose
+  - Show broader `brandGaps` detail behind the positioning feature.
+- Visual role
+  - Dense diagnostic table.
+- Placement
+  - Inside Positioning vs Reviewer Reality module.
+- Layout
+  - Columns: Brand, Dimension, Status, Review count, Product count, Structured positioning score, Reviewer mention count, Reviewer mention rate, Reviewed category baseline rate, Delta versus structured positioning, Delta versus reviewed category, Priority score, Evidence snippet.
+- Sizing
+  - Header row 36px to 40px.
+  - Body row 56px to 84px depending evidence.
+- Spacing
+  - Compact cell padding.
+- Typography
+  - Header: 11px muted semibold.
+  - Body: 12px to 13px.
+- Color and surface treatment
+  - Dark table, subtle row striping, status-tinted cells.
+- Border and elevation
+  - Thin row dividers and outer border.
+- Data visualization treatment
+  - Delta cells use signed numeric pills.
+  - Mention rates can use mini bars.
+- States
+  - Hover row fill and focusable row if selectable.
+- Empty/no-data behavior
+  - Show no gap rows state.
+- Responsive behavior
+  - Horizontal scroll on mobile; do not squeeze columns unreadably.
+- Accessibility notes
+  - Evidence snippets should remain readable and not only available in tooltip.
+
+## Commercial Aggregation Tables
+- Purpose
+  - Compare grouped views: by product, brand, retailer, category, rating band, price tier, market maturity, packaging type, and product label.
+- Visual role
+  - Operational comparison layer.
+- Placement
+  - Commercial Context Card 2.
+- Layout
+  - Use tabs or segmented controls for group views, with one table visible at a time.
+- Sizing
+  - Table panel full width; row height 44px to 64px.
+- Spacing
+  - 12px between group controls and table.
+- Typography
+  - Header 11px to 12px, body 12px to 13px.
+- Color and surface treatment
+  - Dark table panel with cyan/violet active group control.
+- Border and elevation
+  - Low border, radius 8px.
+- Data visualization treatment
+  - Rate columns can include inline bars.
+  - Sentiment shares use green, amber, red semantics.
+- States
+  - Active group tab selected.
+  - Hover row highlight.
+  - Disabled group if source data missing.
+- Empty/no-data behavior
+  - Show no rows for that grouping with artifact/context label.
+- Responsive behavior
+  - Group controls horizontally scroll; table horizontally scrolls.
+- Accessibility notes
+  - Group tabs must be keyboard accessible.
+
+## Aggregation Tables
+- Purpose
+  - Present group name, product count, reviewed product count, review count, average rating, would-buy-after-trying rate, positive sentiment share, negative/mixed sentiment share, benefit rate, pain point rate, occasion rate, market context rate.
+- Visual role
+  - Dense readable analytical tables.
+- Placement
+  - Inside Commercial Aggregation Tables card.
+- Layout
+  - Sticky header if table is tall.
+  - Numeric rates aligned consistently.
+- Sizing
+  - Body row 44px to 64px.
+- Spacing
+  - 10px to 12px cell padding.
+- Typography
+  - Compact, tabular numeric cells.
+- Color and surface treatment
+  - Table body uses `panel-900`, rows `panel-850` on hover.
+- Border and elevation
+  - Thin dividers.
+- Data visualization treatment
+  - Rates use mini bars or percentage pills.
+- States
+  - Hover, selected, focus.
+- Empty/no-data behavior
+  - Show "No rows in this grouping" if grouping is empty.
+- Responsive behavior
+  - Horizontal scroll with visible first column.
+- Accessibility notes
+  - Rates need text labels and values.
+
+## Price and Positioning Check Rows
+- Purpose
+  - Show price-tier and feedback status by brand.
+- Visual role
+  - Risk/support diagnostic rows.
+- Placement
+  - Commercial Context Card 3.
+- Layout
+  - Brand and status left; price/review metrics center; evidence snippet right or below.
+- Sizing
+  - Row height 72px to 112px.
+- Spacing
+  - 12px row padding.
+- Typography
+  - Brand 13px to 15px semibold.
+  - Status badge 11px to 12px.
+  - Metrics 12px to 13px.
+- Color and surface treatment
+  - Supported premium: green/teal accent.
+  - Review friction or feedback risk: amber/red accent.
+  - Catalogue-only pricing context: slate/violet contextual accent.
+- Border and elevation
+  - Low border and subtle accent left edge.
+- Data visualization treatment
+  - Benefit, pain point, and would-buy rates can use tiny bars.
+- States
+  - Hover row highlight and tooltip for price tier counts.
+- Empty/no-data behavior
+  - Catalogue-only rows show context status, not error.
+- Responsive behavior
+  - Evidence moves below metrics on mobile.
+- Accessibility notes
+  - Include status text and evidence text.
+
+## Recommendation Tiles
+- Purpose
+  - Show three supported "What to Investigate Next" recommendations.
+- Visual role
+  - Compact action-oriented intelligence cards.
+- Placement
+  - Commercial Context Card 4.
+- Layout
+  - Tile header with entity and recommendation type; rationale; 2 or 3 metrics; evidence snippet if available.
+- Sizing
+  - Three-column grid desktop; one-column mobile.
+  - Min height 160px to 220px.
+- Spacing
+  - 14px to 18px padding.
+- Typography
+  - Recommendation type: 11px to 12px badge.
+  - Entity: 15px to 17px semibold.
+  - Rationale: 13px.
+  - Metrics: 12px to 14px.
+- Color and surface treatment
+  - Dark raised card with semantic accent edge.
+  - Messaging gap: violet/magenta.
+  - Validated strength: green.
+  - Pain point concentration: red/magenta.
+  - Catalogue-only competitor context: slate/violet.
+  - Pricing check: amber.
+- Border and elevation
+  - Thin border, 8px radius, faint glow only for top priority.
+- Data visualization treatment
+  - Use small metric pills or mini bars, not large charts.
+- States
+  - Hover border brightens if tile can select/filter.
+- Empty/no-data behavior
+  - If fewer than three supported recommendations exist, show only supported tiles and a calm no-more-recommendations note.
+- Responsive behavior
+  - Stack vertically on mobile.
+- Accessibility notes
+  - Do not invent unsupported recommendations. Each tile must include metric/count/status/evidence basis.
+
+# 8. States and Feedback
+
+## Tooltips
+- Purpose
+  - Explain compact metrics, confidence, no-evidence states, deltas, and filter values.
+- Visual role
+  - Subtle contextual help.
+- Placement
+  - On hover/focus for badges, confidence indicators, rate cells, no transcript evidence pills, and truncated labels.
+- Layout
+  - Small floating dark panel with short text.
+- Sizing
+  - Max width 260px to 320px.
+- Spacing
+  - 8px to 10px padding.
+- Typography
+  - 12px to 13px.
+- Color and surface treatment
+  - `panel-850` fill, `text-primary`, low border.
+- Border and elevation
+  - 1px border, soft shadow.
+- Data visualization treatment
+  - Include sample-size text where useful.
+- States
+  - Appears on hover and focus, not only hover.
+- Empty/no-data behavior
+  - Use tooltips to explain no transcript evidence but do not hide core status there.
+- Responsive behavior
+  - On touch, tooltips can become inline help or be omitted if status text is clear.
+- Accessibility notes
+  - Tooltip content should be accessible to keyboard users.
+
+## Dividers
+- Purpose
+  - Separate compact groups without heavy visual clutter.
+- Visual role
+  - Low-contrast structure.
+- Placement
+  - Between header/tabs, card header/body, table sections, detail blocks, and recommendation metrics.
+- Layout
+  - Horizontal rule or 1px border.
+- Sizing
+  - 1px.
+- Spacing
+  - 12px to 16px vertical margin.
+- Typography
+  - Not applicable.
+- Color and surface treatment
+  - `line-700`.
+- Border and elevation
+  - No shadow.
+- Data visualization treatment
+  - Do not use dividers inside dense bars unless needed.
+- States
+  - Static.
+- Empty/no-data behavior
+  - Static.
+- Responsive behavior
+  - Keep dividers simple on mobile.
+- Accessibility notes
+  - Decorative dividers should be ignored by screen readers.
+
+## Loading Skeletons
+- Purpose
+  - Preserve layout while static JSON loads.
+- Visual role
+  - Calm operational loading state.
+- Placement
+  - KPI cards, signal rows, tables, detail panel, commercial modules.
+- Layout
+  - Skeleton blocks match final component dimensions.
+- Sizing
+  - Same approximate height as final content.
+- Spacing
+  - Same spacing as final content.
+- Typography
+  - None.
+- Color and surface treatment
+  - Dark slate skeleton with low-opacity shimmer or pulse.
+- Border and elevation
+  - Same card borders, no bright accents.
+- Data visualization treatment
+  - Skeleton bars for progress/rate rows.
+- States
+  - Loading only; no interaction.
+- Empty/no-data behavior
+  - Loading should resolve to data, empty, or error states.
+- Responsive behavior
+  - Skeletons follow responsive grid behavior.
+- Accessibility notes
+  - Mark containers as busy where appropriate.
+
+## Empty States
+- Purpose
+  - Explain no matching rows, no recommendations, or no extracted signals.
+- Visual role
+  - Calm guidance state, not warning.
+- Placement
+  - Signal list, tables, recommendation area, extracted themes/signals.
+- Layout
+  - Short heading, one-line explanation, optional reset action.
+- Sizing
+  - Fill the relevant panel slot.
+- Spacing
+  - Same padding as populated card.
+- Typography
+  - Heading 13px to 15px semibold; body 12px to 13px muted.
+- Color and surface treatment
+  - Dark inset fill, muted text, dashed border.
+- Border and elevation
+  - Dashed low-contrast border, no glow.
+- Data visualization treatment
+  - No chart placeholders unless a chart normally appears there.
+- States
+  - Reset filter action uses compact pill button.
+- Empty/no-data behavior
+  - This component is the empty behavior.
+- Responsive behavior
+  - Full width.
+- Accessibility notes
+  - Explain whether no data is due to filters, missing transcript text, or missing artifact.
+
+## No-Data States
+- Purpose
+  - Represent absent transcript evidence or unavailable computed fields.
+- Visual role
+  - Neutral data-state language.
+- Placement
+  - Table cells, signal rows, detail panels, commercial context metrics.
+- Layout
+  - Inline pill or small message.
+- Sizing
+  - Fit the parent component.
+- Spacing
+  - Align to surrounding content.
+- Typography
+  - 11px to 12px muted.
+- Color and surface treatment
+  - Slate fill, muted text.
+- Border and elevation
+  - Dashed or low border.
+- Data visualization treatment
+  - Do not show zero-value colored charts for missing transcript-backed metrics.
+- States
+  - Tooltip may clarify.
+- Empty/no-data behavior
+  - Use explicit wording: "No transcript evidence", "Transcript unavailable", "Metric unavailable".
+- Responsive behavior
+  - Shorten to "No evidence" if space-constrained, with full accessible label.
+- Accessibility notes
+  - Distinguish true zero from missing or not applicable.
+
+## Error States
+- Purpose
+  - Communicate loading or data artifact failures.
+- Visual role
+  - Controlled alert inside the dashboard, not a raw stack trace.
+- Placement
+  - App shell or affected section/card.
+- Layout
+  - Error title, short message, artifact name if known, retry/reload action if implemented.
+- Sizing
+  - Card-sized panel.
+- Spacing
+  - 16px to 20px padding.
+- Typography
+  - Title 15px to 17px semibold; body 13px.
+- Color and surface treatment
+  - Dark red/amber tinted panel, not saturated full-red background.
+- Border and elevation
+  - Amber/red low-opacity border.
+- Data visualization treatment
+  - None.
+- States
+  - Retry button hover/focus states.
+- Empty/no-data behavior
+  - Error is distinct from empty: use only when artifact fails or data cannot parse.
+- Responsive behavior
+  - Full width on mobile.
+- Accessibility notes
+  - Use appropriate alert semantics for critical load failures.
+
+## Footer/Help Text
+- Purpose
+  - Provide small implementation or data caveat notes if needed.
+- Visual role
+  - Secondary context, not a marketing footer.
+- Placement
+  - Bottom of app shell or section footers.
+- Layout
+  - One or two compact lines.
+- Sizing
+  - 11px to 12px.
+- Spacing
+  - 24px to 32px above bottom.
+- Typography
+  - Muted text.
+- Color and surface treatment
+  - `text-muted`.
+- Border and elevation
+  - Optional top divider.
+- Data visualization treatment
+  - None.
+- States
+  - Static.
+- Empty/no-data behavior
+  - Can mention static processed JSON and directional insight support.
+- Responsive behavior
+  - Wrap naturally.
+- Accessibility notes
+  - Keep language concise and readable.
+
+## Semantic State Styling
+- Purpose
+  - Ensure domain-specific data states are represented consistently.
+- Visual role
+  - Make reviewed/catalogue-only, sentiment, confidence, and static dataset language visually explicit.
+- Placement
+  - Badges, table cells, cards, filters, detail panels.
+- Layout
+  - Use small pills, labels, accent edges, and explanatory text.
+- Sizing
+  - Semantic badges 22px to 28px high.
+- Spacing
+  - 6px to 8px gap from related labels.
+- Typography
+  - 11px to 12px semibold.
+- Color and surface treatment
+  - Reviewed brand: cyan/teal tint, label "Reviewed brand".
+  - Catalogue-only brand: slate/violet tint, label "Catalogue-only context".
+  - Transcript-backed metric: cyan/teal accent plus sample size.
+  - No transcript evidence: muted slate, dashed border.
+  - Positive sentiment: green tint and label.
+  - Mixed sentiment: amber tint and label.
+  - Negative sentiment: red/magenta tint and label.
+  - High confidence: green/teal.
+  - Medium confidence: cyan/violet.
+  - Low confidence: amber/muted.
+  - Static processed dataset: green status if loaded, but text must say "Processed dataset".
+- Border and elevation
+  - Semantic states use low-opacity borders, not saturated fills.
+- Data visualization treatment
+  - Semantic colors map consistently across charts, bars, badges, and tables.
+- States
+  - Hover may expose explanation but visible text must carry core meaning.
+- Empty/no-data behavior
+  - Catalogue-only is not an error. Missing transcript evidence is not a failure state.
+- Responsive behavior
+  - Labels may shorten visually but retain full accessible text.
+- Accessibility notes
+  - Color must never be the only semantic cue.
+
+# 9. Accessibility and Responsiveness
+
+## Accessibility Requirements
+- Purpose
+  - Keep the dense dashboard usable and understandable.
+- Visual role
+  - Accessibility supports trust and operational clarity.
+- Placement
+  - All components.
+- Layout
+  - DOM order should follow visual order.
+  - Use headings for sections and card groups.
+- Sizing
+  - Interactive controls should have at least 36px height.
+- Spacing
+  - Maintain enough spacing between interactive controls to avoid accidental activation.
+- Typography
+  - Body text 12px minimum.
+  - Evidence text 12px to 14px with comfortable line-height.
+- Color and surface treatment
+  - Ensure sufficient contrast for text, badges, and controls.
+- Border and elevation
+  - Focus states must be visible on dark surfaces.
+- Data visualization treatment
+  - Every chart/bar must include textual values.
+  - Use legends and direct labels.
+- States
+  - Hover-only information must also be available on focus or inline.
+- Empty/no-data behavior
+  - No-data messages must distinguish unavailable, not applicable, filtered out, and true zero.
+- Responsive behavior
+  - Keyboard navigation order remains logical when layouts stack.
+- Accessibility notes
+  - Avoid presenting deterministic confidence as statistical certainty.
+  - Avoid implying catalogue-only brands/products are broken.
+
+## Responsive Behavior
+- Purpose
+  - Make the dashboard work from desktop assessment review to smaller laptop and mobile screens.
+- Visual role
+  - Preserve premium density where possible and simplify gracefully where needed.
+- Placement
+  - Global.
+- Layout
+  - Desktop: multi-column panels, KPI grid, side-by-side list/detail.
+  - Tablet: reduce to two-column KPI and stacked major cards.
+  - Mobile: single-column cards, horizontal table scroll, full-width filters.
+- Sizing
+  - Maintain readable minimum widths for tables and controls.
+- Spacing
+  - Reduce outer padding before reducing internal readability.
+- Typography
+  - Use fixed responsive steps, not viewport-scaled type.
+- Color and surface treatment
+  - Same palette at all widths.
+- Border and elevation
+  - Reduce excessive shadows on mobile.
+- Data visualization treatment
+  - Prefer bars and lists over cramped charts on mobile.
+- States
+  - Touch states should be clear and not rely on hover.
+- Empty/no-data behavior
+  - Empty states stack in the same place as their populated components.
+- Responsive behavior
+  - This component defines responsive behavior.
+- Accessibility notes
+  - Touch targets and focus states must remain visible.
+
+# 10. Component Inventory Checklist
+
+The following inventory confirms styling guidance exists for every element named in `dashboard.md`.
+
+- [x] App shell: covered in App Shell.
+- [x] Page background: covered in Page Background.
+- [x] Section containers: covered in Section Containers, Overview Section Container, Consumer Voice Explorer Section, and Commercial Context Section.
+- [x] Card containers: covered in Card Containers and Card Padding Rules.
+- [x] Grid rules: covered in Grid Rules and Breakpoint Rules.
+- [x] Header: covered in Header.
+- [x] Title: covered in Title.
+- [x] Subtitle: covered in Subtitle.
+- [x] Processed dataset badge: covered in Processed Dataset Badge and Semantic State Styling.
+- [x] Dataset summary row: covered in Dataset Summary Row.
+- [x] Tabs: covered in Tabs.
+- [x] Overview: covered in Overview Section Container.
+- [x] KPI cards: covered in KPI Cards.
+- [x] KPI labels: covered in KPI Labels.
+- [x] KPI values: covered in KPI Values.
+- [x] KPI sample-size labels: covered in KPI Sample-Size Labels.
+- [x] Transcript Coverage KPI: covered in KPI Cards.
+- [x] Average Rating KPI: covered in KPI Cards.
+- [x] Would Buy After Trying KPI: covered in KPI Cards.
+- [x] Positive Sentiment Share KPI: covered in KPI Cards.
+- [x] Top Benefit Signal KPI: covered in KPI Cards and Label Chips.
+- [x] Top Pain Point Signal KPI: covered in KPI Cards and Label Chips.
+- [x] Consumer Signal Distribution: covered in Consumer Signal Distribution.
+- [x] Signal distribution bars: covered in Signal Distribution Bars.
+- [x] Mention rates for benefits, pain points, occasions, and market context: covered in Consumer Signal Distribution and Signal Distribution Bars.
+- [x] Top benefit, pain point, occasion, and market-context labels: covered in Label Chips.
+- [x] Brand Signal Comparison: covered in Brand Comparison Table.
+- [x] Brand comparison table columns: covered in Brand Comparison Table.
+- [x] Reviewed brand state: covered in Semantic State Styling.
+- [x] Catalogue-only brand state: covered in Semantic State Styling.
+- [x] No transcript evidence state: covered in No Transcript Evidence State and No-Data States.
+- [x] Commercial Opportunity Signal: covered in Commercial Opportunity Signal.
+- [x] Opportunity brand, dimension, status, review count, scores, rates, deltas, and evidence: covered in Commercial Opportunity Signal.
+- [x] Analyst note block: covered in Analyst Note Block.
+- [x] Consumer Voice Explorer: covered in Consumer Voice Explorer Section.
+- [x] Filter bar: covered in Filter Bar.
+- [x] Brand filter: covered in Dropdowns and Filter Bar.
+- [x] Subcategory filter: covered in Dropdowns and Filter Bar.
+- [x] Retailer availability filter: covered in Dropdowns and Filter Bar.
+- [x] Signal category filter: covered in Dropdowns, Pills, and Signal Category Badges.
+- [x] Theme filter: covered in Dropdowns and Extracted Themes.
+- [x] Sentiment filter: covered in Dropdowns and Semantic State Styling.
+- [x] Rating band filter: covered in Dropdowns.
+- [x] Search transcript text input: covered in Search Input.
+- [x] Signal list: covered in Signal List.
+- [x] Signal rows: covered in Signal Rows.
+- [x] Signal label: covered in Signal Rows.
+- [x] Signal category badge: covered in Signal Category Badges.
+- [x] Evidence snippet: covered in Evidence Snippets.
+- [x] Brand/product/rating/sentiment/purchase intent/reviewer metadata cells: covered in Metadata Cells.
+- [x] Confidence labels and numeric confidence: covered in Confidence Indicators.
+- [x] Transcript detail panel: covered in Transcript Detail Panel.
+- [x] Product name and brand detail: covered in Transcript Detail Panel.
+- [x] Subcategory, price, price tier, market maturity, retailer availability: covered in Transcript Detail Panel and Metadata Cells.
+- [x] Rating, purchase intent, sentiment, word count: covered in Transcript Detail Panel and Metadata Cells.
+- [x] Reviewer profile block: covered in Reviewer Profile Block.
+- [x] Reviewer context fields: covered in Reviewer Profile Block.
+- [x] Extracted themes: covered in Extracted Themes.
+- [x] Extracted signals grouped by category: covered in Grouped Signals by Category.
+- [x] Transcript summary block: covered in Transcript Summary Block.
+- [x] Full or expanded transcript/evidence block: covered in Expanded Transcript/Evidence Block.
+- [x] Commercial context mini-panel: covered in Commercial Context Mini-Panel.
+- [x] Commercial Context: covered in Commercial Context Section.
+- [x] Positioning vs Reviewer Reality module: covered in Positioning vs Reviewer Reality Module.
+- [x] Feature name and method summary: covered in Positioning vs Reviewer Reality Module.
+- [x] Baseline rates by positioning dimension: covered in Positioning vs Reviewer Reality Module.
+- [x] Ranked opportunities list: covered in Ranked Opportunities List.
+- [x] Gap analysis table: covered in Gap Analysis Table.
+- [x] Supported positioning statuses: covered in Positioning vs Reviewer Reality Module, Gap Analysis Table, and Semantic State Styling.
+- [x] Commercial aggregation tables: covered in Commercial Aggregation Tables and Aggregation Tables.
+- [x] Grouped views by product, brand, retailer, category, rating band, price tier, market maturity, packaging type, and product label: covered in Commercial Aggregation Tables.
+- [x] Aggregation table metrics: covered in Aggregation Tables.
+- [x] Price and positioning checks: covered in Price and Positioning Check Rows.
+- [x] Price check row fields and statuses: covered in Price and Positioning Check Rows.
+- [x] What to Investigate Next: covered in Recommendation Tiles.
+- [x] Recommendation tiles: covered in Recommendation Tiles.
+- [x] Recommendation types: covered in Recommendation Tiles.
+- [x] Tooltips: covered in Tooltips.
+- [x] Dividers: covered in Dividers.
+- [x] Loading skeletons: covered in Loading Skeletons.
+- [x] Empty states: covered in Empty States.
+- [x] No-data states: covered in No-Data States.
+- [x] Error states: covered in Error States.
+- [x] Footer/help text if applicable: covered in Footer/Help Text.
+- [x] Reviewed brand semantic styling: covered in Semantic State Styling.
+- [x] Catalogue-only brand semantic styling: covered in Semantic State Styling.
+- [x] Transcript-backed metric semantic styling: covered in Semantic State Styling.
+- [x] Positive sentiment semantic styling: covered in Semantic State Styling.
+- [x] Mixed sentiment semantic styling: covered in Semantic State Styling.
+- [x] Negative sentiment semantic styling: covered in Semantic State Styling.
+- [x] Confidence level semantic styling: covered in Confidence Indicators and Semantic State Styling.
+- [x] Static processed dataset language vs live app language: covered in Processed Dataset Badge and Semantic State Styling.
