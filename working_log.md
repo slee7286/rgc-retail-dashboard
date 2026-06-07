@@ -198,5 +198,3 @@ At the same time, I iterated the following to refine signals:
 **Decision:** Treat live deployment setup as part of the core build, not a final polish step. Prioritize getting the Docker + Caddy + domain path working so the app can be deployed to a VPS.  
 **Why:** A public hosted URL is a required deliverable.  
 **Next:** Write up README.md and Submission Notes
-
-### 12:10
