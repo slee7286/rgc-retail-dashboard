@@ -2,7 +2,7 @@
 
 ## What I Built
 
-I built a hosted single-page dashboard for the RGC assessment dataset. The goal is to help a brand, product, retail, or insights team understand what consumers are saying, how those signals connect to product and brand positioning, and what commercial tensions are worth investigating.
+I built a hosted single-page, three section dashboard for the RGC assessment dataset. The goal is to help a brand, product, retail, or insights team understand what consumers are saying, how those signals connect to product and brand positioning, and what commercial tensions are worth investigating.
 
 The app has three main sections:
 
@@ -40,7 +40,7 @@ It then creates:
 
 Transcript enrichment is deterministic and explainable. Signals are generated from keyword/phrase rules across themes such as taste, health/function, occasion, mixer/pairing, packaging/format, and value/availability. Suggested signals include positive themes, frustrations, usage occasions, purchase drivers, shopper needs, product preferences, routines, co-consumption habits, complaints, retailer mentions, competitor mentions, and comparison mentions.
 
-Every suggested signal shown in the UI includes an evidence snippet. Confidence labels are lightweight heuristic scores based on matched phrases and supporting review metadata. They are not model certainty.
+Every suggested signal shown in the UI includes an evidence snippet. Confidence labels are lightweight heuristic scores based on matched phrases and supporting review metadata. They are not model certainty, nor should they be taken as absolution confidence measures. They are simply a gauge for confidence based on how much evidence is available.
 
 ## Key Data Relationships And Insights
 
@@ -76,7 +76,7 @@ The current signal extraction is useful but imperfect. Some transcript language 
 
 I used Codex as a coding and writing assistant during the assessment. I used it to help implement the preprocessing pipeline, React/Tailwind UI, documentation, and final polish. I directed the architecture, scope, feature choices, data assumptions, and commercial framing based on the brief and exploratory data review.
 
-I also used AI assistance when shaping the transcript signal taxonomy and UI style direction. The final extraction logic is deterministic code in `scripts/preprocess.py`, not runtime model inference.
+I also used AI assistance when shaping the transcript signals and UI style direction. The final extraction logic is deterministic code in `scripts/preprocess.py`, not runtime model inference.
 
 I verified the output through:
 
@@ -90,13 +90,21 @@ I verified the output through:
 
 ## What I Would Improve With More Time
 
-I would add a better signal QA loop. The current rules are transparent, but I would create a small labelled validation set and measure false positives/false negatives for each signal family.
+I would add a better signal QA loop. The current rules are transparent, but I would create a small labelled validation set and measure false positives/false negatives for each signal family. This will refine signals and make generating conclusions from signals easier.
 
-I would add stronger sentiment mapping at signal level. Right now signals are grouped commercially, but a richer version could distinguish positive taste mentions from negative taste mentions more precisely.
+I would improve current bugs in the web app design, such as the CSS error of hover notes being obscured by other elements. I would also improve other styling elements.
+
+I would add stronger sentiment mapping at signal level. Right now signals are grouped commercially, but a richer version could distinguish positive taste mentions from negative taste mentions more precisely. Another option is to implement NLP sentiment analysis using vector embeddings and LLMs/neural networks.
+
+I would add more complex UI features such as live data experience, authentication, user accounts, saved workflows, export flows, editable dashboards, momentum chart, interactive geospatial maps and graphs, and more visual aspects that makes the dashboard feel more complete and easier to interpret.
 
 I would add time-series analysis only if the data supports it. The current dataset has dates, but not enough validated temporal structure to justify a real momentum chart.
 
+I would incorporate other data for the brands, including the Breakthrough Score, Momentum Score, Popularity Score, Archetype, and social media handles. More time will allow me to do a more comprehensive analysis of these three overarching scores compared to the individual transcript and product data.
+
 I would improve product and brand drilldowns. A next version could include dedicated brand/product pages, but I kept the assessment app single-page to reduce routing and deployment complexity.
+
+I would include more complex mappings between transcript/user signals with product, retail, brand, and category intelligence.
 
 I would add richer retailer context if more data were available. Useful additions would include retailer-specific distribution, shelf placement, sales velocity, pricing history, promotion activity, and review volume by retailer.
 

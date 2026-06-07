@@ -1,4 +1,4 @@
-dashboard.vpsdomain.co.uk {
+:80 {
     handle /api/* {
         reverse_proxy backend:5000
     }

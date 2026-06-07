@@ -176,11 +176,11 @@ At the same time, I iterated the following to refine signals:
 
 
 ### 04:20
-**Objective:** Pause with a concrete restart plan
-**What I did:** Wrote a short checklist for the morning: finish app views, clean up UI with CSS, wire filters, add evidence panel, deploy, prepare submission notes, and continue writing up the working log.
-**Observations:** The highest risk is spending too long polishing visuals instead of reaching hosted completion.
-**Decision:** Tomorrow morning is for app assembly and deployment first; polish only after live URL exists.
-**Why:** Hosted working app is the core deliverable.
+**Objective:** Pause with a concrete restart plan  
+**What I did:** Wrote a short checklist for the morning: finish app views, clean up UI with CSS, wire filters, add evidence panel, deploy, prepare submission notes, and continue writing up the working log.  
+**Observations:** The highest risk is spending too long polishing visuals instead of reaching hosted completion.  
+**Decision:** Tomorrow morning is for app assembly and deployment first; polish only after live URL exists.  
+**Why:** Hosted working app is the core deliverable.  
 **Next:** Resume with fresh eyes and build the UI.
 
 ### 10:00
@@ -198,3 +198,5 @@ At the same time, I iterated the following to refine signals:
 **Decision:** Treat live deployment setup as part of the core build, not a final polish step. Prioritize getting the Docker + Caddy + domain path working so the app can be deployed to a VPS.  
 **Why:** A public hosted URL is a required deliverable.  
 **Next:** Write up README.md and Submission Notes
+
+Wrote up README.md and Submission Notes

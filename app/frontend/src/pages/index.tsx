@@ -54,6 +54,36 @@ const BTS_NOTE =
 const DELTA_CATEGORY_NOTE =
   "Reviewer mention rate minus the reviewed-category baseline for the same positioning dimension. Positive means the brand over-indexes versus reviewed category context; negative means it under-indexes.";
 
+const COLUMN_NOTES: Record<string, string> = {
+  "Avg Price": "Average product price for the brand or group, calculated from catalogue product metadata.",
+  "Avg Rating": "Average reviewer rating for linked transcript-backed reviews. Shows no data when the group has no review evidence.",
+  Baseline: "Reviewed-category baseline rate for the same positioning dimension across transcript-backed reviews.",
+  Brand: "Brand name from the joined product and brand data.",
+  BTS: BTS_NOTE,
+  "Delta vs Category": DELTA_CATEGORY_NOTE,
+  "Delta vs Positioning": DELTA_POSITIONING_NOTE,
+  Dimension: "Positioning dimension being compared, such as low sugar, health/function, adult serve, or taste and refreshment.",
+  Evidence: "Transcript snippet or supporting evidence behind the row. Catalogue-only rows may have no transcript evidence.",
+  Frustrations: "Share of transcript-backed reviews mentioning frustration or complaint signals.",
+  Group: "Current aggregation group, such as brand, product, retailer, category, price tier, market maturity, packaging type, or product label.",
+  Market: "Share of transcript-backed reviews mentioning retailer, competitor, comparison, or market-context signals.",
+  Mentions: "Raw count of transcript-backed reviews that mention the mapped signal for this dimension.",
+  "Neg/Mixed": "Share of transcript-backed reviews with negative or mixed sentiment.",
+  Occasion: "Share of transcript-backed reviews mentioning usage occasions, routines, or co-consumption habits.",
+  Positive: "Share of transcript-backed reviews mentioning positive commercial signals such as praise, purchase drivers, shopper needs, or preferences.",
+  "Priority score": PRIORITY_SCORE_NOTE,
+  Products: "Number of catalogue products included in this row or group.",
+  Reviewed: "Number of products in the row or group with linked transcript evidence.",
+  "Reviewer Rate": "Share of linked reviews mentioning the mapped signal for the positioning dimension.",
+  Reviews: "Number of linked transcript-backed reviews behind the row or group.",
+  Role: "Whether the brand has transcript-backed evidence or is retained as catalogue-only competitive context.",
+  Status: "Directional interpretation generated from structured positioning, reviewer mention rates, baselines, and coverage.",
+  Structured: "Structured positioning score from product and brand metadata keyword matches for the selected dimension.",
+  Tier: "Dominant catalogue price tier for the brand.",
+  "Tier Mix": "Count of products by price tier within the brand.",
+  "Would Buy": "Share of transcript-backed reviews where the reviewer said they would buy after trying.",
+};
+
 const tabs: ActiveSection[] = ["Overview", "Consumer Voice", "Commercial Context"];
 const implementedTabs: ActiveSection[] = [
   "Overview",
@@ -254,6 +284,21 @@ function InfoNote({ note }: { note: string }) {
   );
 }
 
+function ColumnHeader({ label, note }: { label: string; note?: string }) {
+  const tooltip = note ?? COLUMN_NOTES[label];
+
+  if (!tooltip) {
+    return <>{label}</>;
+  }
+
+  return (
+    <span className="header-with-note">
+      {label}
+      <InfoNote note={tooltip} />
+    </span>
+  );
+}
+
 function RateCell({
   value,
   label,
@@ -414,20 +459,35 @@ function BrandComparisonTable({ brands }: { brands: CommercialBrandGroup[] }) {
       <table className="brand-comparison-table">
         <thead>
           <tr>
-            <th>Brand</th>
-            <th>Role</th>
-            <th>Reviews</th>
-            <th>Positive</th>
-            <th>Frustrations</th>
-            <th>Occasion</th>
-            <th>Market</th>
-            <th>Avg Rating</th>
-            <th>Would Buy</th>
             <th>
-              <span className="header-with-note">
-                BTS
-                <InfoNote note={BTS_NOTE} />
-              </span>
+              <ColumnHeader label="Brand" />
+            </th>
+            <th>
+              <ColumnHeader label="Role" />
+            </th>
+            <th>
+              <ColumnHeader label="Reviews" />
+            </th>
+            <th>
+              <ColumnHeader label="Positive" />
+            </th>
+            <th>
+              <ColumnHeader label="Frustrations" />
+            </th>
+            <th>
+              <ColumnHeader label="Occasion" />
+            </th>
+            <th>
+              <ColumnHeader label="Market" />
+            </th>
+            <th>
+              <ColumnHeader label="Avg Rating" />
+            </th>
+            <th>
+              <ColumnHeader label="Would Buy" />
+            </th>
+            <th>
+              <ColumnHeader label="BTS" />
             </th>
           </tr>
         </thead>
@@ -510,17 +570,39 @@ function CommercialRateTable({
         <table className="aggregation-table">
           <thead>
             <tr>
-              <th>Group</th>
-              <th>Products</th>
-              <th>Reviewed</th>
-              <th>Reviews</th>
-              <th>Avg Rating</th>
-              <th>Would Buy</th>
-              <th>Neg/Mixed</th>
-              <th>Positive</th>
-              <th>Frustrations</th>
-              <th>Occasion</th>
-              <th>Market</th>
+              <th>
+                <ColumnHeader label="Group" />
+              </th>
+              <th>
+                <ColumnHeader label="Products" />
+              </th>
+              <th>
+                <ColumnHeader label="Reviewed" />
+              </th>
+              <th>
+                <ColumnHeader label="Reviews" />
+              </th>
+              <th>
+                <ColumnHeader label="Avg Rating" />
+              </th>
+              <th>
+                <ColumnHeader label="Would Buy" />
+              </th>
+              <th>
+                <ColumnHeader label="Neg/Mixed" />
+              </th>
+              <th>
+                <ColumnHeader label="Positive" />
+              </th>
+              <th>
+                <ColumnHeader label="Frustrations" />
+              </th>
+              <th>
+                <ColumnHeader label="Occasion" />
+              </th>
+              <th>
+                <ColumnHeader label="Market" />
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -594,34 +676,45 @@ function PositioningGapTable({
       <table className="gap-analysis-table">
         <thead>
           <tr>
-            <th>Brand</th>
-            <th>Dimension</th>
-            <th>Status</th>
-            <th>Reviews</th>
-            <th>Products</th>
-            <th>Structured</th>
-            <th>Mentions</th>
-            <th>Reviewer Rate</th>
-            <th>Baseline</th>
             <th>
-              <span className="header-with-note">
-                Delta vs Positioning
-                <InfoNote note={DELTA_POSITIONING_NOTE} />
-              </span>
+              <ColumnHeader label="Brand" />
             </th>
             <th>
-              <span className="header-with-note">
-                Delta vs Category
-                <InfoNote note={DELTA_CATEGORY_NOTE} />
-              </span>
+              <ColumnHeader label="Dimension" />
             </th>
             <th>
-              <span className="header-with-note">
-                Priority score
-                <InfoNote note={PRIORITY_SCORE_NOTE} />
-              </span>
+              <ColumnHeader label="Status" />
             </th>
-            <th>Evidence</th>
+            <th>
+              <ColumnHeader label="Reviews" />
+            </th>
+            <th>
+              <ColumnHeader label="Products" />
+            </th>
+            <th>
+              <ColumnHeader label="Structured" />
+            </th>
+            <th>
+              <ColumnHeader label="Mentions" />
+            </th>
+            <th>
+              <ColumnHeader label="Reviewer Rate" />
+            </th>
+            <th>
+              <ColumnHeader label="Baseline" />
+            </th>
+            <th>
+              <ColumnHeader label="Delta vs Positioning" />
+            </th>
+            <th>
+              <ColumnHeader label="Delta vs Category" />
+            </th>
+            <th>
+              <ColumnHeader label="Priority score" />
+            </th>
+            <th>
+              <ColumnHeader label="Evidence" />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -687,17 +780,39 @@ function PriceCheckTable({ checks }: { checks: PricePositioningCheck[] }) {
       <table className="price-check-table">
         <thead>
           <tr>
-            <th>Brand</th>
-            <th>Status</th>
-            <th>Tier</th>
-            <th>Tier Mix</th>
-            <th>Products</th>
-            <th>Reviews</th>
-            <th>Avg Price</th>
-            <th>Positive</th>
-            <th>Frustrations</th>
-            <th>Would Buy</th>
-            <th>Evidence</th>
+            <th>
+              <ColumnHeader label="Brand" />
+            </th>
+            <th>
+              <ColumnHeader label="Status" />
+            </th>
+            <th>
+              <ColumnHeader label="Tier" />
+            </th>
+            <th>
+              <ColumnHeader label="Tier Mix" />
+            </th>
+            <th>
+              <ColumnHeader label="Products" />
+            </th>
+            <th>
+              <ColumnHeader label="Reviews" />
+            </th>
+            <th>
+              <ColumnHeader label="Avg Price" />
+            </th>
+            <th>
+              <ColumnHeader label="Positive" />
+            </th>
+            <th>
+              <ColumnHeader label="Frustrations" />
+            </th>
+            <th>
+              <ColumnHeader label="Would Buy" />
+            </th>
+            <th>
+              <ColumnHeader label="Evidence" />
+            </th>
           </tr>
         </thead>
         <tbody>

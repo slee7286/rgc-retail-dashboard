@@ -660,7 +660,7 @@
     position: absolute;
     right: 0;
     bottom: calc(100% + 9px);
-    z-index: 30;
+    z-index: 9999;
     width: min(320px, 72vw);
     pointer-events: none;
     border: 1px solid var(--line-600);
@@ -690,6 +690,7 @@
   .tooltip-note:focus-visible .tooltip-content {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
   }
 
   .status-pill {
