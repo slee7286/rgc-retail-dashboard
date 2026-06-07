@@ -48,6 +48,12 @@ const DELTA_POSITIONING_NOTE =
 const PRIORITY_SCORE_NOTE =
   "Directional ranking score: 60% absolute gap vs positioning plus 40% absolute gap vs reviewed-category baseline, multiplied by sample confidence capped at 20 reviews.";
 
+const BTS_NOTE =
+  "Breakthrough Score from the supplied brand intelligence data. It is structured brand context, not calculated from transcript evidence.";
+
+const DELTA_CATEGORY_NOTE =
+  "Reviewer mention rate minus the reviewed-category baseline for the same positioning dimension. Positive means the brand over-indexes versus reviewed category context; negative means it under-indexes.";
+
 const tabs: ActiveSection[] = ["Overview", "Consumer Voice", "Commercial Context"];
 const implementedTabs: ActiveSection[] = [
   "Overview",
@@ -417,7 +423,12 @@ function BrandComparisonTable({ brands }: { brands: CommercialBrandGroup[] }) {
             <th>Market</th>
             <th>Avg Rating</th>
             <th>Would Buy</th>
-            <th>BTS</th>
+            <th>
+              <span className="header-with-note">
+                BTS
+                <InfoNote note={BTS_NOTE} />
+              </span>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -598,7 +609,12 @@ function PositioningGapTable({
                 <InfoNote note={DELTA_POSITIONING_NOTE} />
               </span>
             </th>
-            <th>Delta Category</th>
+            <th>
+              <span className="header-with-note">
+                Delta vs Category
+                <InfoNote note={DELTA_CATEGORY_NOTE} />
+              </span>
+            </th>
             <th>
               <span className="header-with-note">
                 Priority score
@@ -816,7 +832,12 @@ function CommercialOpportunityCard({
             <dd>{formatPercent(opportunity.deltaVsStructuredPositioning)}</dd>
           </div>
           <div>
-            <dt>Delta vs Category</dt>
+            <dt>
+              <span className="term-with-note">
+                Delta vs Category
+                <InfoNote note={DELTA_CATEGORY_NOTE} />
+              </span>
+            </dt>
             <dd>{formatPercent(opportunity.deltaVsReviewedCategory)}</dd>
           </div>
         </dl>

@@ -113,6 +113,27 @@ The resulting gaps highlight:
 
 This is intended as directional insight support, not statistical proof.
 
+## Run With Docker
+
+From the project root:
+
+```bash
+docker compose up --build
+```
+
+This starts:
+
+- frontend on the internal `3000` service port
+- backend on the internal `5000` service port
+
+Caddy is configured for `dashboard.vpsdomain.co.uk`.
+
+Routes:
+- `/api/*` proxies to the backend container on `backend:5000`
+- all other paths proxy to the frontend container on `frontend:3000`
+
+For local Docker testing, either point that domain to the machine running Docker or temporarily change the Caddy site address to `localhost`.
+
 ## Run Locally
 
 Install and run the frontend:
@@ -137,23 +158,9 @@ npx tsc --noEmit
 npm run build
 ```
 
-## Run With Docker
-
-From the project root:
-
-```bash
-docker compose up --build
-```
-
-This starts:
-
-- frontend on the internal `3000` service port
-- backend on the internal `5000` service port
-- Caddy on host ports `80` and `443`
-
 ## Design System
 
-The interface follows `dashboard_ui.md`: a dense, dark, premium analytics style with compact tabs, low-contrast panels, restrained neon accents, evidence snippets, semantic no-data states, and responsive dashboard grids.
+The interface follows a dense, dark, premium analytics style with compact tabs, low-contrast panels, restrained neon accents, evidence snippets, semantic no-data states, and responsive dashboard grids.
 
 The app avoids fake live-data language. The status badge says `Processed dataset` because the analytics come from static preprocessed JSON.
 
