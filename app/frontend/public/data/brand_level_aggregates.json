@@ -1,0 +1,3374 @@
+[
+  {
+    "brandName": "Fix8",
+    "foundedYear": 2018,
+    "hqCity": "London (1 Duchess Street",
+    "hqCountry": "United Kingdom",
+    "headquartersRaw": "London (1 Duchess Street, London, Greater London), United Kingdom",
+    "description": "Fix8 is a UK-based functional beverage brand focused on naturally fermented, probiotic sparkling drinks. Founded by Freya Twigden, Fix8 produces kombucha and (from 2025) water kefir made with real fruit, science-backed probiotic cultures and added Vitamin C. Products are marketed as low-calorie, plant-based, vegan, gluten-free and with no added sugar. The brand sells canned and bottled drinks through national retailers, online direct-to-consumer, and foodservice accounts.",
+    "industry": "Food & Beverage \u2014 Functional sparkling/probiotic beverages (kombucha, water kefir)",
+    "website": "https://fix8.com",
+    "additionalContext": "this brand is manufacturer of products in these categories: Flavoured Sparkling Water, Sparkling Water, Fizzy Drinks, Soft Drinks, Vinegar Drinks",
+    "instagramHandle": "https://instagram.com/fix8onthis",
+    "linkedinUrl": "https://www.linkedin.com/company/fix8-guthealth",
+    "tiktokHandle": "https://www.tiktok.com/@fix8kombucha",
+    "twitterHandle": "",
+    "youtubeChannelId": "https://www.youtube.com/@Fix8onthis",
+    "breakthroughScore": 29.2666673803081,
+    "momentumScore": 50.8541666666667,
+    "popularityScore": 14.8750000931323,
+    "archetypeAffinity": "Fix8 is primarily positioned as a functional, ingredient-led beverage brand whose kombucha and upcoming water kefir products strongly appeal to health- and ingredient-conscious consumers. The brand\u2019s core strengths\u2014naturally fermented probiotic cultures, no added sugar, Vitamin C, plant-based and gluten-free credentials, real fruit flavours and multi-channel retail/DTC presence\u2014drive high alignment with Wellness Seekers and Thoughtful Buyers, and provide good resonance with Experience Explorers ...",
+    "researchOverallAssessment": "Fix8 is a legitimate, active UK functional beverage brand founded in 2018, specialising in kombucha and expanding into water kefir. Evidence of legitimacy includes an active official website, retailer listings (Waitrose, Morrisons, Ocado, Selfridges), trade press coverage, LinkedIn presence, and noted commercial hires. Recent activity through 2024\u20132025 (national supermarket listings, product launches, and distribution growth) supports an 'active' status with very high confidence. Logo extraction...",
+    "productCount": 6,
+    "reviewedProductCount": 5,
+    "reviewCount": 45,
+    "transcriptCoverageRole": "Reviewed brand",
+    "averageRating": 4.4,
+    "wouldBuyAfterTryingRate": 0.878,
+    "sentimentCounts": {
+      "POSITIVE": 38,
+      "UNKNOWN": 1,
+      "MIXED": 4,
+      "NEUTRAL": 1,
+      "NEGATIVE": 1
+    },
+    "topThemes": [
+      {
+        "theme": "Taste",
+        "count": 42,
+        "shareOfReviews": 0.933,
+        "example": {
+          "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+          "productName": "Strawberry Basil Kombucha",
+          "brand": "Fix8",
+          "snippet": "Not tried kombucha before, so I've no idea what it tastes like, what effect it has apart from I know it's good for the gut health, which I do like the idea of because healthy gut, h..."
+        }
+      },
+      {
+        "theme": "Health & Function",
+        "count": 35,
+        "shareOfReviews": 0.778,
+        "example": {
+          "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+          "productName": "Strawberry Basil Kombucha",
+          "brand": "Fix8",
+          "snippet": "...ect it has apart from I know it's good for the gut health, which I do like the idea of because healthy gut, healthy mind. Can taste the basil. Oh, this is fizzier. Yeah. Definitely tastes more fruitier. But which one's my favor..."
+        }
+      },
+      {
+        "theme": "Occasion",
+        "count": 22,
+        "shareOfReviews": 0.489,
+        "example": {
+          "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+          "productName": "Strawberry Basil Kombucha",
+          "brand": "Fix8",
+          "snippet": "...ier. I can feel it already going down. And this one just I can imagine drinking this on a warm summer's day compared to this, which is more like a lemonade, like a flavored lemonade really. So this one just feels a bit more sp..."
+        }
+      },
+      {
+        "theme": "Value & Availability",
+        "count": 15,
+        "shareOfReviews": 0.333,
+        "example": {
+          "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+          "productName": "Strawberry Basil Kombucha",
+          "brand": "Fix8",
+          "snippet": "...Definitely tastes more fruitier. But which one's my favorite? I'm not actually sure. Let's try again. That's this one. Do you know what? I think it's this one. I think it's got to be fixate because it's sparkling, but it's no..."
+        }
+      },
+      {
+        "theme": "Packaging & Format",
+        "count": 10,
+        "shareOfReviews": 0.222,
+        "example": {
+          "reviewId": "cmoa8u6ds0kf010q3s8k2hj0q",
+          "productName": "Water Kefir Raspberry Lemonade",
+          "brand": "Fix8",
+          "snippet": "... link. So yeah. I'm really excited to try this because I've got track of water one. I like the branding. It's super funky and cool. I like that it's got no added sugar, I guess. I mean, that's not a huge thing for me, but I thin..."
+        }
+      },
+      {
+        "theme": "Mixer & Pairing",
+        "count": 4,
+        "shareOfReviews": 0.089,
+        "example": {
+          "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+          "productName": "Water Kefir Peach & Mango",
+          "brand": "Fix8",
+          "snippet": "...t a sparkling soda that's flavored. I mean, I've never tried one. Just normal, like, soda with vodka lime when you go out. But let's give this one a taste. That's actually not as sodary as I was expecting, is a good thing bec..."
+        }
+      }
+    ],
+    "topSignals": {
+      "praiseThemes": [
+        {
+          "label": "Strong flavour appeal",
+          "count": 27,
+          "shareOfReviews": 0.6,
+          "example": {
+            "reviewId": "cm9wp5i87001zsj4h13e1thtq",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "...s got live cultures. It's plant based, low calorie, and 25% of your daily vitamin c. It tastes really good.",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Good fizz",
+          "count": 24,
+          "shareOfReviews": 0.533,
+          "example": {
+            "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "... this one. Do you know what? I think it's this one. I think it's got to be fixate because it's sparkling, but it's not as fizzy. And this one makes me feel a bit gassier. I can feel it already going down. And this one just I can ...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Refreshing taste",
+          "count": 17,
+          "shareOfReviews": 0.378,
+          "example": {
+            "reviewId": "cmcm14uug00fq3e0uu5ovts1x",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...be good for your gut health. I try the fixate version first of all. Here it goes. That's quite refreshing actually. It's got a little mild sparkle to it and can definitely taste the basil and the strawberry together. It's a good c...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Natural or refined profile",
+          "count": 14,
+          "shareOfReviews": 0.311,
+          "example": {
+            "reviewId": "cmoa8u6ds0kf010q3s8k2hj0q",
+            "productName": "Water Kefir Raspberry Lemonade",
+            "brand": "Fix8",
+            "snippet": "...ggle with the taste and I don't want to get those really artificial ones. I tend to go for the natural one but then I find it a bit sometimes it's a bit salty for me. I have a lot of kombucha. I guess they're a bit more kind of...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Balanced sweetness",
+          "count": 8,
+          "shareOfReviews": 0.178,
+          "example": {
+            "reviewId": "cmcxj7tf4026s2i0v7ndsoy43",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": ".... So I'm gonna give these a go and tell you what I think. So starting off. Really orangey, but not too sweet, which I personally quite enjoy. I'm not a big, big sweet guy. Trying to have less sodas nowadays. So, really orangey, great...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Appealing packaging",
+          "count": 6,
+          "shareOfReviews": 0.133,
+          "example": {
+            "reviewId": "cmoa8u6ds0kf010q3s8k2hj0q",
+            "productName": "Water Kefir Raspberry Lemonade",
+            "brand": "Fix8",
+            "snippet": "... link. So yeah. I'm really excited to try this because I've got track of water one. I like the branding. It's super funky and cool. I like that it's got no added sugar, I guess. I mean, that's not a huge thing for me, but I thin...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "painPoints": [
+        {
+          "label": "Bitter, tart, or sour edge",
+          "count": 11,
+          "shareOfReviews": 0.244,
+          "example": {
+            "reviewId": "cm9wp5i87001zsj4h13e1thtq",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "..., like a sparkling water that has a fruit flavoring. It's really nice. It doesn't have a weird aftertaste or anything like that, So I wouldn't actually know know that it was kombucha if someone just given this to me. Just think it...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Too sweet",
+          "count": 6,
+          "shareOfReviews": 0.133,
+          "example": {
+            "reviewId": "cmcxj7tf4026s2i0v7ndsoy43",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "... I'm gonna give these a go and tell you what I think. So starting off. Really orangey, but not too sweet, which I personally quite enjoy. I'm not a big, big sweet guy. Trying to have less sodas nowadays. So, really orangey, great...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Fermented or unusual taste barrier",
+          "count": 6,
+          "shareOfReviews": 0.133,
+          "example": {
+            "reviewId": "cme1b7i3c00f6yku4yj9fp9zt",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...first, I'm starting off with the remedy kombucha. That was very fizzy. Okay. So it's more of a vinegary kombucha. It's not overpowering though. It's, it really tastes like the, Twining strawberry glow tea, which is a great thing...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Not a repeat purchase",
+          "count": 1,
+          "shareOfReviews": 0.022,
+          "example": {
+            "reviewId": "cmdis122i0065400vg5qq9ide",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "... initially, I prefer this one less syrupy or acidic y berry. However, the stevia aftertaste is not the one for me. This one, initially, I don't like the taste quite as much because it's a little bit sweeter as opposed to sharp. How...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Weak or subtle flavour",
+          "count": 1,
+          "shareOfReviews": 0.022,
+          "example": {
+            "reviewId": "cma7do9ih00ssgtv0xj0jmnpx",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...system, and contains some life cultures. This drink is light sparkling, and it's it has a very light taste, which can be paired with a lot of food. You can have it with snacks. You know? I would definitely recommend this. It tastes...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "usageOccasions": [
+        {
+          "label": "Health routine",
+          "count": 28,
+          "shareOfReviews": 0.622,
+          "example": {
+            "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...e, so I've no idea what it tastes like, what effect it has apart from I know it's good for the gut health, which I do like the idea of because healthy gut, healthy mind. Can taste the basil. Oh, this is fizzier. Yeah. Defin...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Workday or lunch break",
+          "count": 10,
+          "shareOfReviews": 0.222,
+          "example": {
+            "reviewId": "cmfcojae200uc1hjs80dtk8un",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "Let me tell you my little secret. When I'm working out, it makes me feel revitalized and reenergized as all the workouts, we need to do some warm up and then workout. Let's wo...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Mixer with spirits",
+          "count": 4,
+          "shareOfReviews": 0.089,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...t a sparkling soda that's flavored. I mean, I've never tried one. Just normal, like, soda with vodka lime when you go out. But let's give this one a taste. That's actually not as sodary as I was expecting, is a good thing bec...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Social occasion",
+          "count": 2,
+          "shareOfReviews": 0.044,
+          "example": {
+            "reviewId": "cmfboykdh00fh1hjsfnhbrt7v",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...fewer calories, so no need to worry about the nasties. Such drink is perfect for a warm day, a party with friends, or even a summer barbecue.",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Relaxation or wind-down",
+          "count": 2,
+          "shareOfReviews": 0.044,
+          "example": {
+            "reviewId": "cmb85m0m000852838uxzeh1q0",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...ul city and now I've come out of the hustle and bustle, found us somewhere to sit and I'm just relaxing by the minster which you can see behind me. I thought this would be a perfect place to try strawberry and basil kombucha ...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "purchaseDrivers": [
+        {
+          "label": "Health and functional benefits",
+          "count": 31,
+          "shareOfReviews": 0.689,
+          "example": {
+            "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...e, so I've no idea what it tastes like, what effect it has apart from I know it's good for the gut health, which I do like the idea of because healthy gut, healthy mind. Can taste the basil. Oh, this is fizzier. Yeah. Defin...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Discovery or novelty",
+          "count": 19,
+          "shareOfReviews": 0.422,
+          "example": {
+            "reviewId": "cm9wp5i87001zsj4h13e1thtq",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "... that it's good for gut health. I've got a friend who has a few issues, and she loves it. I've never tried it. So here we go. Do you know what it tastes like? Any other sort of, soda drink, like, that's got flavor in, like a sparkl...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Natural ingredients",
+          "count": 18,
+          "shareOfReviews": 0.4,
+          "example": {
+            "reviewId": "cm9wp5i87001zsj4h13e1thtq",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "...just given this to me. Just think it was a sparkling fruit drink. It's got live cultures. It's plant based, low calorie, and 25% of your daily vitamin c. It tastes really good.",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Taste-led repeat intent",
+          "count": 11,
+          "shareOfReviews": 0.244,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...an peach. It's really nice. I could drink that all day. I think this is something that I could recommend to anyone. It's such nice weather today, so I thought I'd come and enjoy this on my balcony. And I'm gonna sit here for the ...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Low/no sugar proposition",
+          "count": 5,
+          "shareOfReviews": 0.111,
+          "example": {
+            "reviewId": "cmoa8u6ds0kf010q3s8k2hj0q",
+            "productName": "Water Kefir Raspberry Lemonade",
+            "brand": "Fix8",
+            "snippet": "...e got track of water one. I like the branding. It's super funky and cool. I like that it's got no added sugar, I guess. I mean, that's not a huge thing for me, but I think it would be good for me, like, in the afternoon not to have, l...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Premium mixer role",
+          "count": 2,
+          "shareOfReviews": 0.044,
+          "example": {
+            "reviewId": "cmfy77hct00n56il34ktn5y02",
+            "productName": "Ginger Turmeric Kombucha",
+            "brand": "Fix8",
+            "snippet": "... sure, so I thought I would try the Fixate Kombucha Live Sparkling Soda, and this is in flavor gin gin. Gin. I've got gin in the brain. This is ginger and turmeric. So we'll give this a bash when I finish my workout. So I'l...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "shopperNeeds": [
+        {
+          "label": "Gut health support",
+          "count": 43,
+          "shareOfReviews": 0.956,
+          "example": {
+            "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...e, so I've no idea what it tastes like, what effect it has apart from I know it's good for the gut health, which I do like the idea of because healthy gut, healthy mind. Can taste the basil. Oh, this is fizzier. Yeah. Defin...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Health-conscious swap",
+          "count": 8,
+          "shareOfReviews": 0.178,
+          "example": {
+            "reviewId": "cm9wp5i87001zsj4h13e1thtq",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "...ian citrus live sparkling soda. They've got live cultures that support immune health, and it's low calorie. And I think the overall thing about kombucha is that it's good for gut health. I've got a friend who has a few issues, and ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Premium home serve",
+          "count": 3,
+          "shareOfReviews": 0.067,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...t a sparkling soda that's flavored. I mean, I've never tried one. Just normal, like, soda with vodka lime when you go out. But let's give this one a taste. That's actually not as sodary as I was expecting, is a good thing bec...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Convenient single serve",
+          "count": 2,
+          "shareOfReviews": 0.044,
+          "example": {
+            "reviewId": "cmmmd56zi01b42yxdl620cvmy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "... a drink, I thought it was sometimes a little bit easier to incorporate into my day whilst I'm on the go. So I thought I'd give these a try. This peach and mango sounds absolutely delicious, so let's open it up. It smells so good...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Calm or mood support",
+          "count": 2,
+          "shareOfReviews": 0.044,
+          "example": {
+            "reviewId": "cmb85m0m000852838uxzeh1q0",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...ul city and now I've come out of the hustle and bustle, found us somewhere to sit and I'm just relaxing by the minster which you can see behind me. I thought this would be a perfect place to try strawberry and basil kombucha ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Reduce sugar or soft drink dependency",
+          "count": 2,
+          "shareOfReviews": 0.044,
+          "example": {
+            "reviewId": "cmb88zgrt009c2838ggjokxap",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...myself a diet coke. I'm kind of addicted to sodas in general. I'm always trying to drink sodas without sugar. For this huge craving, I really need a sparkling drink. I really wanna cut it. I wanna start drinking coke for loads of dif...",
+            "confidenceLabel": "high"
+          }
+        }
+      ],
+      "productPreferences": [
+        {
+          "label": "Prefers high fizz",
+          "count": 24,
+          "shareOfReviews": 0.533,
+          "example": {
+            "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...? I think it's this one. I think it's got to be fixate because it's sparkling, but it's not as fizzy. And this one makes me feel a bit gassier. I can feel it already going down. And this one just I can imagine drinking this o...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Prefers less sweetness",
+          "count": 8,
+          "shareOfReviews": 0.178,
+          "example": {
+            "reviewId": "cmcxj7tf4026s2i0v7ndsoy43",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": ".... So I'm gonna give these a go and tell you what I think. So starting off. Really orangey, but not too sweet, which I personally quite enjoy. I'm not a big, big sweet guy. Trying to have less sodas nowadays. So, really orangey, great...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Sensitive to fermented notes",
+          "count": 5,
+          "shareOfReviews": 0.111,
+          "example": {
+            "reviewId": "cme1b7i3c00f6yku4yj9fp9zt",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...first, I'm starting off with the remedy kombucha. That was very fizzy. Okay. So it's more of a vinegary kombucha. It's not overpowering though. It's, it really tastes like the, Twining strawberry glow tea, which is a great thing...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers subtle flavour",
+          "count": 5,
+          "shareOfReviews": 0.111,
+          "example": {
+            "reviewId": "cmofrvl43001p0thvxrfs3j5n",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "...d of taste like lemonade. It has a little bit of a hint of that weird kombucha flavor but it's not too strong, which I really do like. I'm going to continue to drink this now as I go through a meeting. I'll update you after I have fin...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers natural taste",
+          "count": 5,
+          "shareOfReviews": 0.111,
+          "example": {
+            "reviewId": "cmmmd56zi01b42yxdl620cvmy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "... So I'm just gonna grab myself a drink. I'm gonna try out the Fix8 New Kefir drinks. These are all natural. They've got nothing in here that is bad for you. They are fermented drinks, they're made with just all natural fruit. I'm g...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers bold flavour",
+          "count": 4,
+          "shareOfReviews": 0.089,
+          "example": {
+            "reviewId": "cmmmd56zi01b42yxdl620cvmy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...t is amazing. The flavor in that is so strong. It's so good. And it's it's got a really lovely strong flavor. Almost like sweet as well, and like it should be full of sugar, but it genuinely isn't full of sugar. It's got no added sug...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "routines": [
+        {
+          "label": "Diet or calorie management",
+          "count": 23,
+          "shareOfReviews": 0.511,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...bout it is that it's bursting with live cultures, great for gut health, and it's really low in calories. Let's have a look at how many there are. So there's about 60 calories in this whole can, and it's better than peach iced te...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Work-from-home refreshment",
+          "count": 8,
+          "shareOfReviews": 0.178,
+          "example": {
+            "reviewId": "cmfcojae200uc1hjs80dtk8un",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "Let me tell you my little secret. When I'm working out, it makes me feel revitalized and reenergized as all the workouts, we need to do some warm up and then workout. Let's wo...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Lunch break drink",
+          "count": 4,
+          "shareOfReviews": 0.089,
+          "example": {
+            "reviewId": "cma11ncee006jsw7adn56znhh",
+            "productName": "Ginger Turmeric Kombucha",
+            "brand": "Fix8",
+            "snippet": "...doctors. Right brilliant ginger, turmeric, kombucha, what a brilliant thing to grab quickly at lunchtime while all the kids are outside. I normally would be teaching, so it's just a nice little treat in the middle of a rather...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Social home drinking",
+          "count": 3,
+          "shareOfReviews": 0.067,
+          "example": {
+            "reviewId": "cmfboykdh00fh1hjsfnhbrt7v",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...ies, so no need to worry about the nasties. Such drink is perfect for a warm day, a party with friends, or even a summer barbecue.",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Evening wind-down",
+          "count": 3,
+          "shareOfReviews": 0.067,
+          "example": {
+            "reviewId": "cmb85m0m000852838uxzeh1q0",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...ul city and now I've come out of the hustle and bustle, found us somewhere to sit and I'm just relaxing by the minster which you can see behind me. I thought this would be a perfect place to try strawberry and basil kombucha by ...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "coConsumptionHabits": [
+        {
+          "label": "Consumed instead of cola/soda",
+          "count": 16,
+          "shareOfReviews": 0.356,
+          "example": {
+            "reviewId": "cm9wp5i87001zsj4h13e1thtq",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "..., so I am interested to see what this is all about. This one is Sicilian citrus live sparkling soda. They've got live cultures that support immune health, and it's low calorie. And I think the overall thing about kombucha is...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Paired with food or treats",
+          "count": 8,
+          "shareOfReviews": 0.178,
+          "example": {
+            "reviewId": "cmn3f3zk9001c57q8mnacxcir",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...e've got this one, which is quite nice. So it'll be going with my strawberries and berries and chocolate. Nice.",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Served with ice or garnish",
+          "count": 4,
+          "shareOfReviews": 0.089,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...arkling soda that's flavored. I mean, I've never tried one. Just normal, like, soda with vodka lime when you go out. But let's give this one a taste. That's actually not as sodary as I was expecting, is a good thing because ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Mixed with vodka",
+          "count": 1,
+          "shareOfReviews": 0.022,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...t a sparkling soda that's flavored. I mean, I've never tried one. Just normal, like, soda with vodka lime when you go out. But let's give this one a taste. That's actually not as sodary as I was expecting, is a good thing bec...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Mixed with gin",
+          "count": 1,
+          "shareOfReviews": 0.022,
+          "example": {
+            "reviewId": "cmfy77hct00n56il34ktn5y02",
+            "productName": "Ginger Turmeric Kombucha",
+            "brand": "Fix8",
+            "snippet": "... sure, so I thought I would try the Fixate Kombucha Live Sparkling Soda, and this is in flavor gin gin. Gin. I've got gin in the brain. This is ginger and turmeric. So we'll give this a bash when I finish my workout. So I'l...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "complaints": [
+        {
+          "label": "Expectation gap",
+          "count": 9,
+          "shareOfReviews": 0.2,
+          "example": {
+            "reviewId": "cmoa8u6ds0kf010q3s8k2hj0q",
+            "productName": "Water Kefir Raspberry Lemonade",
+            "brand": "Fix8",
+            "snippet": "...er sugary flavored drinks. I'm not usually that sort of like fermented smell, I guess. Oh, I'm not sure how I feel about that. I'm kind of torn because on one hand I'm like, I know the fermented stuff tastes different to your no...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Taste rejection",
+          "count": 7,
+          "shareOfReviews": 0.156,
+          "example": {
+            "reviewId": "cmoa8u6ds0kf010q3s8k2hj0q",
+            "productName": "Water Kefir Raspberry Lemonade",
+            "brand": "Fix8",
+            "snippet": "...mal sugary pop. But on the other hand, it is quite a bitter taste. But then I do like it. It's no. It's growing on me. It's growing on me. Differentiation between the cat and so it's like super bright and like, I guess suga...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Format or serve issue",
+          "count": 2,
+          "shareOfReviews": 0.044,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...balcony. And I'm gonna sit here for the rest of the afternoon and drink this. Have a look at a little bit more. So Juicy Peach meets Lush Mango, definitely agree with that. Skipping out early and diving into summer. Well, I have left w...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "retailerMentions": [
+        {
+          "label": "M&S",
+          "count": 1,
+          "shareOfReviews": 0.022,
+          "example": {
+            "reviewId": "cma11ncee006jsw7adn56znhh",
+            "productName": "Ginger Turmeric Kombucha",
+            "brand": "Fix8",
+            "snippet": "... delicious drink than I was expecting. So I started looking for it in the stores and actually, Marks and Spencer do a ginger one that I really like. So I thought, right, I'm gonna try this one with the ginger and turmeric. I started taki...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "competitorMentions": [
+        {
+          "label": "Coca-Cola/Diet Coke",
+          "count": 3,
+          "shareOfReviews": 0.067,
+          "example": {
+            "reviewId": "cmoa8u6ds0kf010q3s8k2hj0q",
+            "productName": "Water Kefir Raspberry Lemonade",
+            "brand": "Fix8",
+            "snippet": "... for me, but I think it would be good for me, like, in the afternoon not to have, like, a diet coke. I'd swap that out. Also, women built, we love love love love. And it sort of matches my nails. So if you're looking for a n...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Remedy Kombucha",
+          "count": 3,
+          "shareOfReviews": 0.067,
+          "example": {
+            "reviewId": "cme1b7i3c00f6yku4yj9fp9zt",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "... the basil though. Basil? Basil. Yeah. Okay. This is definitely more vinegary. It's nice. I do prefer the remedy kombucha. As I've said, think that's just my personal taste. I prefer something a bit sweeter. I have a massive s...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Nexba",
+          "count": 1,
+          "shareOfReviews": 0.022,
+          "example": {
+            "reviewId": "cmcdgfok50026wp0vm20735z2",
+            "productName": "Sicilian Citrus Kombucha",
+            "brand": "Fix8",
+            "snippet": "... It's not too tart. It's not too sweet. It's very, very nice. The next one to try is naturally Nexpa sugar free kombucha mixed berry. There we go. Slightly bigger can. Let's give this one a taste. Oh, as you could tell from m...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "comparisonMentions": [
+        {
+          "label": "Preference or winner language",
+          "count": 13,
+          "shareOfReviews": 0.289,
+          "example": {
+            "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+            "productName": "Water Kefir Peach & Mango",
+            "brand": "Fix8",
+            "snippet": "...'s have a look at how many there are. So there's about 60 calories in this whole can, and it's better than peach iced tea. Much yummier, and it's a super, super summery drink.",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Explicit comparison",
+          "count": 5,
+          "shareOfReviews": 0.111,
+          "example": {
+            "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+            "productName": "Strawberry Basil Kombucha",
+            "brand": "Fix8",
+            "snippet": "...el it already going down. And this one just I can imagine drinking this on a warm summer's day compared to this, which is more like a lemonade, like a flavored lemonade really. So this one just feels a bit more special.",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Alternative or substitute framing",
+          "count": 4,
+          "shareOfReviews": 0.089,
+          "example": {
+            "reviewId": "cma51py2e00ccgtv0985hm5ef",
+            "productName": "Ginger Turmeric Kombucha",
+            "brand": "Fix8",
+            "snippet": "...c. I had a very long day yesterday. Very early start this morning. I'm ready for work now, but instead of my morning cup of tea, I'm gonna try this and see if it perks me up and keeps me going for the day. I know ginger and turmer...",
+            "confidenceLabel": "low"
+          }
+        }
+      ]
+    },
+    "averagePrice": 1.75,
+    "priceRange": {
+      "min": 1.5,
+      "max": 2.0
+    },
+    "priceTiers": [
+      {
+        "name": "premium",
+        "count": 4
+      },
+      {
+        "name": "mid-range",
+        "count": 2
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "Kombucha & Fermented Drinks",
+        "count": 3
+      },
+      {
+        "name": "Functional & Wellness Drinks",
+        "count": 3
+      }
+    ],
+    "retailers": [
+      "Morrisons",
+      "Ocado",
+      "PlanetOrganic",
+      "Tesco",
+      "Waitrose",
+      "Welleasy"
+    ],
+    "labels": [
+      "Citrus",
+      "Exotic",
+      "Glass Bottles",
+      "Highly Carbonated",
+      "Soft Drinks",
+      "Sugar-Free",
+      "Sweet",
+      "Tropical",
+      "Vegan"
+    ],
+    "evidence": [
+      {
+        "reviewId": "cmc6788fz001u4j0wt8n15k5w",
+        "createdAt": "2025-06-21T12:12:16.702Z",
+        "brand": "Fix8",
+        "productName": "Strawberry Basil Kombucha",
+        "reviewerName": "Luna Loud",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Health & Function",
+        "signal": "Good fizz",
+        "confidenceLabel": "high",
+        "snippet": "... this one. Do you know what? I think it's this one. I think it's got to be fixate because it's sparkling, but it's not as fizzy. And this one makes me feel a bit gassier. I can feel it already going down. And this one just I can ..."
+      },
+      {
+        "reviewId": "cm9wp5i87001zsj4h13e1thtq",
+        "createdAt": "2025-04-25T11:16:56.070Z",
+        "brand": "Fix8",
+        "productName": "Sicilian Citrus Kombucha",
+        "reviewerName": "Luan Loud",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Health & Function",
+        "signal": "Good fizz",
+        "confidenceLabel": "medium",
+        "snippet": "...cha before, so I am interested to see what this is all about. This one is Sicilian citrus live sparkling soda. They've got live cultures that support immune health, and it's low calorie. And I think the overall thing about kombuc..."
+      },
+      {
+        "reviewId": "cmmdglaf7000s2fqo26q3ifsy",
+        "createdAt": "2026-03-05T12:45:48.931Z",
+        "brand": "Fix8",
+        "productName": "Water Kefir Peach & Mango",
+        "reviewerName": "Louise Belcher",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Health & Function",
+        "signal": "Good fizz",
+        "confidenceLabel": "medium",
+        "snippet": "Hi, guys. It's Louise. I'm trying the Fix8 Water Kefir Peach and Mango Flavored Live Sparkling Soda. I don't really know what to think about a sparkling soda that's flavored. I mean, I've never tried one. Just normal, l..."
+      },
+      {
+        "reviewId": "cma51py2e00ccgtv0985hm5ef",
+        "createdAt": "2025-05-01T07:30:54.518Z",
+        "brand": "Fix8",
+        "productName": "Ginger Turmeric Kombucha",
+        "reviewerName": "Leni Loud",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Health & Function",
+        "signal": "Strong flavour appeal",
+        "confidenceLabel": "medium",
+        "snippet": "...see if it perks me up and keeps me going for the day. I know ginger and turmeric's meant to be really good for you, so I'm hoping. But, also, I don't know what it's about kombucha, but something just never made me really like it. S..."
+      },
+      {
+        "reviewId": "cmcm14uug00fq3e0uu5ovts1x",
+        "createdAt": "2025-07-02T14:06:00.231Z",
+        "brand": "Fix8",
+        "productName": "Strawberry Basil Kombucha",
+        "reviewerName": "Luna Loud",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Health & Function",
+        "signal": "Refreshing taste",
+        "confidenceLabel": "medium",
+        "snippet": "...be good for your gut health. I try the fixate version first of all. Here it goes. That's quite refreshing actually. It's got a little mild sparkle to it and can definitely taste the basil and the strawberry together. It's a good c..."
+      },
+      {
+        "reviewId": "cmn3f3zk9001c57q8mnacxcir",
+        "createdAt": "2026-03-23T16:46:22.666Z",
+        "brand": "Fix8",
+        "productName": "Strawberry Basil Kombucha",
+        "reviewerName": "Homer Simpson",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Paired with food or treats",
+        "confidenceLabel": "low",
+        "snippet": "...e've got this one, which is quite nice. So it'll be going with my strawberries and berries and chocolate. Nice."
+      }
+    ]
+  },
+  {
+    "brandName": "Double Dutch",
+    "foundedYear": 2015,
+    "hqCity": "London",
+    "hqCountry": "United Kingdom",
+    "headquartersRaw": "London, England, United Kingdom",
+    "description": "Double Dutch is a UK-based premium mixers and tonic brand founded by Dutch twins Joyce and Raissa de Haas. The company develops flavoured sparkling waters, tonic waters, cocktail mixers and sodas using flavour-pairing and molecular gastronomy techniques. Products are designed to enhance spirits (gin, vodka, tequila, rum, cognac) or be enjoyed standalone as non-alcoholic beverages. The brand emphasizes sustainability (B Corp / carbon neutral), flavour innovation, and services both on-trade (hotel...",
+    "industry": "Beverages \u2014 premium mixers, tonics and soft drinks",
+    "website": "https://doubledutchdrinks.com",
+    "additionalContext": "This brand is a manufacturer of products in these categories: Flavoured Sparkling Water, Fizzy Drinks, Sparkling Water, Soft Drinks, Soft Drinks, Cocktail Mixes, Flavoured Alcoholic Beverages, Gin, Liqueurs, Fruit-Flavoured Drinks, Liquor & Spirits, Vinegar Drinks, Melons, Juice, Citrus Fruits, Dried Fruit",
+    "instagramHandle": "https://instagram.com/doubledutchdrinks",
+    "linkedinUrl": "https://www.linkedin.com/company/double-dutch-drinks",
+    "tiktokHandle": "https://www.tiktok.com/@doubledutchdrinks",
+    "twitterHandle": "https://x.com/DoubleDutchMix",
+    "youtubeChannelId": "https://www.youtube.com/channel/UCf0lwYvvOeVLPI9RVpMRHRA",
+    "breakthroughScore": 31.8404421560795,
+    "momentumScore": 49.5073529411765,
+    "popularityScore": 20.062500343658,
+    "archetypeAffinity": "Double Dutch is positioned as a premium, flavour-driven mixer and sparkling beverage brand with clear sustainability credentials (B Corp, carbon neutral) and an experiential, craft-led product philosophy. Its strengths map strongly to Quality Seekers and Experience Explorers who value artisanal production, sophisticated flavour pairing, and on-trade tasting contexts. The Conscious Consumer also aligns well thanks to verified sustainability claims, while Trend Enthusiasts and Thoughtful Buyers sh...",
+    "researchOverallAssessment": "Double Dutch is a legitimate, active premium mixer and tonic brand founded in 2015 by Joyce and Raissa de Haas and headquartered in London, UK. Multiple credible sources (company website, trade press, industry profiles, retail listings) confirm the brand's products, founders, history, and international distribution. Recent press (2025\u20132026) documents new product launches and packaging updates, indicating ongoing growth and market activity. Logo extraction via image search failed due to rate limi...",
+    "productCount": 5,
+    "reviewedProductCount": 5,
+    "reviewCount": 35,
+    "transcriptCoverageRole": "Reviewed brand",
+    "averageRating": 4.11,
+    "wouldBuyAfterTryingRate": 0.8,
+    "sentimentCounts": {
+      "POSITIVE": 30,
+      "NEGATIVE": 1,
+      "NEUTRAL": 3,
+      "MIXED": 1
+    },
+    "topThemes": [
+      {
+        "theme": "Taste",
+        "count": 35,
+        "shareOfReviews": 1.0,
+        "example": {
+          "reviewId": "cml2mat4i00003irxw2c6tq7u",
+          "productName": "Refreshing Lemonade",
+          "brand": "Double Dutch",
+          "snippet": "...nd plain. I thought I'd go with that one because then I really get the flavors rather than the taste of the alcohol. So it's very weak. So let's see. Double Dutch. Schweppes. There we go. I'll try Schweppes first. It's a comm..."
+        }
+      },
+      {
+        "theme": "Mixer & Pairing",
+        "count": 27,
+        "shareOfReviews": 0.771,
+        "example": {
+          "reviewId": "cml2mat4i00003irxw2c6tq7u",
+          "productName": "Refreshing Lemonade",
+          "brand": "Double Dutch",
+          "snippet": "Here is our first one in the head to head mixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We have, fo..."
+        }
+      },
+      {
+        "theme": "Packaging & Format",
+        "count": 27,
+        "shareOfReviews": 0.771,
+        "example": {
+          "reviewId": "cml2mat4i00003irxw2c6tq7u",
+          "productName": "Refreshing Lemonade",
+          "brand": "Double Dutch",
+          "snippet": "...ixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We have, for both, the exact same glass, one shot of vodka, so it's nice and plain. I thought I'd go with tha..."
+        }
+      },
+      {
+        "theme": "Value & Availability",
+        "count": 12,
+        "shareOfReviews": 0.343,
+        "example": {
+          "reviewId": "cmkzow3i9003u4qun5rin2z8n",
+          "productName": "Indian Tonic",
+          "brand": "Double Dutch",
+          "snippet": "... got a favourite. I've seen neither in the shop. I don't know the brands So I'll probably just buy my normal one, the cheapies from the supermarket. I don't know. But if these are on offer when I'm out in the pub or whateve..."
+        }
+      },
+      {
+        "theme": "Occasion",
+        "count": 7,
+        "shareOfReviews": 0.2,
+        "example": {
+          "reviewId": "cmkvibnyj02zbykpap6i9eqpc",
+          "productName": "Ginger Beer",
+          "brand": "Double Dutch",
+          "snippet": "...That's a good sign. Oh spicy. I rate that one a seven out of 10 because it reminds me a lot of home and also the color is just so nice and this smells so nice. That's why when I drink it all together, it's so nice. So far, t..."
+        }
+      },
+      {
+        "theme": "Health & Function",
+        "count": 4,
+        "shareOfReviews": 0.114,
+        "example": {
+          "reviewId": "cmo7c65750h4510q3difyvx45",
+          "productName": "Cucumber & Watermelon",
+          "brand": "Double Dutch",
+          "snippet": "... and watermelon and premium mixer a go. I don't really drink alcohol, and trying to stay extra healthy at the moment. So I'm actually gonna try this on its own and see if it works on its own. I love cucumber and watermelon, I'm..."
+        }
+      }
+    ],
+    "topSignals": {
+      "praiseThemes": [
+        {
+          "label": "Refreshing taste",
+          "count": 22,
+          "shareOfReviews": 0.629,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...ony artificial aftertaste, whereas the Double Dutch doesn't have that. It's got a more natural refreshing refined taste that isn't as strong, but I actually prefer that because it's more gentle and more natural. So I think in roun...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Strong flavour appeal",
+          "count": 19,
+          "shareOfReviews": 0.543,
+          "example": {
+            "reviewId": "cml594h7r0541ykpa9a7ho2lx",
+            "productName": "Cucumber & Watermelon",
+            "brand": "Double Dutch",
+            "snippet": "...o say I think the elderflower makes it a little bit bitter. Oh, the watermelon and cucumber is delicious. Very refreshing and definitely hands down beats the Franklin and Son.",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Appealing packaging",
+          "count": 18,
+          "shareOfReviews": 0.514,
+          "example": {
+            "reviewId": "cml594h7r0541ykpa9a7ho2lx",
+            "productName": "Cucumber & Watermelon",
+            "brand": "Double Dutch",
+            "snippet": "...s that one. And then we've got Double Dutch. They're both 200 mil mixes, and I really like the bottle of the Double Dutch one. Right. And now for the taste test. So this is a Franklin. I can really taste the cucumber in that, ...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Good fizz",
+          "count": 16,
+          "shareOfReviews": 0.457,
+          "example": {
+            "reviewId": "cmkvibnyj02zbykpap6i9eqpc",
+            "productName": "Ginger Beer",
+            "brand": "Double Dutch",
+            "snippet": "So the next one we try, this sparkling ginger beer flavor. I have mixed it with schweppes already, pre poured in a cup. So now I'll just read engineers. Sorry. Now...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Natural or refined profile",
+          "count": 12,
+          "shareOfReviews": 0.343,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...d of lemony artificial aftertaste, whereas the Double Dutch doesn't have that. It's got a more natural refreshing refined taste that isn't as strong, but I actually prefer that because it's more gentle and more natural. So I th...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Balanced sweetness",
+          "count": 1,
+          "shareOfReviews": 0.029,
+          "example": {
+            "reviewId": "cmldxd221002t2dpb1jekbh88",
+            "productName": "Cucumber & Watermelon",
+            "brand": "Double Dutch",
+            "snippet": "...e never tried this one before, so it'd be really interesting to see what we think of this one. Not too sweet at all. I actually think it could be a little bit sweeter. The flavors do come through quite nice, quite light and refreshin...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "painPoints": [
+        {
+          "label": "Bitter, tart, or sour edge",
+          "count": 8,
+          "shareOfReviews": 0.229,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "... This is the first one. Let's see if this one goes just as good. It's different. It's slightly bitter, but not in a bad way. In comparison, it's almost like Schweppes has this kind of lemony artificial aftertaste, whereas the ...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Too sweet",
+          "count": 4,
+          "shareOfReviews": 0.114,
+          "example": {
+            "reviewId": "cmkiodr1e000a2bp541dauffd",
+            "productName": "Indian Tonic",
+            "brand": "Double Dutch",
+            "snippet": "...st like bitter. I think it might have more sugar in or something. Yeah. Just tastes a bit more sugary. I filled them up the same amount. There was a bit more in that one, so there's a little bit left at the bottom. Yeah. Schwe...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Too fizzy",
+          "count": 3,
+          "shareOfReviews": 0.086,
+          "example": {
+            "reviewId": "cml576qni009b2sslhfzkq3ew",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...ixer size. Then a dash of absolute vodka, vanilla. Not a must have found that one. I find it's too fizzy, and that sounds weird. It's too bubbly. It's got a bit of a bitter taste to it. Okay. Yeah, not the one.",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Not a repeat purchase",
+          "count": 1,
+          "shareOfReviews": 0.029,
+          "example": {
+            "reviewId": "cml576qni009b2sslhfzkq3ew",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...y, and that sounds weird. It's too bubbly. It's got a bit of a bitter taste to it. Okay. Yeah, not the one.",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "usageOccasions": [
+        {
+          "label": "Mixer with spirits",
+          "count": 27,
+          "shareOfReviews": 0.771,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "Here is our first one in the head to head mixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We have, fo...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Relaxation or wind-down",
+          "count": 3,
+          "shareOfReviews": 0.086,
+          "example": {
+            "reviewId": "cmlcrkvl200002kt98uwv9o0y",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "Hi, everyone. Abby here, and it is currently the evening. I have had a hectic day. I've just been to the gym, and as it is Saturday night, I thought I'm not going out. The weather's...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Alcohol alternative",
+          "count": 1,
+          "shareOfReviews": 0.029,
+          "example": {
+            "reviewId": "cmoerxkg40ng810q32malu3yx",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "...ing Double Dutch Pink Grapefruit soda. I usually really like these kinds of drinks. Whenever I don't want to drink alcohol, I think it's a nice alternative. It's usually not as sweet as Coca Cola or yeah. It doesn't have caffeine, but it's still a...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Health routine",
+          "count": 1,
+          "shareOfReviews": 0.029,
+          "example": {
+            "reviewId": "cmlcrkvl200002kt98uwv9o0y",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "...ne. Abby here, and it is currently the evening. I have had a hectic day. I've just been to the gym, and as it is Saturday night, I thought I'm not going out. The weather's rubbish outside. It's absolutely pouring rain outsi...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "purchaseDrivers": [
+        {
+          "label": "Premium mixer role",
+          "count": 26,
+          "shareOfReviews": 0.743,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...ixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We have, for both, the exact same glass, one shot of vodka, so it's nice and plain. I thought I'd go with tha...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Discovery or novelty",
+          "count": 4,
+          "shareOfReviews": 0.114,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...now I like it already. Very fresh, very light, very airy, gentle. Let's try Double Dutch. I've never tried any of these yet. This is the first one. Let's see if this one goes just as good. It's different. It's slightly bitter, but ...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "shopperNeeds": [
+        {
+          "label": "Premium home serve",
+          "count": 24,
+          "shareOfReviews": 0.686,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...ixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We have, for both, the exact same glass, one shot of vodka, so it's nice and plain. I thought I'd go with tha...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Convenient single serve",
+          "count": 1,
+          "shareOfReviews": 0.029,
+          "example": {
+            "reviewId": "cml576qni009b2sslhfzkq3ew",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...it. So we're gonna put some lemonade in here. Love the size of these bottles. This is like the perfect mixer size. Then a dash of absolute vodka, vanilla. Not a must have found that one. I find it's too fizzy, and that sounds weird. It's ...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "productPreferences": [
+        {
+          "label": "Prefers high fizz",
+          "count": 14,
+          "shareOfReviews": 0.4,
+          "example": {
+            "reviewId": "cmkvibnyj02zbykpap6i9eqpc",
+            "productName": "Ginger Beer",
+            "brand": "Double Dutch",
+            "snippet": "So the next one we try, this sparkling ginger beer flavor. I have mixed it with schweppes already, pre poured in a cup. So now I'll just read engineers. Sorry. Now...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers bold flavour",
+          "count": 5,
+          "shareOfReviews": 0.143,
+          "example": {
+            "reviewId": "cmkub23zw0000znmj5kp7for4",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "...hink I'd like a little bit more but apart from that, yeah, it's really refreshing. It's really zesty. I really like that. Okay. So next we're gonna go for the Double Dutch. Nice little fizz. Oh it smells absolutely amazing li...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers subtle flavour",
+          "count": 3,
+          "shareOfReviews": 0.086,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...I've drank many flavors of it, so I know I like it already. Very fresh, very light, very airy, gentle. Let's try Double Dutch. I've never tried any of these yet. This is the first one. Let's see if this one goes just as good. ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers less sweetness",
+          "count": 1,
+          "shareOfReviews": 0.029,
+          "example": {
+            "reviewId": "cmldxd221002t2dpb1jekbh88",
+            "productName": "Cucumber & Watermelon",
+            "brand": "Double Dutch",
+            "snippet": "...e never tried this one before, so it'd be really interesting to see what we think of this one. Not too sweet at all. I actually think it could be a little bit sweeter. The flavors do come through quite nice, quite light and refreshin...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "routines": [
+        {
+          "label": "Evening wind-down",
+          "count": 5,
+          "shareOfReviews": 0.143,
+          "example": {
+            "reviewId": "cmoerxkg40ng810q32malu3yx",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "Alright. Tonight, I'm trying Double Dutch Pink Grapefruit soda. I usually really like these kinds of drinks. Whenever I don't want to drink a...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Diet or calorie management",
+          "count": 3,
+          "shareOfReviews": 0.086,
+          "example": {
+            "reviewId": "cmkzbi1ex000v55lvj84vu847",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "... slice of lemon. And then I've got the Double Dutch premium mixer, refreshing lemonade, low in calories. And then I've also got the London Essence crafted lemonade sparkling, and one's in a bottle, one's in a can. I'm not sure i...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "coConsumptionHabits": [
+        {
+          "label": "Served with ice or garnish",
+          "count": 15,
+          "shareOfReviews": 0.429,
+          "example": {
+            "reviewId": "cml594h7r0541ykpa9a7ho2lx",
+            "productName": "Cucumber & Watermelon",
+            "brand": "Double Dutch",
+            "snippet": "...I'm gonna see which I like best, but first of all, let's prepare our glasses. So I've got some ice in here, equal amount of ice, and I'm gonna pour equal amounts of gin. And then let's do the mixer. So as I said, first one'...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Mixed with gin",
+          "count": 12,
+          "shareOfReviews": 0.343,
+          "example": {
+            "reviewId": "cml594h7r0541ykpa9a7ho2lx",
+            "productName": "Cucumber & Watermelon",
+            "brand": "Double Dutch",
+            "snippet": "Hi. One of my favorite drinks is gin, and today I'm quite excited to be doing a head to head mixer challenge with one of my favorite gins, London gin. And elderf...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Consumed instead of cola/soda",
+          "count": 8,
+          "shareOfReviews": 0.229,
+          "example": {
+            "reviewId": "cmoerxkg40ng810q32malu3yx",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "Alright. Tonight, I'm trying Double Dutch Pink Grapefruit soda. I usually really like these kinds of drinks. Whenever I don't want to drink alcohol, I think it's a nice alternative. It's ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Mixed with vodka",
+          "count": 7,
+          "shareOfReviews": 0.2,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "...e our Double Dutch Premium Lemonade here. We have, for both, the exact same glass, one shot of vodka, so it's nice and plain. I thought I'd go with that one because then I really get the flavors rather than the taste of the a...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "complaints": [
+        {
+          "label": "Format or serve issue",
+          "count": 6,
+          "shareOfReviews": 0.171,
+          "example": {
+            "reviewId": "cmkub23zw0000znmj5kp7for4",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "...et and rosy. I really like that. There's not a lot of it in there, 150 mil. I think I'd like a little bit more but apart from that, yeah, it's really refreshing. It's really zesty. I really like that. Okay. So next we're gonna go for t...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Taste rejection",
+          "count": 5,
+          "shareOfReviews": 0.143,
+          "example": {
+            "reviewId": "cmkp9yb4v000w43pcwgbanykn",
+            "productName": "Ginger Beer",
+            "brand": "Double Dutch",
+            "snippet": "...avors apparently, which is quite cool. A glass for each of them and one piece of ice because I don't like too much ice, but a a little bit is okay. This one obviously is a lot more cloudy, and this one is a lot clearer. Very stron...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Expectation gap",
+          "count": 3,
+          "shareOfReviews": 0.086,
+          "example": {
+            "reviewId": "cmoerxkg40ng810q32malu3yx",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "... flavor. It's probably good as a mixer, which is looks like it was designed for. So, yeah, I'm not sure I would go back to this as a stand alone drink because it's it's quite the taste is quite light touch, but I think it it cou...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "retailerMentions": [],
+      "competitorMentions": [
+        {
+          "label": "Schweppes",
+          "count": 7,
+          "shareOfReviews": 0.2,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "Here is our first one in the head to head mixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We ha...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Coca-Cola/Diet Coke",
+          "count": 3,
+          "shareOfReviews": 0.086,
+          "example": {
+            "reviewId": "cmoerxkg40ng810q32malu3yx",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "...r I don't want to drink alcohol, I think it's a nice alternative. It's usually not as sweet as Coca Cola or yeah. It doesn't have caffeine, but it's still a bit more funky than just drinking water. So let's see if this one is als...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Franklin & Sons",
+          "count": 2,
+          "shareOfReviews": 0.057,
+          "example": {
+            "reviewId": "cml594h7r0541ykpa9a7ho2lx",
+            "productName": "Cucumber & Watermelon",
+            "brand": "Double Dutch",
+            "snippet": "...itter. Oh, the watermelon and cucumber is delicious. Very refreshing and definitely hands down beats the Franklin and Son.",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Fever-Tree",
+          "count": 2,
+          "shareOfReviews": 0.057,
+          "example": {
+            "reviewId": "cmkub23zw0000znmj5kp7for4",
+            "productName": "Pink Grapefruit",
+            "brand": "Double Dutch",
+            "snippet": "Hi, guys. Today, I'm testing the Fever Tree Pink Grapefruit Soda, and I'm going to be comparing it to the Double Dutch Pink Grapefruit Mixer. So let's give it a go. Okay. First, the soda. Nice, light, sparkly. The bubble...",
+            "confidenceLabel": "high"
+          }
+        }
+      ],
+      "comparisonMentions": [
+        {
+          "label": "Preference or winner language",
+          "count": 9,
+          "shareOfReviews": 0.257,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "Here is our first one in the head to head mixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We ha...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Explicit comparison",
+          "count": 9,
+          "shareOfReviews": 0.257,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "Here is our first one in the head to head mixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We ha...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Alternative or substitute framing",
+          "count": 4,
+          "shareOfReviews": 0.114,
+          "example": {
+            "reviewId": "cml2mat4i00003irxw2c6tq7u",
+            "productName": "Refreshing Lemonade",
+            "brand": "Double Dutch",
+            "snippet": "Here is our first one in the head to head mixer. We are going for a classic lemonade. We got Schweppes here, and we have our Double Dutch Premium Lemonade here. We ha...",
+            "confidenceLabel": "high"
+          }
+        }
+      ]
+    },
+    "averagePrice": 0.66,
+    "priceRange": {
+      "min": 0.58,
+      "max": 0.72
+    },
+    "priceTiers": [
+      {
+        "name": "premium",
+        "count": 5
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "Tonic Water & Mixers",
+        "count": 2
+      },
+      {
+        "name": "Lemonade & Citrus Drinks",
+        "count": 1
+      },
+      {
+        "name": "Ginger Beer & Ginger Ale",
+        "count": 1
+      },
+      {
+        "name": "Flavoured Sparkling Water",
+        "count": 1
+      }
+    ],
+    "retailers": [
+      "Ocado"
+    ],
+    "labels": [
+      "Herbal and Botanical",
+      "Soft Drinks",
+      "Vegan"
+    ],
+    "evidence": [
+      {
+        "reviewId": "cml2mat4i00003irxw2c6tq7u",
+        "createdAt": "2026-01-31T18:00:27.378Z",
+        "brand": "Double Dutch",
+        "productName": "Refreshing Lemonade",
+        "reviewerName": "Peridot Dot",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Natural or refined profile",
+        "confidenceLabel": "high",
+        "snippet": "...d of lemony artificial aftertaste, whereas the Double Dutch doesn't have that. It's got a more natural refreshing refined taste that isn't as strong, but I actually prefer that because it's more gentle and more natural. So I th..."
+      },
+      {
+        "reviewId": "cmkvibnyj02zbykpap6i9eqpc",
+        "createdAt": "2026-01-26T18:34:45.609Z",
+        "brand": "Double Dutch",
+        "productName": "Ginger Beer",
+        "reviewerName": "Blossom Utonium",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Good fizz",
+        "confidenceLabel": "medium",
+        "snippet": "So the next one we try, this sparkling ginger beer flavor. I have mixed it with schweppes already, pre poured in a cup. So now I'll just read engineers. Sorry. Now..."
+      },
+      {
+        "reviewId": "cmoerxkg40ng810q32malu3yx",
+        "createdAt": "2026-04-25T20:10:28.420Z",
+        "brand": "Double Dutch",
+        "productName": "Pink Grapefruit",
+        "reviewerName": "Usagi Tsukino",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Refreshing taste",
+        "confidenceLabel": "medium",
+        "snippet": "...sure I would go back to this as a stand alone drink because it's it's quite the taste is quite light touch, but I think it it could be a very good mixer."
+      },
+      {
+        "reviewId": "cml594h7r0541ykpa9a7ho2lx",
+        "createdAt": "2026-02-02T14:14:55.528Z",
+        "brand": "Double Dutch",
+        "productName": "Cucumber & Watermelon",
+        "reviewerName": "Lucy Loud",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Appealing packaging",
+        "confidenceLabel": "medium",
+        "snippet": "...s that one. And then we've got Double Dutch. They're both 200 mil mixes, and I really like the bottle of the Double Dutch one. Right. And now for the taste test. So this is a Franklin. I can really taste the cucumber in that, ..."
+      },
+      {
+        "reviewId": "cml576qni009b2sslhfzkq3ew",
+        "createdAt": "2026-02-02T13:20:41.839Z",
+        "brand": "Double Dutch",
+        "productName": "Refreshing Lemonade",
+        "reviewerName": "Phoebe Heyerdahl",
+        "rating": 1.0,
+        "sentiment": "NEGATIVE",
+        "wouldBuyAfterTrying": "No",
+        "theme": "Mixer & Pairing",
+        "signal": "Good fizz",
+        "confidenceLabel": "low",
+        "snippet": "... size. Then a dash of absolute vodka, vanilla. Not a must have found that one. I find it's too fizzy, and that sounds weird. It's too bubbly. It's got a bit of a bitter taste to it. Okay. Yeah, not the one."
+      },
+      {
+        "reviewId": "cmkub23zw0000znmj5kp7for4",
+        "createdAt": "2026-01-25T22:23:36.380Z",
+        "brand": "Double Dutch",
+        "productName": "Pink Grapefruit",
+        "reviewerName": "Kim Possible",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "No",
+        "theme": "Taste",
+        "signal": "Refreshing taste",
+        "confidenceLabel": "high",
+        "snippet": "...t in there, 150 mil. I think I'd like a little bit more but apart from that, yeah, it's really refreshing. It's really zesty. I really like that. Okay. So next we're gonna go for the Double Dutch. Nice little fizz. Oh it smells ab..."
+      }
+    ]
+  },
+  {
+    "brandName": "SKIP",
+    "foundedYear": 2022,
+    "hqCity": "London",
+    "hqCountry": "United Kingdom",
+    "headquartersRaw": "London, United Kingdom",
+    "description": "SKIP is a UK-based functional soft drinks brand producing cold-pressed CBD beverages and Lion's Mane mushroom drinks. The brand emphasises plant-based ingredients, no added sugar and recyclable packaging, positioning itself around doing 'better for you, and the planet.' Products are manufactured in the UK and sold direct-to-consumer. The CBD line uses cold-pressed extraction claimed to be up to 8x more effective than standard CBD isolate, with 5mg active CBD per 250ml can. All drinks are vegan, ...",
+    "industry": "Beverages \u2014 functional CBD & nootropic soft drinks",
+    "website": "https://www.drinkskip.com",
+    "additionalContext": "Product range spans two lines: CBD drinks (Peach & Ginger, Lemon & Basil, Elderflower & Mint) and Lion's Mane drinks (Blood Orange, Cloudy Apple). Sold in 12/24/48-can multipacks at \u00a320/\u00a338/\u00a372. Free delivery on all UK orders. All cans fully recyclable. Plant-based ingredients. Manufactured in the UK.",
+    "instagramHandle": "https://instagram.com/drinkskipuk",
+    "linkedinUrl": "",
+    "tiktokHandle": "https://www.tiktok.com/@drink_skip_uk",
+    "twitterHandle": "",
+    "youtubeChannelId": "",
+    "breakthroughScore": 8.4,
+    "momentumScore": 22.1,
+    "popularityScore": 3.2,
+    "archetypeAffinity": "SKIP appeals most strongly to Wellness Seekers drawn to CBD's calming properties and the brand's plant-based, no-added-sugar credentials. Conscious Consumers respond to the vegan formulation, UK manufacturing and recyclable packaging. Experience Explorers are attracted to novel CBD and Lion's Mane functional ingredients as an alternative to conventional drinks. The brand's low price point and approachable flavours (peach-ginger, elderflower-mint) also resonate with Curious Tryers who want to exp...",
+    "researchOverallAssessment": "SKIP is a small, early-stage UK functional drinks brand with a live DTC website, active social media presence and a coherent product range across CBD and Lion's Mane categories. Legitimacy indicators include consistent branding, real product photography, transparent ingredient lists and functional Shopify checkout. No retail listings, trade press coverage or external validation identified. Brand appears genuine but pre-scale \u2014 typical of a bootstrapped DTC startup in the functional beverages spa...",
+    "productCount": 3,
+    "reviewedProductCount": 3,
+    "reviewCount": 25,
+    "transcriptCoverageRole": "Reviewed brand",
+    "averageRating": 4.21,
+    "wouldBuyAfterTryingRate": 0.895,
+    "sentimentCounts": {
+      "POSITIVE": 22,
+      "NEUTRAL": 2,
+      "NEGATIVE": 1
+    },
+    "topThemes": [
+      {
+        "theme": "Taste",
+        "count": 25,
+        "shareOfReviews": 1.0,
+        "example": {
+          "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+          "productName": "Lemon Basil CBD Drink",
+          "brand": "SKIP",
+          "snippet": "...Yeah. I needed this. This is lovely. Definitely more hints of basil than lemon. I don't really taste lemon, but it's good. Not a huge fan of sparkling water. I prefer kind of still stuff. But, no, this is fantastic. I would b..."
+        }
+      },
+      {
+        "theme": "Health & Function",
+        "count": 25,
+        "shareOfReviews": 1.0,
+        "example": {
+          "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+          "productName": "Lemon Basil CBD Drink",
+          "brand": "SKIP",
+          "snippet": "...ute. And the little lemon and basil graphic, Really sweet. Ingredients wise, it's got no added sugar. There's five milligrams of cold pressed active CBD, and it's also vegan. A lot of natural flavors in this. And it's nice an..."
+        }
+      },
+      {
+        "theme": "Value & Availability",
+        "count": 11,
+        "shareOfReviews": 0.44,
+        "example": {
+          "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+          "productName": "Lemon Basil CBD Drink",
+          "brand": "SKIP",
+          "snippet": "...huge fan of sparkling water. I prefer kind of still stuff. But, no, this is fantastic. I would buy a truckload of these. Yeah. Very refreshing. Highly recommend."
+        }
+      },
+      {
+        "theme": "Occasion",
+        "count": 6,
+        "shareOfReviews": 0.24,
+        "example": {
+          "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+          "productName": "Lemon Basil CBD Drink",
+          "brand": "SKIP",
+          "snippet": "...y morning run, and now I just kinda wanna wind down, relax, and get on with some admin and uni work. And I'm deciding to have this little guy here. It's the Skip CBD sparkling water drink in the flavor lemon and basil. I thi..."
+        }
+      },
+      {
+        "theme": "Packaging & Format",
+        "count": 5,
+        "shareOfReviews": 0.2,
+        "example": {
+          "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+          "productName": "Lemon Basil CBD Drink",
+          "brand": "SKIP",
+          "snippet": "...ittle guy here. It's the Skip CBD sparkling water drink in the flavor lemon and basil. I think packaging wise, it's super, super cute. I love the minimalistic look, and the logo is so cute. And the little lemon and basil graphic,..."
+        }
+      },
+      {
+        "theme": "Mixer & Pairing",
+        "count": 3,
+        "shareOfReviews": 0.12,
+        "example": {
+          "reviewId": "cm8qgirno00zdi90qwcqqpbt0",
+          "productName": "Peach Ginger CBD Drink",
+          "brand": "SKIP",
+          "snippet": "...sil flavor. Really refreshing taste and just the right amount of fizz. You could use this as a mixer as well. And peach and ginger. Both flavors are sparkling and very nice. These drinks are healthy and calming. I'd recommend"
+        }
+      }
+    ],
+    "topSignals": {
+      "praiseThemes": [
+        {
+          "label": "Strong flavour appeal",
+          "count": 17,
+          "shareOfReviews": 0.68,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...g water drink in the flavor lemon and basil. I think packaging wise, it's super, super cute. I love the minimalistic look, and the logo is so cute. And the little lemon and basil graphic, Really sweet. Ingredients wise, it's...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Refreshing taste",
+          "count": 14,
+          "shareOfReviews": 0.56,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "..., you can really smell the basil. I love the smell of basil, so that's a good sign. That is so refreshing. Yeah. I needed this. This is lovely. Definitely more hints of basil than lemon. I don't really taste lemon, but it's good. ...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Good fizz",
+          "count": 13,
+          "shareOfReviews": 0.52,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...with some admin and uni work. And I'm deciding to have this little guy here. It's the Skip CBD sparkling water drink in the flavor lemon and basil. I think packaging wise, it's super, super cute. I love the minimalistic look, and...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Appealing packaging",
+          "count": 4,
+          "shareOfReviews": 0.16,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...ittle guy here. It's the Skip CBD sparkling water drink in the flavor lemon and basil. I think packaging wise, it's super, super cute. I love the minimalistic look, and the logo is so cute. And the little lemon and basil graphic,...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Natural or refined profile",
+          "count": 4,
+          "shareOfReviews": 0.16,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...added sugar. There's five milligrams of cold pressed active CBD, and it's also vegan. A lot of natural flavors in this. And it's nice and chilled to cool me off. And CBD will help relax me and kind of mellow my brain out. So le...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Balanced sweetness",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...o is so cute. And the little lemon and basil graphic, Really sweet. Ingredients wise, it's got no added sugar. There's five milligrams of cold pressed active CBD, and it's also vegan. A lot of natural flavors in this. And it's nice an...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "painPoints": [
+        {
+          "label": "Bitter, tart, or sour edge",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmbkq2x4w01prh2fdiwij4uyo",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...tely taste the elderflower and then it goes through to the mint and it's leaving a really nice aftertaste as well and even it's got the right amount of fizziness as well. That is absolutely beautiful and this has also got added be...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Fermented or unusual taste barrier",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmbuv025z004z250vfcqryp1n",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "... It's a sparkling drink with fruit juices, botanicals, and cold pressed CBD. Now I've heard an awful lot about CBD and its benefits, so let's have a try. So this is elderflower and mint, and it is sparkling. And I'm sure it's...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "usageOccasions": [
+        {
+          "label": "Relaxation or wind-down",
+          "count": 13,
+          "shareOfReviews": 0.52,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "Hello. I just got back from my morning run, and now I just kinda wanna wind down, relax, and get on with some admin and uni work. And I'm deciding to have this little guy here. It's the Skip CBD sparkling water d...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Social occasion",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cm9bfqoee00i4gm3axw11ktr9",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "... looks like. I'm not sure if it's my kind of vibe, but it's definitely kind of giving a summer barbecue in the garden kind of vibe. It's giving like a a Pimm's kind of flavor. I don't know how to describe it. It's really interes...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Mixer with spirits",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cm8qgirno00zdi90qwcqqpbt0",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...sil flavor. Really refreshing taste and just the right amount of fizz. You could use this as a mixer as well. And peach and ginger. Both flavors are sparkling and very nice. These drinks are healthy and calming. I'd recommend",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Workday or lunch break",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmc3hn6da00in3v0uq9yu6ze4",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "I'm working from home today. It's a really hot and sunny day, so I'm taking a little afternoon break, to try this straight out of the fr...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Health routine",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmbf7jm780052h2fdoh96e6cq",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...ming CBD. It says here that it is vegan friendly as well, so the drink offered a sophisticated wellness boost as well. I would suggest that it's really nice. The cold press method has really locked in the pure and natural flavor...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "purchaseDrivers": [
+        {
+          "label": "Health and functional benefits",
+          "count": 24,
+          "shareOfReviews": 0.96,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "... on with some admin and uni work. And I'm deciding to have this little guy here. It's the Skip CBD sparkling water drink in the flavor lemon and basil. I think packaging wise, it's super, super cute. I love the minimalistic...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Natural ingredients",
+          "count": 10,
+          "shareOfReviews": 0.4,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...se, it's got no added sugar. There's five milligrams of cold pressed active CBD, and it's also vegan. A lot of natural flavors in this. And it's nice and chilled to cool me off. And CBD will help relax me and kind of mellow m...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Taste-led repeat intent",
+          "count": 4,
+          "shareOfReviews": 0.16,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...f. But, no, this is fantastic. I would buy a truckload of these. Yeah. Very refreshing. Highly recommend.",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Discovery or novelty",
+          "count": 4,
+          "shareOfReviews": 0.16,
+          "example": {
+            "reviewId": "cmc3hn6da00in3v0uq9yu6ze4",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...g from home today. It's a really hot and sunny day, so I'm taking a little afternoon break, to try this straight out of the fridge. It's a skip cold pressed active CBD in elderflower and mint flavor. I'm really looking forward t...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Premium mixer role",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cm8qgirno00zdi90qwcqqpbt0",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...sil flavor. Really refreshing taste and just the right amount of fizz. You could use this as a mixer as well. And peach and ginger. Both flavors are sparkling and very nice. These drinks are healthy and calming. I'd recommend",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Low/no sugar proposition",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...o is so cute. And the little lemon and basil graphic, Really sweet. Ingredients wise, it's got no added sugar. There's five milligrams of cold pressed active CBD, and it's also vegan. A lot of natural flavors in this. And it's nice an...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "shopperNeeds": [
+        {
+          "label": "Calm or mood support",
+          "count": 25,
+          "shareOfReviews": 1.0,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "Hello. I just got back from my morning run, and now I just kinda wanna wind down, relax, and get on with some admin and uni work. And I'm deciding to have this little guy here. It's the Skip CBD sparkling water d...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Premium home serve",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cm8qgirno00zdi90qwcqqpbt0",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...sil flavor. Really refreshing taste and just the right amount of fizz. You could use this as a mixer as well. And peach and ginger. Both flavors are sparkling and very nice. These drinks are healthy and calming. I'd recommend",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Health-conscious swap",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmbf7jm780052h2fdoh96e6cq",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...ming CBD. It says here that it is vegan friendly as well, so the drink offered a sophisticated wellness boost as well. I would suggest that it's really nice. The cold press method has really locked in the pure and natural flavor...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "productPreferences": [
+        {
+          "label": "Prefers high fizz",
+          "count": 13,
+          "shareOfReviews": 0.52,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...with some admin and uni work. And I'm deciding to have this little guy here. It's the Skip CBD sparkling water drink in the flavor lemon and basil. I think packaging wise, it's super, super cute. I love the minimalistic look, and...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers less sweetness",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...o is so cute. And the little lemon and basil graphic, Really sweet. Ingredients wise, it's got no added sugar. There's five milligrams of cold pressed active CBD, and it's also vegan. A lot of natural flavors in this. And it's nice an...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers natural taste",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmb8ikmgs00de2838zf4pcph9",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...but it does say triple strength on the can, so I have high hopes. I also really like that it's all natural. It's from stevia extract. I don't feel like I'm getting any, you know, artificial sugars or anything. So, yes, high hopes. ...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "routines": [
+        {
+          "label": "Evening wind-down",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "Hello. I just got back from my morning run, and now I just kinda wanna wind down, relax, and get on with some admin and uni work. And I'm deciding to have this little guy here. It's the Skip CBD sparkling ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Social home drinking",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cm9lb2kuo00t8bdqzc5jwfof1",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "... aqua blue pan. Here are some live reactions. First, my mom Oh, this is very nice. And then my wife. Such a great drink to have at the end of a workday, especially after a long and busy one. It has 0% THC and is perfect to m...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Work-from-home refreshment",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmc3hn6da00in3v0uq9yu6ze4",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "I'm working from home today. It's a really hot and sunny day, so I'm taking a little afternoon break, to try this straight out of the fridge. It's...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "coConsumptionHabits": [
+        {
+          "label": "Served with ice or garnish",
+          "count": 10,
+          "shareOfReviews": 0.4,
+          "example": {
+            "reviewId": "cmc3hn6da00in3v0uq9yu6ze4",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...to try this straight out of the fridge. It's a skip cold pressed active CBD in elderflower and mint flavor. I'm really looking forward to trying this. I drink these types of drinks all the time, although I haven't actually h...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Paired with food or treats",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmalfgtoq002f14n60varygji",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...ly making dinner, and I thought I'd try products with you. So I'm gonna be having this with my meal, and it's Skip True Calm Within. And it says it's a sparkling drink with fruit presses, botanicals, and cold pressed CBD. An...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "complaints": [
+        {
+          "label": "Expectation gap",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cm9bfqoee00i4gm3axw11ktr9",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...always really interested about products that have CBD in them. Now a little bit, I don't know, not sure about it. So here's a product that I've I've got to try. It's called Skip. This is the Elderflower Mint flavor. It's cold pr...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Taste rejection",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmbuv025z004z250vfcqryp1n",
+            "productName": "Elderflower Mint CBD Drink",
+            "brand": "SKIP",
+            "snippet": "... It's a sparkling drink with fruit juices, botanicals, and cold pressed CBD. Now I've heard an awful lot about CBD and its benefits, so let's have a try. So this is elderflower and mint, and it is sparkling. And I'm sure it's...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "retailerMentions": [],
+      "competitorMentions": [
+        {
+          "label": "Coca-Cola/Diet Coke",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cma2x1dki00d0sw7a6ausitle",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "... but it's kind of like a savory drink, if you know what I mean. So very taste and texture like Coca Cola or Pepsi, whatever the the sparkling flavor, the smoothness, and everything, but it is savory. It's it's not sweet at all. I...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "comparisonMentions": [
+        {
+          "label": "Alternative or substitute framing",
+          "count": 4,
+          "shareOfReviews": 0.16,
+          "example": {
+            "reviewId": "cmalfgtoq002f14n60varygji",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...e ginger. It is a very light flavor. It's like a light peach. You can taste more of the ginger rather than the peach. Out of 10, I'll probably give this a six zero seven. If I were to get this again, it'll probably be because of th...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Preference or winner language",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+            "productName": "Lemon Basil CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...il than lemon. I don't really taste lemon, but it's good. Not a huge fan of sparkling water. I prefer kind of still stuff. But, no, this is fantastic. I would buy a truckload of these. Yeah. Very refreshing. Highly recommend.",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Explicit comparison",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cm6jgsp5s00do5pmy4qi7a6vp",
+            "productName": "Peach Ginger CBD Drink",
+            "brand": "SKIP",
+            "snippet": "...onmental impact. Consuming CBD gives lots of benefits to the body and the mind. Now today, I'm comparing Skip to Tripp, which is its competitor. And I must say, out of all the things which I read, I feel very not at ease that Tri...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ]
+    },
+    "averagePrice": 1.67,
+    "priceRange": {
+      "min": 1.67,
+      "max": 1.67
+    },
+    "priceTiers": [
+      {
+        "name": "premium",
+        "count": 3
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "CBD Drinks",
+        "count": 3
+      }
+    ],
+    "retailers": [
+      "drinkskip.com (DTC)"
+    ],
+    "labels": [
+      "CBD",
+      "Soft Drinks",
+      "Sugar-Free",
+      "Vegan"
+    ],
+    "evidence": [
+      {
+        "reviewId": "cm9fjvhrr0030rh4rux0ttf5o",
+        "createdAt": "2025-04-13T11:17:05.846Z",
+        "brand": "SKIP",
+        "productName": "Lemon Basil CBD Drink",
+        "reviewerName": "Star Butterfly",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Appealing packaging",
+        "confidenceLabel": "medium",
+        "snippet": "...ittle guy here. It's the Skip CBD sparkling water drink in the flavor lemon and basil. I think packaging wise, it's super, super cute. I love the minimalistic look, and the logo is so cute. And the little lemon and basil graphic,..."
+      },
+      {
+        "reviewId": "cmbmp50we02brh2fd4up63yv4",
+        "createdAt": "2025-06-07T20:38:16.524Z",
+        "brand": "SKIP",
+        "productName": "Peach Ginger CBD Drink",
+        "reviewerName": "Lola Loud",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Refreshing taste",
+        "confidenceLabel": "high",
+        "snippet": "...aste it, but the peach really stands out. Nice and crisp. You can feel it on your tongue. Very refreshing. I'd definitely buy this."
+      },
+      {
+        "reviewId": "cmc3hn6da00in3v0uq9yu6ze4",
+        "createdAt": "2025-06-19T14:40:31.485Z",
+        "brand": "SKIP",
+        "productName": "Elderflower Mint CBD Drink",
+        "reviewerName": "Betty Rubble",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Refreshing taste",
+        "confidenceLabel": "medium",
+        "snippet": "...efore, but there are similar brands there that I do tend to drink a lot of. I find them really refreshing and, healthy a bit of a healthier drink option. So I'm gonna try it right now. Oh, it smells nice. Very minty. That tastes a..."
+      },
+      {
+        "reviewId": "cmbkq2x4w01prh2fdiwij4uyo",
+        "createdAt": "2025-06-06T11:29:05.601Z",
+        "brand": "SKIP",
+        "productName": "Elderflower Mint CBD Drink",
+        "reviewerName": "Linda Belcher",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Good fizz",
+        "confidenceLabel": "high",
+        "snippet": "...True Calm Within Now this is cold press with active CBD and it's elderflower and mint and it's sparkling. Also it's got no added sugar, it's vegan friendly and as I said CBD So let's open her up and see what she tastes like I lov..."
+      },
+      {
+        "reviewId": "cm9bfqoee00i4gm3axw11ktr9",
+        "createdAt": "2025-04-10T14:10:17.990Z",
+        "brand": "SKIP",
+        "productName": "Elderflower Mint CBD Drink",
+        "reviewerName": "Glenn Quagmire",
+        "rating": 2.0,
+        "sentiment": "NEUTRAL",
+        "wouldBuyAfterTrying": "No",
+        "theme": "Health & Function",
+        "signal": "Strong flavour appeal",
+        "confidenceLabel": "low",
+        "snippet": "...our vibe and you like that kind of thing, then this is for you. And I can see that it could be really good for, like, helping you calm down in the evening or just a little moment of bliss, you know, throughout the day. So yeah."
+      },
+      {
+        "reviewId": "cm8qgirno00zdi90qwcqqpbt0",
+        "createdAt": "2025-03-26T21:48:58.883Z",
+        "brand": "SKIP",
+        "productName": "Peach Ginger CBD Drink",
+        "reviewerName": "Barney Rubble",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Good fizz",
+        "confidenceLabel": "medium",
+        "snippet": "... amount of fizz. You could use this as a mixer as well. And peach and ginger. Both flavors are sparkling and very nice. These drinks are healthy and calming. I'd recommend"
+      }
+    ]
+  },
+  {
+    "brandName": "UNAI",
+    "foundedYear": 2024,
+    "hqCity": "London",
+    "hqCountry": "United Kingdom",
+    "headquartersRaw": "London, United Kingdom",
+    "description": "UNAI is a UK-crafted adaptogenic soft drinks brand producing low-sugar, all-natural lightly sparkling beverages infused with nootropics and adaptogens including Lion's Mane, Cordyceps, Reishi and Ashwagandha. Founded by childhood friends reconnected through a shared love of music and the outdoors, the brand is built around 'conscious connection' \u2014 helping consumers pause, connect and stay grounded. Products are 100% natural with no artificial flavours.",
+    "industry": "Beverages \u2014 adaptogenic & nootropic soft drinks",
+    "website": "https://www.drinkunai.com",
+    "additionalContext": "Two-product range: UPLIFT (Pink Grapefruit & Strawberry with Lion's Mane + Cordyceps for focus/energy) and UNWIND (Lemon & Lavender with Reishi + Ashwagandha for relaxation/sleep). Sold DTC at \u00a329.95 per 12-pack with 15% subscription discount. Also available at RAYE Store pop-up in Notting Hill. Brand hosts experiential events (hikes, cold plunge sessions) emphasising conscious connection.",
+    "instagramHandle": "https://instagram.com/drinkunai",
+    "linkedinUrl": "",
+    "tiktokHandle": "https://www.tiktok.com/@drinkunai",
+    "twitterHandle": "",
+    "youtubeChannelId": "",
+    "breakthroughScore": 4.1,
+    "momentumScore": 15.8,
+    "popularityScore": 1.5,
+    "archetypeAffinity": "UNAI's strongest alignment is with Wellness Seekers, who are drawn to the functional mushroom and adaptogen ingredients (Lion's Mane, Cordyceps, Reishi, Ashwagandha) and the brand's low-sugar, all-natural formulation. Experience Explorers connect with the brand's experiential events (hikes, cold plunges) and novel ingredient combinations (prickly pear, burdock root). Conscious Consumers appreciate the 100% natural, no-artificial-flavours positioning and the mindfulness-centred brand ethos. The '...",
+    "researchOverallAssessment": "UNAI is a very early-stage UK adaptogenic drinks brand with a functional website, two products and minimal distribution (DTC + one pop-up location). Legitimacy indicators include a professional website with real product photography, transparent ingredient lists, nutritional information per 100ml, functional checkout and active Instagram/TikTok accounts. No retail listings, trade press coverage, regulatory certifications or external validation identified. The brand appears genuine but extremely e...",
+    "productCount": 2,
+    "reviewedProductCount": 2,
+    "reviewCount": 25,
+    "transcriptCoverageRole": "Reviewed brand",
+    "averageRating": 4.12,
+    "wouldBuyAfterTryingRate": 0.8,
+    "sentimentCounts": {
+      "POSITIVE": 19,
+      "NEGATIVE": 3,
+      "NEUTRAL": 2,
+      "MIXED": 1
+    },
+    "topThemes": [
+      {
+        "theme": "Taste",
+        "count": 25,
+        "shareOfReviews": 1.0,
+        "example": {
+          "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+          "productName": "Lemon & Lavender",
+          "brand": "UNAI",
+          "snippet": "...n in education for a long time, it's very stressful. So I need something to unwind. I love the taste of it. It's just so refreshing, and it's kind of just got a little something that I kinda can't put my finger on, but it's a..."
+        }
+      },
+      {
+        "theme": "Occasion",
+        "count": 18,
+        "shareOfReviews": 0.72,
+        "example": {
+          "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+          "productName": "Pink Grapefruit & Strawberry",
+          "brand": "UNAI",
+          "snippet": "...didn't. In a normal week, when I'm looking to find something to drink when I'm getting through work or running errands, I would normally reach for a coffee, and I quite like having a coffee. So I wouldn't want to ever replac..."
+        }
+      },
+      {
+        "theme": "Value & Availability",
+        "count": 13,
+        "shareOfReviews": 0.52,
+        "example": {
+          "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+          "productName": "Lemon & Lavender",
+          "brand": "UNAI",
+          "snippet": "These have been an absolute godsend. I have started uni again because I want to train to be a counselor and a psychotherapist. But having not been in education for a long time, it's very..."
+        }
+      },
+      {
+        "theme": "Health & Function",
+        "count": 12,
+        "shareOfReviews": 0.48,
+        "example": {
+          "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+          "productName": "Pink Grapefruit & Strawberry",
+          "brand": "UNAI",
+          "snippet": "...whole lot more subtle than I was expecting. I'm used to every now and then having one of those CBD sodas that you can buy, and the flavors in those are usually a whole lot stronger. So this was kind of a nice change. So I t..."
+        }
+      },
+      {
+        "theme": "Packaging & Format",
+        "count": 3,
+        "shareOfReviews": 0.12,
+        "example": {
+          "reviewId": "cmn3hf5gs003nztl2838sn2yf",
+          "productName": "Pink Grapefruit & Strawberry",
+          "brand": "UNAI",
+          "snippet": "...ne today as possible. I'm gonna try out this drink by Unai, which is an uplift drink, which is designed to help you to focus and to just give you a little bit of a lift. It's in pink grapefruit and strawberry flavor, and in th..."
+        }
+      },
+      {
+        "theme": "Mixer & Pairing",
+        "count": 1,
+        "shareOfReviews": 0.04,
+        "example": {
+          "reviewId": "cmn1why44031d4rnozq568fho",
+          "productName": "Pink Grapefruit & Strawberry",
+          "brand": "UNAI",
+          "snippet": "...u like the taste? Not very much. It it more like a medicine to taste. Not refreshing. But as a mixer, I think it might do well. I don't know. Just on its own? Do you not like that much? I won't go I won't go for it. Okay. Do ..."
+        }
+      }
+    ],
+    "topSignals": {
+      "praiseThemes": [
+        {
+          "label": "Strong flavour appeal",
+          "count": 16,
+          "shareOfReviews": 0.64,
+          "example": {
+            "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...g not been in education for a long time, it's very stressful. So I need something to unwind. I love the taste of it. It's just so refreshing, and it's kind of just got a little something that I kinda can't put my finger on, ...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Good fizz",
+          "count": 10,
+          "shareOfReviews": 0.4,
+          "example": {
+            "reviewId": "cmi3b4yli00000dp46nxifcbu",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...y things to be moved around. Hi, I'm Dipti. So today is a perfect time for me to try this Unai sparkling water. My flavor is Lemon and Lavender. Taking that break to feel calm and balanced, so let's see. Smells really good. Very ...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Refreshing taste",
+          "count": 9,
+          "shareOfReviews": 0.36,
+          "example": {
+            "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...time, it's very stressful. So I need something to unwind. I love the taste of it. It's just so refreshing, and it's kind of just got a little something that I kinda can't put my finger on, but it's absolutely fantastic. It definit...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Natural or refined profile",
+          "count": 6,
+          "shareOfReviews": 0.24,
+          "example": {
+            "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "Hey, guys. I just got a week's worth of this really interesting looking Uni drink. I've got both the Uplift and the unwind flavor. So come with me for the next week where I t...",
+            "confidenceLabel": "high"
+          }
+        },
+        {
+          "label": "Balanced sweetness",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmmrzas7j000ky4ns7k0d1vxi",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...kids in the house house chores. It tastes nice. Taste wise, five out of five, definitely. It's not too sweet. It's just the right amount of sweetness. I hate sweet drinks like those water sweet flavored water or squashes or anything ...",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "painPoints": [
+        {
+          "label": "Bitter, tart, or sour edge",
+          "count": 5,
+          "shareOfReviews": 0.2,
+          "example": {
+            "reviewId": "cmhv56kcb008c25m8wjdoklhg",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...strong. It kinda tastes a bit like a lemonade. Really nice, very refreshing and not an intense aftertaste which I tend to hate when I go to my hair. I'm in the middle of getting ready. Yeah, so let's see how I get on. So I actuall...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Too sweet",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmgw0hmdg00zm3ikvne2vefbo",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...p. So I definitely really like the Unwind drinks. I think every night it would be a little bit too sweet for me, but on the ever so often occasion that I'm struggling to fall asleep or I just really need something extra to help u...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Not a repeat purchase",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmn1why44031d4rnozq568fho",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "... you know, it's not my flavor. It's not something which I like as such as hey. I am not very I wouldn't buy this. Okay. Thumbs up or thumbs down?",
+            "confidenceLabel": "medium"
+          }
+        }
+      ],
+      "usageOccasions": [
+        {
+          "label": "Relaxation or wind-down",
+          "count": 19,
+          "shareOfReviews": 0.76,
+          "example": {
+            "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...a counselor and a psychotherapist. But having not been in education for a long time, it's very stressful. So I need something to unwind. I love the taste of it. It's just so refreshing, and it's kind of just got a little somethin...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Workday or lunch break",
+          "count": 8,
+          "shareOfReviews": 0.32,
+          "example": {
+            "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...but it's absolutely fantastic. It definitely helps me de stress and unwind. And currently, I'm working towards an assessment, so I am super stressed out at the moment. So these have been getting me through my evenings of writin...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Health routine",
+          "count": 7,
+          "shareOfReviews": 0.28,
+          "example": {
+            "reviewId": "cmn25ayua000z02ntkajm3rsr",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...d improve digestion which you definitely need. It boosts cognitive function and supports nerve health. That's it? Mhmm. And it also enhances energy and respiratory health as well. And, obviously, green tea. You've had a green ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Social occasion",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmhv56kcb008c25m8wjdoklhg",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "Okay. I have some social plans tonight, so I thought I would try this out. Now it is meant to help you unwind and feel, like, calm and balanced, and ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Mixer with spirits",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmn1why44031d4rnozq568fho",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...u like the taste? Not very much. It it more like a medicine to taste. Not refreshing. But as a mixer, I think it might do well. I don't know. Just on its own? Do you not like that much? I won't go I won't go for it. Okay. Do ...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "purchaseDrivers": [
+        {
+          "label": "Discovery or novelty",
+          "count": 6,
+          "shareOfReviews": 0.24,
+          "example": {
+            "reviewId": "cmi3b4yli00000dp46nxifcbu",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "... a lot of heavy things to be moved around. Hi, I'm Dipti. So today is a perfect time for me to try this Unai sparkling water. My flavor is Lemon and Lavender. Taking that break to feel calm and balanced, so let's see. Smells rea...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Natural ingredients",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmn3hf5gs003nztl2838sn2yf",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "... a little bit of a lift. It's in pink grapefruit and strawberry flavor, and in the drink, it's vegan, and it's got no artificial additives or preservatives. There's lion manes in it, cordyceps, green tea, rhubarb. The cans ar...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Health and functional benefits",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...whole lot more subtle than I was expecting. I'm used to every now and then having one of those CBD sodas that you can buy, and the flavors in those are usually a whole lot stronger. So this was kind of a nice change. So I t...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Taste-led repeat intent",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...han the unwind. It's just there's less time that I have where I need that. So I can definitely recommend Oonae's drinks to others, especially if you're looking for something a little bit healthier that's gonna make a tangible dif...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Premium mixer role",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmn1why44031d4rnozq568fho",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...u like the taste? Not very much. It it more like a medicine to taste. Not refreshing. But as a mixer, I think it might do well. I don't know. Just on its own? Do you not like that much? I won't go I won't go for it. Okay. Do ...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "shopperNeeds": [
+        {
+          "label": "Calm or mood support",
+          "count": 19,
+          "shareOfReviews": 0.76,
+          "example": {
+            "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...a counselor and a psychotherapist. But having not been in education for a long time, it's very stressful. So I need something to unwind. I love the taste of it. It's just so refreshing, and it's kind of just got a little somethin...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Gut health support",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cmgw0hmdg00zm3ikvne2vefbo",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...lavored water. It has definitely like a flavor to it but quite light. Yeah, tastes like like a kombucha. We're on the way to the nail salon and we're getting pedicures but it has been a long day of working. So I'm gonna try the ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Health-conscious swap",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmipz0chq00h029ifdb3nhofs",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...hat kind of practice that I want to do. I truly believe that the things that you add into your diet, how you go about your day, how your nervous system status really impacts your meditation practice, so I do like to add thin...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Premium home serve",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmn1why44031d4rnozq568fho",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...u like the taste? Not very much. It it more like a medicine to taste. Not refreshing. But as a mixer, I think it might do well. I don't know. Just on its own? Do you not like that much? I won't go I won't go for it. Okay. Do ...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "productPreferences": [
+        {
+          "label": "Prefers high fizz",
+          "count": 10,
+          "shareOfReviews": 0.4,
+          "example": {
+            "reviewId": "cmi3b4yli00000dp46nxifcbu",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...y things to be moved around. Hi, I'm Dipti. So today is a perfect time for me to try this Unai sparkling water. My flavor is Lemon and Lavender. Taking that break to feel calm and balanced, so let's see. Smells really good. Very ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers subtle flavour",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "... drink first, and the immediate thing that jumped out was that the flavor was a whole lot more subtle than I was expecting. I'm used to every now and then having one of those CBD sodas that you can buy, and the flavors in thos...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers less sweetness",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmmrzas7j000ky4ns7k0d1vxi",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...kids in the house house chores. It tastes nice. Taste wise, five out of five, definitely. It's not too sweet. It's just the right amount of sweetness. I hate sweet drinks like those water sweet flavored water or squashes or anything ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Prefers natural taste",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmnbzhijt0ftc51ql92ponuxh",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "... and lemon and lavender. I can really smell the lemon. I can't smell the lavender. The lemon's not artificial, which is great because there's no artificial additives or flavoring. So let's try this. Cheers. I can taste the lavender. A...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "routines": [
+        {
+          "label": "Evening wind-down",
+          "count": 8,
+          "shareOfReviews": 0.32,
+          "example": {
+            "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...er to integrate into my routine. I've gotten into the habit of some nights having one of those wind down CBD drinks, and so this was nice to just swap in for those. It's kind of a nice replacement of having, like, a glass of wine...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Work-from-home refreshment",
+          "count": 6,
+          "shareOfReviews": 0.24,
+          "example": {
+            "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...but it's absolutely fantastic. It definitely helps me de stress and unwind. And currently, I'm working towards an assessment, so I am super stressed out at the moment. So these have been getting me through my evenings of writin...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Social home drinking",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmhv56kcb008c25m8wjdoklhg",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "Okay. I have some social plans tonight, so I thought I would try this out. Now it is meant to help you unwind and feel, like, calm and balanced, and ...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Lunch break drink",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cmgw0hmdg00zm3ikvne2vefbo",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...ift one. So that's also, like, a nice I feel like midday boost would be good to have with your lunch just for a little bit of lift.",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Diet or calorie management",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cmhv56kcb008c25m8wjdoklhg",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...ha. I don't know how to say that, but it has five hundred milligrams of that. And it's only 32 calories per can, which is amazing. It also has magnesium in it, which is really, really good for sleep. So, yeah, I'm I'm really int...",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "coConsumptionHabits": [
+        {
+          "label": "Served with ice or garnish",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmi3b4yli00000dp46nxifcbu",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": ".... My son is in reception, and today is his first parents' adjustment. I've been having this on ice sparkling water for the last few days, and it really helped me calm down. So this is a perfect situation for me. I have to g...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Paired with food or treats",
+          "count": 2,
+          "shareOfReviews": 0.08,
+          "example": {
+            "reviewId": "cmgw0hmdg00zm3ikvne2vefbo",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...ift one. So that's also, like, a nice I feel like midday boost would be good to have with your lunch just for a little bit of lift.",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "complaints": [
+        {
+          "label": "Taste rejection",
+          "count": 4,
+          "shareOfReviews": 0.16,
+          "example": {
+            "reviewId": "cmn25ayua000z02ntkajm3rsr",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "..., Pink Grapefruit and Strawberry. Yes. Also which is also very similar to guava and pineapple. No. It's not. So have you heard of Unai? No. Nope. So Unai is it's got lion's mane in it. Yeah. And it's also got green tea. Yea...",
+            "confidenceLabel": "medium"
+          }
+        },
+        {
+          "label": "Expectation gap",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmi3b4yli00000dp46nxifcbu",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...to go, but I really love Unai water. It helps me calm down, gives me that best feeling down. I thought it was the smell that was calming me down, but I realized now that it also has, Shiva Gunda Reshi vitamin b twelve magnesium, which...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Format or serve issue",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmipz0chq00h029ifdb3nhofs",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "... at the same time. And I didn't notice a huge difference after drinking them, but I did feel a little bit more relaxed and like I kind of got into a flow of meditation state a little bit quicker, which is great.",
+            "confidenceLabel": "low"
+          }
+        }
+      ],
+      "retailerMentions": [],
+      "competitorMentions": [],
+      "comparisonMentions": [
+        {
+          "label": "Alternative or substitute framing",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+            "productName": "Pink Grapefruit & Strawberry",
+            "brand": "UNAI",
+            "snippet": "...ould normally reach for a coffee, and I quite like having a coffee. So I wouldn't want to ever replace that with this. But I think an interesting use case is actually having this drink for later night meetings. The unwind was s...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Preference or winner language",
+          "count": 3,
+          "shareOfReviews": 0.12,
+          "example": {
+            "reviewId": "cmgrp1mqp001c10vxx85q0wsu",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...ts out there, but my kid never wants to go to bed. And bedtime is quite an ordeal, And then he goes to bed quite late anyway, and then I go to bed fairly early. So that period of time between when I've managed to get him down f...",
+            "confidenceLabel": "low"
+          }
+        },
+        {
+          "label": "Explicit comparison",
+          "count": 1,
+          "shareOfReviews": 0.04,
+          "example": {
+            "reviewId": "cmj3gbz6o00ig0znz6xa4rv9q",
+            "productName": "Lemon & Lavender",
+            "brand": "UNAI",
+            "snippet": "...them as part of my routine. I love that they actually contain pretty high levels of adaptogens compared to other drinks on the market, and I will definitely be repurchasing these. Yeah. Love them.",
+            "confidenceLabel": "medium"
+          }
+        }
+      ]
+    },
+    "averagePrice": 2.5,
+    "priceRange": {
+      "min": 2.5,
+      "max": 2.5
+    },
+    "priceTiers": [
+      {
+        "name": "premium",
+        "count": 2
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "Adaptogenic Drinks",
+        "count": 2
+      }
+    ],
+    "retailers": [
+      "RAYE Store Notting Hill (pop-up)",
+      "drinkunai.com (DTC)"
+    ],
+    "labels": [
+      "Adaptogenic",
+      "Low Calorie",
+      "Soft Drinks",
+      "Vegan"
+    ],
+    "evidence": [
+      {
+        "reviewId": "cmgpfgqe3016uzvl1oej8e7ie",
+        "createdAt": "2025-10-13T17:49:16.827Z",
+        "brand": "UNAI",
+        "productName": "Lemon & Lavender",
+        "reviewerName": "Amy Wong",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Refreshing taste",
+        "confidenceLabel": "medium",
+        "snippet": "...time, it's very stressful. So I need something to unwind. I love the taste of it. It's just so refreshing, and it's kind of just got a little something that I kinda can't put my finger on, but it's absolutely fantastic. It definit..."
+      },
+      {
+        "reviewId": "cmgwvvujt01ct3ikv9jt8f6d4",
+        "createdAt": "2025-10-18T23:03:19.145Z",
+        "brand": "UNAI",
+        "productName": "Pink Grapefruit & Strawberry",
+        "reviewerName": "Elroy Jetson",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Occasion",
+        "signal": "Natural or refined profile",
+        "confidenceLabel": "high",
+        "snippet": "Hey, guys. I just got a week's worth of this really interesting looking Uni drink. I've got both the Uplift and the unwind flavor. So come with me for the next week where I t..."
+      },
+      {
+        "reviewId": "cmn3hf5gs003nztl2838sn2yf",
+        "createdAt": "2026-03-23T17:51:02.764Z",
+        "brand": "UNAI",
+        "productName": "Pink Grapefruit & Strawberry",
+        "reviewerName": "Lucy Loud",
+        "rating": 4.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Strong flavour appeal",
+        "confidenceLabel": "high",
+        "snippet": "...green tea, rhubarb. The cans are textured and I absolutely love the design of the cans. It's a really good drink, I absolutely love the flavour of that. I'm three assessments down and I've just got one left to do now so I'm really ..."
+      },
+      {
+        "reviewId": "cmi3b4yli00000dp46nxifcbu",
+        "createdAt": "2025-11-17T15:36:37.926Z",
+        "brand": "UNAI",
+        "productName": "Lemon & Lavender",
+        "reviewerName": "Angelica Pickles",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Strong flavour appeal",
+        "confidenceLabel": "high",
+        "snippet": "...lavor is Lemon and Lavender. Taking that break to feel calm and balanced, so let's see. Smells really good. Very refreshing. Oh, it tastes really good. I'm gonna finish the rest. My son is in reception, and today is his first paren..."
+      },
+      {
+        "reviewId": "cmgw0hmdg00zm3ikvne2vefbo",
+        "createdAt": "2025-10-18T08:24:27.268Z",
+        "brand": "UNAI",
+        "productName": "Pink Grapefruit & Strawberry",
+        "reviewerName": "Minnie Mouse",
+        "rating": 5.0,
+        "sentiment": "POSITIVE",
+        "wouldBuyAfterTrying": "Yes",
+        "theme": "Taste",
+        "signal": "Refreshing taste",
+        "confidenceLabel": "high",
+        "snippet": "...nything concerning for me and my heart problem. So let's give it a taste. It's really nice and fresh. It's not super syrupy but it's definitely not like a flavored water. It has definitely like a flavor to it but quite light...."
+      },
+      {
+        "reviewId": "cmn25ayua000z02ntkajm3rsr",
+        "createdAt": "2026-03-22T19:24:05.986Z",
+        "brand": "UNAI",
+        "productName": "Pink Grapefruit & Strawberry",
+        "reviewerName": "Violet Parr",
+        "rating": 2.0,
+        "sentiment": "NEGATIVE",
+        "wouldBuyAfterTrying": "No",
+        "theme": "Taste",
+        "signal": "Health routine",
+        "confidenceLabel": "low",
+        "snippet": "...d improve digestion which you definitely need. It boosts cognitive function and supports nerve health. That's it? Mhmm. And it also enhances energy and respiratory health as well. And, obviously, green tea. You've had a green ..."
+      }
+    ]
+  },
+  {
+    "brandName": "Trip",
+    "foundedYear": 2019,
+    "hqCity": "London",
+    "hqCountry": "London W8 7SP)",
+    "headquartersRaw": "London, England, United Kingdom (registered office: 13 Hillgate Street, London W8 7SP)",
+    "description": "TRIP is a functional beverage brand producing lightly sparkling, non-alcoholic drinks, powders and supplements (gummies) formulated to promote calm and wellbeing. Products are flavoured sparkling waters/soft drinks infused with magnesium, adaptogens (e.g. Lion's Mane, Ashwagandha, L-Theanine), botanicals and, historically, CBD variants. The company positions its range as an alcohol alternative and a \"calm\" beverage category for everyday stress relief, sells via D2C and major retailers, and also ...",
+    "industry": "Beverages \u2014 Soft Drinks / Sparkling Water / Functional Beverages",
+    "website": "https://tripdrinks.co.uk",
+    "additionalContext": "this brand is manufacturer of products in these categories: Flavoured Sparkling Water, Sparkling Water, Fizzy Drinks, Soft Drinks, Liqueurs",
+    "instagramHandle": "https://www.instagram.com/trip.drinks",
+    "linkedinUrl": "https://www.linkedin.com/company/tripdrinks",
+    "tiktokHandle": "https://www.tiktok.com/@trip.drinks",
+    "twitterHandle": "https://x.com/trip_drinks",
+    "youtubeChannelId": "https://www.youtube.com/@trip.drinks",
+    "breakthroughScore": 45.1378861773673,
+    "momentumScore": 65.5384615384615,
+    "popularityScore": 31.5375006990507,
+    "archetypeAffinity": "TRIP is a functional beverage brand clearly oriented toward wellness-focused and trend-driven consumers: its core positioning as a 'calm' alcohol alternative, formulations containing adaptogens and magnesium, and product expansion into powders and gummies make it an excellent fit for Wellness Seekers and Trend Enthusiasts. The brand also attracts Quality Seekers and Experience Explorers who appreciate curated ingredient blends and sensory variety, and performs well with On-the-Go and Impulse sho...",
+    "researchOverallAssessment": "TRIP is a legitimate, active functional beverage brand founded in 2019 and headquartered in London, UK. Evidence from the brand's official site, press releases (PR Newswire), industry coverage (BeverageDaily), business databases (PitchBook, Tracxn) and retail distribution announcements supports high confidence in the brand's authenticity and market activity. The company has rapidly scaled through D2C and major retail partnerships, launched functional product lines (magnesium/adaptogen drinks, gu...",
+    "productCount": 4,
+    "reviewedProductCount": 0,
+    "reviewCount": 0,
+    "transcriptCoverageRole": "Competitive context",
+    "averageRating": null,
+    "wouldBuyAfterTryingRate": null,
+    "sentimentCounts": {},
+    "topThemes": [],
+    "topSignals": {
+      "praiseThemes": [],
+      "painPoints": [],
+      "usageOccasions": [],
+      "purchaseDrivers": [],
+      "shopperNeeds": [],
+      "productPreferences": [],
+      "routines": [],
+      "coConsumptionHabits": [],
+      "complaints": [],
+      "retailerMentions": [],
+      "competitorMentions": [],
+      "comparisonMentions": []
+    },
+    "averagePrice": 3.75,
+    "priceRange": {
+      "min": 2.0,
+      "max": 5.5
+    },
+    "priceTiers": [
+      {
+        "name": "premium",
+        "count": 3
+      },
+      {
+        "name": "mid-range",
+        "count": 1
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "CBD Drinks",
+        "count": 4
+      }
+    ],
+    "retailers": [
+      "Boots",
+      "Ocado",
+      "Sainsbury's",
+      "Waitrose",
+      "tripdrinks.co.uk"
+    ],
+    "labels": [
+      "CBD",
+      "Cans",
+      "Citrus",
+      "Herbal",
+      "Lightly Carbonated",
+      "Naturally Sweetened",
+      "Soft Drinks",
+      "Vegan"
+    ],
+    "evidence": []
+  },
+  {
+    "brandName": "DASH",
+    "foundedYear": 2017,
+    "hqCity": "London",
+    "hqCountry": "United Kingdom",
+    "headquartersRaw": "London, United Kingdom",
+    "description": "DASH refers to two distinct, legitimate beverage and seasoning brands that share the name. 1) Dash (formerly Mrs. Dash) is a long-standing U.S. salt-free seasoning line of herb-and-spice blends and mixes (blends like Original, Lemon Pepper, Taco Seasoning, grilling blends), marketed to consumers seeking bold flavor without added sodium; the line emphasizes heart-healthy, low-sodium eating and is marketed by B&G Foods. 2) Dash Water (DASH) is a UK-founded sparkling spring water / flavoured sparkl...",
+    "industry": "Food & Beverage (seasonings, spices, and flavored sparkling water)",
+    "website": "https://dash-water.com",
+    "additionalContext": "this brand is manufacturer of products in these categories: Salt, Flavoured Sparkling Water, Sparkling Water, Seasonings & Spices, Herbs & Spices",
+    "instagramHandle": "https://instagram.com/dashdrinks",
+    "linkedinUrl": "https://uk.linkedin.com/company/dash-water",
+    "tiktokHandle": "https://www.tiktok.com/@dashdrinks",
+    "twitterHandle": "https://x.com/DashDrinks",
+    "youtubeChannelId": "https://www.youtube.com/channel/UCjxPwN-LmbLX-rbyyZArBHw",
+    "breakthroughScore": 41.413410442607,
+    "momentumScore": 56.7897727272727,
+    "popularityScore": 31.1625004503876,
+    "archetypeAffinity": "DASH encompasses two distinct food & beverage businesses \u2014 Mrs. Dash (salt-free seasoning line, mainstream U.S. pantry brand owned by B&G Foods) and Dash Water (UK-founded sparkling spring water using real and surplus fruit with a sustainability/food-waste story). Taken together, the portfolio most strongly aligns with wellness-oriented and health-conscious consumers because Mrs. Dash\u2019s low-sodium, flavour-forward seasoning and Dash Water\u2019s zero-calorie, unsweetened fruit-infused sparkling water...",
+    "researchOverallAssessment": "DASH is a real, active market name used by at least two separate food & beverage businesses: Dash (formerly Mrs. Dash) is an established U.S. salt-free seasoning brand with documented history since the early 1980s (commercially introduced 1983) and currently marketed by B&G Foods; Dash Water is a UK-founded flavored sparkling water brand launched within the last several years focused on using real/wonky fruit and sustainability, with rapid retail growth in the UK. Both brands have active web pro...",
+    "productCount": 4,
+    "reviewedProductCount": 0,
+    "reviewCount": 0,
+    "transcriptCoverageRole": "Competitive context",
+    "averageRating": null,
+    "wouldBuyAfterTryingRate": null,
+    "sentimentCounts": {},
+    "topThemes": [],
+    "topSignals": {
+      "praiseThemes": [],
+      "painPoints": [],
+      "usageOccasions": [],
+      "purchaseDrivers": [],
+      "shopperNeeds": [],
+      "productPreferences": [],
+      "routines": [],
+      "coConsumptionHabits": [],
+      "complaints": [],
+      "retailerMentions": [],
+      "competitorMentions": [],
+      "comparisonMentions": []
+    },
+    "averagePrice": 4.75,
+    "priceRange": {
+      "min": 4.75,
+      "max": 4.75
+    },
+    "priceTiers": [
+      {
+        "name": "mid-range",
+        "count": 3
+      },
+      {
+        "name": "premium",
+        "count": 1
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "Sparkling Water",
+        "count": 4
+      }
+    ],
+    "retailers": [
+      "Ocado",
+      "Sainsbury's",
+      "Tesco",
+      "Waitrose",
+      "dash-water.com"
+    ],
+    "labels": [
+      "Cans",
+      "Sparkling Water",
+      "Sugar-Free",
+      "Unsweetened",
+      "Vegan"
+    ],
+    "evidence": []
+  },
+  {
+    "brandName": "Hip Pop",
+    "foundedYear": 2019,
+    "hqCity": "Manchester",
+    "hqCountry": "Manchester M3 4AP)",
+    "headquartersRaw": "Manchester, England, United Kingdom (primary addresses reported: 9 Great Ancoats Street, Manchester M4 5AD; Department Bonded Warehouse, 18 Lower Byrom Street, Manchester M3 4AP)",
+    "description": "Hip Pop is a UK-based beverage brand that produces lightly sparkling, fruit-flavoured drinks (kombucha-style and sodas) formulated with real fruit, live cultures and no artificial sweeteners. Launched by founders Emma Thackray and Kenny Goodman, Hip Pop positions itself in the functional/\u2018better-for-you\u2019 soft drinks space with products including fruit-flavoured sodas, kombucha variants and CBD kombucha. The brand emphasises gut-friendly benefits, natural ingredients, bold packaging and retail ex...",
+    "industry": "Food & Beverage (functional soft drinks / non-alcoholic beverages)",
+    "website": "https://drinkhippop.com",
+    "additionalContext": "this brand is manufacturer of products in these categories: Fruit-Flavoured Drinks, Fizzy Drinks, Flavoured Sparkling Water, Vinegar Drinks, Sparkling Water",
+    "instagramHandle": "https://instagram.com/drink.hip.pop",
+    "linkedinUrl": "https://uk.linkedin.com/company/drinkhippop",
+    "tiktokHandle": "https://www.tiktok.com/@drink_hip_pop",
+    "twitterHandle": "https://x.com/drinkhippop",
+    "youtubeChannelId": "https://www.youtube.com/@DrinkHipPop",
+    "breakthroughScore": 39.6533833693998,
+    "momentumScore": 64.7647058823529,
+    "popularityScore": 22.9125001402572,
+    "archetypeAffinity": "Hip Pop is positioned primarily as a functional, better-for-you beverage brand with strong appeal to wellness-oriented and trend-driven consumers. Its product set\u2014kombucha-style drinks, live cultures, real fruit and no artificial sweeteners\u2014aligns exceptionally well with Wellness Seekers and strongly with Trend Enthusiasts and Thoughtful Buyers who value ingredient transparency. The brand\u2019s bold packaging and unique variants create discovery and impulse potential, making it a reasonable fit for ...",
+    "researchOverallAssessment": "Hip Pop is a legitimate, active UK-based functional soft drinks brand founded in 2019 and headquartered in Manchester. Evidence from the company's own website, multiple independent industry publications (Just-Drinks, FoodBev, Food & Drink Technology), LinkedIn activity and supermarket listings confirms authenticity and current market activity. The brand completed a notable rebrand in 2025, launched new flavours and expanded retail distribution (including Tesco Extra in March 2026) while particip...",
+    "productCount": 4,
+    "reviewedProductCount": 0,
+    "reviewCount": 0,
+    "transcriptCoverageRole": "Competitive context",
+    "averageRating": null,
+    "wouldBuyAfterTryingRate": null,
+    "sentimentCounts": {},
+    "topThemes": [],
+    "topSignals": {
+      "praiseThemes": [],
+      "painPoints": [],
+      "usageOccasions": [],
+      "purchaseDrivers": [],
+      "shopperNeeds": [],
+      "productPreferences": [],
+      "routines": [],
+      "coConsumptionHabits": [],
+      "complaints": [],
+      "retailerMentions": [],
+      "competitorMentions": [],
+      "comparisonMentions": []
+    },
+    "averagePrice": 5.81,
+    "priceRange": {
+      "min": 5.25,
+      "max": 6.0
+    },
+    "priceTiers": [
+      {
+        "name": "mid-range",
+        "count": 4
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "Kombucha & Fermented Drinks",
+        "count": 4
+      }
+    ],
+    "retailers": [
+      "Morrisons",
+      "Ocado",
+      "Tesco",
+      "drinkhippop.com"
+    ],
+    "labels": [
+      "Can",
+      "Citrus",
+      "Kombucha",
+      "Lightly Sweetened",
+      "Low-Sugar",
+      "Soft Drinks",
+      "Vegan"
+    ],
+    "evidence": []
+  },
+  {
+    "brandName": "Agua de Madre",
+    "foundedYear": 2017,
+    "hqCity": "Hackney",
+    "hqCountry": "United Kingdom",
+    "headquartersRaw": "Hackney, London, England, United Kingdom",
+    "description": "Agua de Madre is a London-based producer of fermented beverages, primarily craft-brewed water kefir. The brand makes organic, vegan, naturally sparkling, low-sugar drinks packed with live probiotic cultures (water kefir), plus a Remedio range (fermented ginger/fruit infusions) and probiotic culture shots. Founded by Nicola Hart (and co-founder Samantha Clark), the company positions itself as a mindful/functional drinks brand offering alcohol-alternative, gut-health-focused products brewed in sma...",
+    "industry": "Beverages (functional / fermented drinks / health & wellness)",
+    "website": "https://aguademadre.co.uk",
+    "additionalContext": "this brand is manufacturer of products in these categories: Flavoured Sparkling Water, Sparkling Water, Fizzy Drinks, Vinegar Drinks, Drinks and Beverages",
+    "instagramHandle": "https://instagram.com/aguademadre",
+    "linkedinUrl": "https://uk.linkedin.com/company/agua-de-madre",
+    "tiktokHandle": "https://www.tiktok.com/@aguademadreofficial",
+    "twitterHandle": "https://x.com/AguaDeMadre",
+    "youtubeChannelId": "",
+    "breakthroughScore": 37.3365009830892,
+    "momentumScore": 65.1225,
+    "popularityScore": 18.8125002440065,
+    "archetypeAffinity": "Agua de Madre is positioned as a mindful, small-batch functional beverage brand that strongly appeals to consumers who prioritise sustainability, organic/vegan credentials and gut-health benefits. The brand\u2019s core strengths\u2014live probiotic water kefir, low-sugar formulation, ethical sourcing, plastic-free packaging claims and community giving\u2014make it an exceptional fit for Conscious Consumers and Wellness Seekers, and a very good fit for Experience Explorers and Quality Seekers who value artisana...",
+    "researchOverallAssessment": "Agua de Madre is an active, legitimate UK-based functional drinks brand (founded 2017) focused on fermented water kefir and related probiotic products. Multiple independent business databases (PitchBook, Crunchbase, Tracxn), trade press (The Grocer, Bar Magazine), consumer press (Foodism), and the brand's own web and LinkedIn presence corroborate its existence, product range, B Corp certification, recent product launches (cans, Remedio flavours), and a live fundraising effort. No credible indica...",
+    "productCount": 4,
+    "reviewedProductCount": 0,
+    "reviewCount": 0,
+    "transcriptCoverageRole": "Competitive context",
+    "averageRating": null,
+    "wouldBuyAfterTryingRate": null,
+    "sentimentCounts": {},
+    "topThemes": [],
+    "topSignals": {
+      "praiseThemes": [],
+      "painPoints": [],
+      "usageOccasions": [],
+      "purchaseDrivers": [],
+      "shopperNeeds": [],
+      "productPreferences": [],
+      "routines": [],
+      "coConsumptionHabits": [],
+      "complaints": [],
+      "retailerMentions": [],
+      "competitorMentions": [],
+      "comparisonMentions": []
+    },
+    "averagePrice": 3.3,
+    "priceRange": {
+      "min": 3.3,
+      "max": 3.3
+    },
+    "priceTiers": [
+      {
+        "name": "premium",
+        "count": 4
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "Kombucha & Fermented Drinks",
+        "count": 4
+      }
+    ],
+    "retailers": [
+      "Ocado",
+      "Waitrose",
+      "aguademadre.co.uk"
+    ],
+    "labels": [
+      "Berry",
+      "Citrus",
+      "Lightly Sweetened",
+      "Organic",
+      "Soft Drinks",
+      "Tropical",
+      "Vegan"
+    ],
+    "evidence": []
+  },
+  {
+    "brandName": "Dalston's",
+    "foundedYear": 2012,
+    "hqCity": "London",
+    "hqCountry": "United Kingdom",
+    "headquartersRaw": "London, United Kingdom",
+    "description": "Dalston's is a beverage company known for producing 'Soda With Soul,' which is full-flavor fizz made with real fruit and no added sugar or artificial sweeteners. The brand emphasizes sustainability, using recycled aluminum cans that are 100% recyclable. It was created by chefs in an East London nightclub.",
+    "industry": "Beverages",
+    "website": "https://dalstons.com",
+    "additionalContext": "",
+    "instagramHandle": "https://www.instagram.com/drinkdalstons/",
+    "linkedinUrl": "https://www.linkedin.com/company/dalstons",
+    "tiktokHandle": "https://www.tiktok.com/@drinkdalstons",
+    "twitterHandle": "https://twitter.com/drinkdalstons",
+    "youtubeChannelId": "https://www.youtube.com/@DalstonRadioLive",
+    "breakthroughScore": 31.6297589049753,
+    "momentumScore": 52.5806451612903,
+    "popularityScore": 17.6625001765788,
+    "archetypeAffinity": "Dalston's positions itself at the intersection of craft flavour, clean ingredients and sustainability: a chef-origin story, real fruit flavours, and recyclable aluminium cans define the brand. This makes it an exceptional match for Conscious Consumers and a strong fit for Wellness Seekers who value no added sugar and natural ingredients. The brand's artisanal provenance and sensory focus also attract Experience Explorers and Trend Enthusiasts, while Quality Seekers see value in the premium taste...",
+    "researchOverallAssessment": "Dalston's is a legitimate and active brand known for its commitment to quality and sustainability in the beverage industry. With a strong online presence, active social media engagement, and positive community involvement, the brand is well-positioned in the market.",
+    "productCount": 3,
+    "reviewedProductCount": 0,
+    "reviewCount": 0,
+    "transcriptCoverageRole": "Competitive context",
+    "averageRating": null,
+    "wouldBuyAfterTryingRate": null,
+    "sentimentCounts": {},
+    "topThemes": [],
+    "topSignals": {
+      "praiseThemes": [],
+      "painPoints": [],
+      "usageOccasions": [],
+      "purchaseDrivers": [],
+      "shopperNeeds": [],
+      "productPreferences": [],
+      "routines": [],
+      "coConsumptionHabits": [],
+      "complaints": [],
+      "retailerMentions": [],
+      "competitorMentions": [],
+      "comparisonMentions": []
+    },
+    "averagePrice": 4.2,
+    "priceRange": {
+      "min": 4.2,
+      "max": 4.2
+    },
+    "priceTiers": [
+      {
+        "name": "premium",
+        "count": 3
+      }
+    ],
+    "subcategories": [
+      {
+        "name": "Craft Soft Drinks",
+        "count": 3
+      }
+    ],
+    "retailers": [
+      "Ocado",
+      "Sainsbury's",
+      "Tesco",
+      "Waitrose",
+      "dalstons.com"
+    ],
+    "labels": [
+      "Craft Soda",
+      "Herbal and Botanical",
+      "Soft Drinks",
+      "Vegan"
+    ],
+    "evidence": []
+  }
+]

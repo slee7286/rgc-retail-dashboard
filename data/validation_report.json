@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-06-07T00:21:56.279292+00:00",
+  "rawCounts": {
+    "transcripts": 130,
+    "users": 130,
+    "products": 35,
+    "brands": 9
+  },
+  "joinChecks": {
+    "transcriptUserJoinKey": [
+      "reviewId",
+      "personId"
+    ],
+    "transcriptProductJoinKey": "productId",
+    "productBrandJoinKey": {
+      "products.brand": "brands.brand_name"
+    },
+    "missingTranscriptUserJoins": 0,
+    "missingTranscriptUserReviewIds": [],
+    "missingTranscriptProductJoins": 0,
+    "missingTranscriptProductReviewIds": [],
+    "productsMissingBrandJoins": 0,
+    "productIdsMissingBrandJoins": []
+  },
+  "coverage": {
+    "brandsWithTranscripts": 4,
+    "brandsWithoutTranscripts": 5,
+    "reviewedProducts": 15,
+    "catalogueOnlyProducts": 20,
+    "transcriptsWithoutText": 1,
+    "transcriptsByBrand": {
+      "Double Dutch": 35,
+      "Fix8": 45,
+      "SKIP": 25,
+      "UNAI": 25
+    }
+  },
+  "assumptions": [
+    "Transcript-user enrichment uses the documented composite key (reviewId, personId).",
+    "Products are retained even when they have no transcript evidence so competitor context remains visible.",
+    "Brands with no reviews are labelled Competitive context rather than treated as data-quality failures.",
+    "Theme extraction is transparent keyword matching over transcript text, not a model-inferred truth label.",
+    "Transcript signals are deterministic phrase matches with evidence snippets across praise, pain points, occasions, shopper needs, product preferences, routines, co-consumption, purchase drivers, complaints, retailers, competitors, and comparisons.",
+    "Signal confidence combines matched phrase count with simple supporting evidence from rating, sentiment, and would-buy response."
+  ]
+}

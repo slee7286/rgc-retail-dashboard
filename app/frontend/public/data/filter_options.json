@@ -1,0 +1,235 @@
+{
+  "brands": [
+    "Agua de Madre",
+    "DASH",
+    "Dalston's",
+    "Double Dutch",
+    "Fix8",
+    "Hip Pop",
+    "SKIP",
+    "Trip",
+    "UNAI"
+  ],
+  "reviewedBrands": [
+    "Double Dutch",
+    "Fix8",
+    "SKIP",
+    "UNAI"
+  ],
+  "subcategories": [
+    "Adaptogenic Drinks",
+    "CBD Drinks",
+    "Craft Soft Drinks",
+    "Flavoured Sparkling Water",
+    "Functional & Wellness Drinks",
+    "Ginger Beer & Ginger Ale",
+    "Kombucha & Fermented Drinks",
+    "Lemonade & Citrus Drinks",
+    "Sparkling Water",
+    "Tonic Water & Mixers"
+  ],
+  "retailers": [
+    "Boots",
+    "Morrisons",
+    "Ocado",
+    "PlanetOrganic",
+    "RAYE Store Notting Hill (pop-up)",
+    "Sainsbury's",
+    "Tesco",
+    "Waitrose",
+    "Welleasy",
+    "aguademadre.co.uk",
+    "dalstons.com",
+    "dash-water.com",
+    "drinkhippop.com",
+    "drinkskip.com (DTC)",
+    "drinkunai.com (DTC)",
+    "tripdrinks.co.uk"
+  ],
+  "priceTiers": [
+    "mid-range",
+    "premium"
+  ],
+  "marketMaturity": [
+    "emerging",
+    "growing",
+    "mature"
+  ],
+  "packagingTypes": [
+    "bottle",
+    "can",
+    "multipack"
+  ],
+  "labels": [
+    "Adaptogenic",
+    "Berry",
+    "CBD",
+    "Can",
+    "Cans",
+    "Citrus",
+    "Craft Soda",
+    "Exotic",
+    "Glass Bottles",
+    "Herbal",
+    "Herbal and Botanical",
+    "Highly Carbonated",
+    "Kombucha",
+    "Lightly Carbonated",
+    "Lightly Sweetened",
+    "Low Calorie",
+    "Low-Sugar",
+    "Naturally Sweetened",
+    "Organic",
+    "Soft Drinks",
+    "Sparkling Water",
+    "Sugar-Free",
+    "Sweet",
+    "Tropical",
+    "Unsweetened",
+    "Vegan"
+  ],
+  "sentiments": [
+    "MIXED",
+    "NEGATIVE",
+    "NEUTRAL",
+    "POSITIVE",
+    "UNKNOWN"
+  ],
+  "themes": [
+    "Health & Function",
+    "Mixer & Pairing",
+    "Occasion",
+    "Packaging & Format",
+    "Taste",
+    "Value & Availability"
+  ],
+  "signalCategories": [
+    "coConsumptionHabits",
+    "comparisonMentions",
+    "competitorMentions",
+    "complaints",
+    "painPoints",
+    "praiseThemes",
+    "productPreferences",
+    "purchaseDrivers",
+    "retailerMentions",
+    "routines",
+    "shopperNeeds",
+    "usageOccasions"
+  ],
+  "signals": {
+    "praiseThemes": [
+      "Appealing packaging",
+      "Balanced sweetness",
+      "Good fizz",
+      "Natural or refined profile",
+      "Refreshing taste",
+      "Strong flavour appeal"
+    ],
+    "painPoints": [
+      "Bitter, tart, or sour edge",
+      "Fermented or unusual taste barrier",
+      "Not a repeat purchase",
+      "Too fizzy",
+      "Too sweet",
+      "Weak or subtle flavour"
+    ],
+    "usageOccasions": [
+      "Alcohol alternative",
+      "Health routine",
+      "Mixer with spirits",
+      "Relaxation or wind-down",
+      "Social occasion",
+      "Workday or lunch break"
+    ],
+    "purchaseDrivers": [
+      "Discovery or novelty",
+      "Health and functional benefits",
+      "Low/no sugar proposition",
+      "Natural ingredients",
+      "Premium mixer role",
+      "Taste-led repeat intent"
+    ],
+    "shopperNeeds": [
+      "Calm or mood support",
+      "Convenient single serve",
+      "Gut health support",
+      "Health-conscious swap",
+      "Premium home serve",
+      "Reduce sugar or soft drink dependency"
+    ],
+    "productPreferences": [
+      "Prefers bold flavour",
+      "Prefers high fizz",
+      "Prefers less sweetness",
+      "Prefers natural taste",
+      "Prefers subtle flavour",
+      "Sensitive to fermented notes"
+    ],
+    "routines": [
+      "Diet or calorie management",
+      "Evening wind-down",
+      "Lunch break drink",
+      "Social home drinking",
+      "Work-from-home refreshment"
+    ],
+    "coConsumptionHabits": [
+      "Consumed instead of cola/soda",
+      "Mixed with gin",
+      "Mixed with rum or bourbon",
+      "Mixed with vodka",
+      "Paired with food or treats",
+      "Served with ice or garnish"
+    ],
+    "complaints": [
+      "Expectation gap",
+      "Format or serve issue",
+      "Taste rejection"
+    ],
+    "retailerMentions": [
+      "Aldi",
+      "Amazon",
+      "M&S",
+      "Morrisons",
+      "Ocado",
+      "Selfridges",
+      "Tesco",
+      "Waitrose"
+    ],
+    "competitorMentions": [
+      "Coca-Cola/Diet Coke",
+      "Fever-Tree",
+      "Franklin & Sons",
+      "Nexba",
+      "Remedy Kombucha",
+      "Schweppes"
+    ],
+    "comparisonMentions": [
+      "Alternative or substitute framing",
+      "Explicit comparison",
+      "Preference or winner language"
+    ]
+  },
+  "regions": [
+    "East Midlands",
+    "East of England",
+    "London",
+    "North West England",
+    "Scotland",
+    "South East England",
+    "South West England",
+    "Unknown",
+    "Wales",
+    "West Midlands",
+    "Yorkshire and the Humber"
+  ],
+  "archetypes": [
+    "The Conscious Consumer",
+    "The Experience Explorer",
+    "The On-the-Go Shopper",
+    "The Smart Saver",
+    "The Trend Enthusiast",
+    "The Wellness Seeker",
+    "Unknown"
+  ]
+}

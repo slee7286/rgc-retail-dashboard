@@ -13,7 +13,7 @@
 **Objective:** Understand the brief and define scope  
 **What I did:** Read brief, reviewed deliverables, skimmed dataset files  
 **Observations:** Need to build a hosted dashboard, not just analysis. Focus should be usefulness over completeness.  
-**Decision:** Prioritise an end-to-end working app with 2–3 strong insight views instead of many half-finished features. Plan to use Docker with Caddy VPS to host application.  
+**Decision:** Prioritise an end-to-end working app with 2–3 strong insight views instead of many half-finished features. Plan to use Docker with Caddy VPS to host application. As coding with an AI agent will speed up process, focusing on refining AI agent output to match objectives and meet the overall project goal. Debug in person to avoid hallucination and generating unnecessary bloatware. I will still be making choices of the architecture, tools, framework, and more myself.  
 **Why:** 24-hour (now 16 hour) timebox; likely better to show judgement and shipping ability.  
 **Next:** Identify strongest ways to showcase relationships between transcript, user, product, brand, and retail data.
 
@@ -97,3 +97,35 @@
 **Decision:** Treat deployment as mandatory before any cosmetic improvement.
 **Why:** A working hosted URL is a required deliverable.
 **Next:** Implement data cleaning and join pipeline.
+
+### 00:45
+**Objective:** Build preprocessing pipeline  
+**What I did:** Wrote scripts to load raw files, flatten nested JSON where needed, standardise column names, normalise text fields, and produce joined analytical tables. Use GenAI to parse transcript to find theme keywords.  
+**Observations:** Transcript and user joins may not be perfectly clean, so I need transparent assumptions, data cleansing, and validation checks.  
+**Decision:** Create 3 joined outputs:
+1. transcript-user enriched table (transcripts-users joined on (`reviewId`, `personId`))
+2. transcript-product aggregated table (transcripts-products joined on `productId`)
+3. brand-level aggregated table  (products-brand joined on `brand` and `brand_name`)
+
+Also create filter options, which will be used later on in the dashboard.
+
+**Why:** These map directly to dashboard views and simplify charting/filtering.  
+**Next:** Design the enrichment logic for transcript-backed signals.
+
+### 01:10
+**Objective:** Implement explainable transcript enrichment  
+**What I did:** Defined a small set of useful, commercial transcript-backed signals such as praise, pain points, usage occasions, purchase drivers, complaints, retailer mentions, and competitor/comparison mentions. Also includes themes such as . Used a rule-based keyword approach with confidence based on the number of matched keywords.  
+**Observations:** The brief does requires useful and explainable signal extraction. Basic signal extraction is sufficient for the task, and just requires reading the transcript data and finding patterns. Many limitations, however, exist.
+**Decision:** Prefer deterministic heuristics and visible evidence over opaque scoring. Add confidence labels only where they can be justified simply.  
+**Why:** Easier to verify, easier to explain in notes, and safer within the timebox.  
+**Next:** Test the extracted signals on a sample of transcripts and refine false positives.
+
+At the same time, I iterated the following to refine signals:
+
+### 01:10
+**Objective:** Validate transcript signals  
+**What I did:** Spot-checked sample transcripts against generated tags, reviewed evidence snippets, and adjusted matching rules to reduce noisy classifications.  
+**Observations:** Some signals are strong and obvious; others are ambiguous. Over-tagging will hurt credibility.  
+**Decision:** Keep only the strongest signal families that produce believable evidence. Drop anything that feels speculative.  
+**Why:** The submission will be judged on clear thinking and explainability, not maximum feature count.  
+**Next:** Create commercial aggregations linking signals to products, brands, retailers, ratings, and attributes.
