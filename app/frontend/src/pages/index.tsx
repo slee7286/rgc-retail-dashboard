@@ -5,6 +5,7 @@ import type {
   CommercialBrandGroup,
   CommercialGroupRecord,
   PositioningOpportunity,
+  PricePositioningCheck,
   Signal,
   SignalCategory,
   SignalCount,
@@ -35,7 +36,11 @@ const signalGroupAccents: Record<string, string> = {
 };
 
 const tabs: ActiveSection[] = ["Overview", "Consumer Voice", "Commercial Context"];
-const implementedTabs: ActiveSection[] = ["Overview", "Consumer Voice"];
+const implementedTabs: ActiveSection[] = [
+  "Overview",
+  "Consumer Voice",
+  "Commercial Context",
+];
 
 function formatNumber(value: number | null | undefined, digits = 0) {
   if (value === null || value === undefined) {
@@ -229,6 +234,138 @@ function BrandComparisonTable({ brands }: { brands: CommercialBrandGroup[] }) {
                   {formatScore(brand.breakthroughScore)}
                 </span>
               </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function CommercialRateTable({
+  rows,
+  title,
+}: {
+  rows: CommercialGroupRecord[];
+  title: string;
+}) {
+  return (
+    <div>
+      <h3 className="subsection-heading">{title}</h3>
+      <div className="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>Products</th>
+              <th>Reviews</th>
+              <th>Avg Rating</th>
+              <th>Would Buy</th>
+              <th>Benefit</th>
+              <th>Pain</th>
+              <th>Occasion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.group}>
+                <td>
+                  <strong>{row.group}</strong>
+                </td>
+                <td>{row.productCount}</td>
+                <td>{row.reviewCount}</td>
+                <td>{formatScore(row.averageRating)}</td>
+                <td>{formatPercent(row.wouldBuyAfterTryingRate)}</td>
+                <td>{formatPercent(row.mentionRates.benefits)}</td>
+                <td>{formatPercent(row.mentionRates.painPoints)}</td>
+                <td>{formatPercent(row.mentionRates.occasions)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function PositioningGapTable({
+  opportunities,
+}: {
+  opportunities: PositioningOpportunity[];
+}) {
+  return (
+    <div className="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Dimension</th>
+            <th>Status</th>
+            <th>Reviews</th>
+            <th>Reviewer Rate</th>
+            <th>Baseline</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          {opportunities.slice(0, 10).map((item) => (
+            <tr key={`${item.brand}-${item.dimension}`}>
+              <td>
+                <strong>{item.brand}</strong>
+              </td>
+              <td>{item.dimension}</td>
+              <td>
+                <span className="role-pill">{item.status}</span>
+              </td>
+              <td>{item.reviewCount}</td>
+              <td>{formatPercent(item.reviewerMentionRate)}</td>
+              <td>{formatPercent(item.reviewedCategoryBaselineRate)}</td>
+              <td>
+                <span className="score-pill">
+                  {formatScore(item.priorityScore)}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function PriceCheckTable({ checks }: { checks: PricePositioningCheck[] }) {
+  return (
+    <div className="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Status</th>
+            <th>Tier</th>
+            <th>Products</th>
+            <th>Reviews</th>
+            <th>Avg Price</th>
+            <th>Benefit</th>
+            <th>Pain</th>
+            <th>Would Buy</th>
+          </tr>
+        </thead>
+        <tbody>
+          {checks.map((check) => (
+            <tr key={check.brand}>
+              <td>
+                <strong>{check.brand}</strong>
+              </td>
+              <td>
+                <span className="role-pill">{check.status}</span>
+              </td>
+              <td>{check.dominantPriceTier}</td>
+              <td>{check.productCount}</td>
+              <td>{check.reviewCount}</td>
+              <td>{formatCurrency(check.averagePrice)}</td>
+              <td>{formatPercent(check.benefitMentionRate)}</td>
+              <td>{formatPercent(check.painPointMentionRate)}</td>
+              <td>{formatPercent(check.wouldBuyAfterTryingRate)}</td>
             </tr>
           ))}
         </tbody>
@@ -1041,6 +1178,219 @@ function ConsumerVoiceSection() {
   );
 }
 
+function RecommendationTile({
+  opportunity,
+  type,
+}: {
+  opportunity: PositioningOpportunity;
+  type: string;
+}) {
+  const evidence = opportunity.transcriptEvidence;
+
+  return (
+    <article className="recommendation-tile">
+      <span className="category-pill">{type}</span>
+      <h3>
+        {opportunity.brand}: {opportunity.dimension}
+      </h3>
+      <p>{opportunity.status}</p>
+      <div className="tile-metrics">
+        <span>n={opportunity.reviewCount}</span>
+        <span>{formatPercent(opportunity.reviewerMentionRate)} reviewer rate</span>
+        <span>Priority {formatScore(opportunity.priorityScore)}</span>
+      </div>
+      {evidence ? (
+        <blockquote>
+          <span>Evidence</span>
+          {truncate(evidence.snippet, 180)}
+        </blockquote>
+      ) : null}
+    </article>
+  );
+}
+
+function CommercialContextSection() {
+  const commercial = dashboardData.commercialAggregationLayer;
+  const [aggregationView, setAggregationView] = useState("byBrand");
+
+  const aggregationRows = useMemo(() => {
+    switch (aggregationView) {
+      case "byProduct":
+        return commercial.byProduct;
+      case "byRetailer":
+        return commercial.byRetailer;
+      case "byCategory":
+        return commercial.byCategory;
+      case "byRatingBand":
+        return commercial.byRatingBand;
+      case "priceTier":
+        return commercial.byStructuredAttributes.priceTier;
+      case "marketMaturity":
+        return commercial.byStructuredAttributes.marketMaturity;
+      case "packagingType":
+        return commercial.byStructuredAttributes.packagingType;
+      case "productLabel":
+        return commercial.byStructuredAttributes.productLabel;
+      case "byBrand":
+      default:
+        return commercial.byBrand;
+    }
+  }, [aggregationView, commercial]);
+
+  const aggregationTitle =
+    {
+      byBrand: "By Brand",
+      byCategory: "By Category",
+      byProduct: "By Product",
+      byRatingBand: "By Rating Band",
+      byRetailer: "By Retailer Availability",
+      marketMaturity: "By Market Maturity",
+      packagingType: "By Packaging Type",
+      priceTier: "By Price Tier",
+      productLabel: "By Product Label",
+    }[aggregationView] ?? "Commercial Aggregates";
+
+  const topOpportunities = commercial.insightFeature.topOpportunities;
+  const leadOpportunity = topOpportunities[0];
+  const recommendations = topOpportunities.slice(0, 3);
+
+  return (
+    <section className="commercial-section" aria-labelledby="commercial-title">
+      <div className="section-title-row">
+        <div>
+          <span className="eyebrow">Commercial Context</span>
+          <h1 id="commercial-title">Positioning, category context, and watchouts</h1>
+        </div>
+        <p>
+          These views compare structured product and brand context with
+          transcript-backed reviewer signals. Counts and rates are directional.
+        </p>
+      </div>
+
+      <section className="card positioning-card">
+        <div className="card-heading">
+          <div>
+            <span className="eyebrow">
+              {commercial.insightFeature.featureName}
+            </span>
+            <h2>{commercial.insightFeature.description}</h2>
+          </div>
+          <span className="sample-pill">
+            {commercial.insightFeature.brandGaps.length} brand-dimension checks
+          </span>
+        </div>
+
+        {leadOpportunity ? (
+          <div className="lead-gap">
+            <div>
+              <span className="category-pill">{leadOpportunity.status}</span>
+              <h3>
+                {leadOpportunity.brand} - {leadOpportunity.dimension}
+              </h3>
+              <p>
+                Reviewer mention rate is{" "}
+                <strong>{formatPercent(leadOpportunity.reviewerMentionRate)}</strong>{" "}
+                against a structured positioning score of{" "}
+                <strong>
+                  {formatPercent(leadOpportunity.structuredPositioningScore)}
+                </strong>
+                .
+              </p>
+            </div>
+            <dl className="opportunity-metrics">
+              <div>
+                <dt>Reviews</dt>
+                <dd>{leadOpportunity.reviewCount}</dd>
+              </div>
+              <div>
+                <dt>Baseline</dt>
+                <dd>{formatPercent(leadOpportunity.reviewedCategoryBaselineRate)}</dd>
+              </div>
+              <div>
+                <dt>Delta vs Positioning</dt>
+                <dd>{formatPercent(leadOpportunity.deltaVsStructuredPositioning)}</dd>
+              </div>
+              <div>
+                <dt>Priority</dt>
+                <dd>{formatScore(leadOpportunity.priorityScore)}</dd>
+              </div>
+            </dl>
+          </div>
+        ) : null}
+
+        <PositioningGapTable
+          opportunities={commercial.insightFeature.brandGaps}
+        />
+      </section>
+
+      <div className="commercial-grid">
+        <section className="card aggregate-card">
+          <div className="card-heading">
+            <div>
+              <span className="eyebrow">Commercial Aggregation Layer</span>
+              <h2>Compare normalized signal rates by business dimension</h2>
+            </div>
+            <label className="view-select">
+              View
+              <select
+                value={aggregationView}
+                onChange={(event) => setAggregationView(event.target.value)}
+              >
+                <option value="byBrand">Brand</option>
+                <option value="byProduct">Product</option>
+                <option value="byRetailer">Retailer availability</option>
+                <option value="byCategory">Category</option>
+                <option value="byRatingBand">Rating band</option>
+                <option value="priceTier">Price tier</option>
+                <option value="marketMaturity">Market maturity</option>
+                <option value="packagingType">Packaging type</option>
+                <option value="productLabel">Product label</option>
+              </select>
+            </label>
+          </div>
+          <CommercialRateTable rows={aggregationRows} title={aggregationTitle} />
+        </section>
+
+        <section className="card recommendation-card">
+          <div className="card-heading">
+            <div>
+              <span className="eyebrow">What To Investigate Next</span>
+              <h2>Highest-priority evidence-backed watchlist</h2>
+            </div>
+          </div>
+          <div className="recommendation-grid">
+            {recommendations.map((opportunity, index) => (
+              <RecommendationTile
+                key={`${opportunity.brand}-${opportunity.dimension}`}
+                opportunity={opportunity}
+                type={
+                  index === 0
+                    ? "Messaging gap"
+                    : opportunity.status.includes("validated")
+                      ? "Validated strength"
+                      : "Watchlist"
+                }
+              />
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <section className="card price-card">
+        <div className="card-heading">
+          <div>
+            <span className="eyebrow">Price And Positioning Checks</span>
+            <h2>Pricing context alongside benefit, pain, and intent rates</h2>
+          </div>
+        </div>
+        <PriceCheckTable
+          checks={commercial.insightFeature.pricePositioningChecks}
+        />
+      </section>
+    </section>
+  );
+}
+
 export default function Home() {
   const overview = dashboardData.commercialAggregationLayer.overview;
   const summary = `${dashboardData.kpis.transcripts} transcripts | ${dashboardData.kpis.products} products | ${dashboardData.kpis.brands} brands | ${dashboardData.kpis.reviewedProducts} reviewed products`;
@@ -1088,8 +1438,10 @@ export default function Home() {
 
         {activeSection === "Overview" ? (
           <OverviewSection overview={overview} />
-        ) : (
+        ) : activeSection === "Consumer Voice" ? (
           <ConsumerVoiceSection />
+        ) : (
+          <CommercialContextSection />
         )}
       </main>
 
@@ -1122,7 +1474,8 @@ export default function Home() {
 
         .app-header,
         .overview-section,
-        .consumer-section {
+        .consumer-section,
+        .commercial-section {
           width: min(1400px, 100%);
           margin: 0 auto;
         }
@@ -1238,7 +1591,8 @@ export default function Home() {
         }
 
         .overview-section,
-        .consumer-section {
+        .consumer-section,
+        .commercial-section {
           padding: 34px 0 56px;
         }
 
@@ -1772,6 +2126,112 @@ export default function Home() {
           line-height: 1.5;
         }
 
+        .positioning-card,
+        .price-card {
+          margin-bottom: 12px;
+        }
+
+        .lead-gap {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(320px, 0.44fr);
+          gap: 18px;
+          margin-bottom: 18px;
+          border: 1px solid rgba(65, 215, 231, 0.18);
+          border-radius: 8px;
+          padding: 16px;
+          background: rgba(65, 215, 231, 0.06);
+        }
+
+        .lead-gap h3 {
+          margin: 12px 0 8px;
+          color: #f8fafc;
+          font-size: 22px;
+          line-height: 1.25;
+        }
+
+        .lead-gap p {
+          max-width: 760px;
+          margin: 0;
+          color: #a8b3c4;
+          font-size: 14px;
+          line-height: 1.55;
+        }
+
+        .commercial-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1.15fr) minmax(380px, 0.85fr);
+          gap: 12px;
+          margin-bottom: 12px;
+        }
+
+        .view-select {
+          display: grid;
+          gap: 6px;
+          min-width: 220px;
+          color: #8d99aa;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        .view-select select {
+          min-height: 38px;
+          border: 1px solid rgba(148, 163, 184, 0.18);
+          border-radius: 8px;
+          padding: 8px 10px;
+          color: #f8fafc;
+          background: rgba(2, 6, 23, 0.52);
+          outline: none;
+        }
+
+        .subsection-heading {
+          margin: 0 0 12px;
+          color: #f8fafc;
+          font-size: 15px;
+        }
+
+        .recommendation-grid {
+          display: grid;
+          gap: 12px;
+        }
+
+        .recommendation-tile {
+          border: 1px solid rgba(148, 163, 184, 0.14);
+          border-radius: 8px;
+          padding: 14px;
+          background: rgba(2, 6, 23, 0.24);
+        }
+
+        .recommendation-tile h3 {
+          margin: 12px 0 8px;
+          color: #f8fafc;
+          font-size: 16px;
+          line-height: 1.3;
+        }
+
+        .recommendation-tile p {
+          margin: 0;
+          color: #a8b3c4;
+          font-size: 13px;
+          line-height: 1.45;
+        }
+
+        .tile-metrics {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 12px;
+        }
+
+        .tile-metrics span {
+          border: 1px solid rgba(148, 163, 184, 0.14);
+          border-radius: 999px;
+          padding: 5px 8px;
+          color: #cbd5e1;
+          background: rgba(15, 23, 42, 0.68);
+          font-size: 12px;
+        }
+
         @media (max-width: 1180px) {
           .metric-grid {
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1786,6 +2246,11 @@ export default function Home() {
           }
 
           .consumer-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .commercial-grid,
+          .lead-gap {
             grid-template-columns: 1fr;
           }
         }

@@ -166,4 +166,13 @@ At the same time, I iterated the following to refine signals:
 **Why:** This creates a credible evidence workspace that contains transcript-backed signals, filtering, browsing, and explainability, while staying tightly within scope. It also ensures the most important user journey after the landing page is working before adding heavier commercial comparison modules.  
 **Next:** Build the Commercial Context section, especially the positioning-vs-reviewer-reality feature and grouped commercial comparison tables.
 
-### 04:00
+### 03:50
+**Objective:** Build the Commercial Context section so the app clearly joins transcript evidence with catalogue, pricing, retailer, and brand intelligence  
+**What I did:** Implemented the Commercial Context section. Added the Positioning vs Reviewer Reality feature with a lead opportunity summary and a brand-by-dimension gap table showing reviewer mention rate, reviewed-category baseline, priority, and status. Added a Commercial Aggregation Layer table selector covering brand, product, retailer availability, category, rating band, price tier, market maturity, packaging type, and product label. Added a What To Investigate Next area with three evidence-backed recommendation tiles sourced. Added Price and Positioning Checks with one row per brand, including dominant price tier, average price, benefit and pain-point rates, would-buy-after-trying, and status.
+**Observations:** This section is where the dashboard becomes most commercially useful rather than merely descriptive. The positioning-gap table directly answers the brief’s key question about whether reviewer language aligns with how products and brands appear positioned, while the grouped aggregation tables and pricing checks add category and competitor context without requiring unsupported sales or live retail data. The recommendation tiles also help convert analysis into something closer to an action-oriented brand or category review.  
+**Decision:** Keep Commercial Context centered on a few strong deterministic views: positioning gaps, grouped comparison tables, pricing checks, and recommendation tiles. Avoid adding any broader “suite” functionality, real-time language, or speculative analytics beyond what is explicitly supported by the processed JSON artifacts.  
+**Why:** This satisfies the requirement for a brand-facing commercial insight feature that joins transcript/user signals with product, retail, and brand intelligence, while keeping the implementation credible, explainable, and achievable within the timebox. It also completes the intended three-part app structure without overextending into unsupported features.  
+**Next:** Final polish: improve spacing and visual consistency, sanity-check filters and edge cases, verify deployed behavior, and prepare README plus submission notes.
+
+
+### 04:10
