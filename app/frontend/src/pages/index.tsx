@@ -1,11 +1,24 @@
 import Head from "next/head";
+import { useMemo, useState } from "react";
 import { dashboardData } from "../lib/dashboardData";
 import type {
   CommercialBrandGroup,
   CommercialGroupRecord,
   PositioningOpportunity,
+  Signal,
+  SignalCategory,
   SignalCount,
+  TranscriptRow,
 } from "../types/dashboard";
+
+type ActiveSection = "Overview" | "Consumer Voice" | "Commercial Context";
+
+type SignalRow = {
+  id: string;
+  row: TranscriptRow;
+  category: SignalCategory;
+  signal: Signal;
+};
 
 const signalGroupLabels: Record<string, string> = {
   benefits: "Benefits",
@@ -21,7 +34,8 @@ const signalGroupAccents: Record<string, string> = {
   marketContext: "#41d7e7",
 };
 
-const tabs = ["Overview", "Consumer Voice", "Commercial Context"];
+const tabs: ActiveSection[] = ["Overview", "Consumer Voice", "Commercial Context"];
+const implementedTabs: ActiveSection[] = ["Overview", "Consumer Voice"];
 
 function formatNumber(value: number | null | undefined, digits = 0) {
   if (value === null || value === undefined) {
@@ -52,6 +66,50 @@ function truncate(value: string, length = 150) {
     return value;
   }
   return `${value.slice(0, length).trim()}...`;
+}
+
+function formatCurrency(value: number | null | undefined) {
+  if (value === null || value === undefined) {
+    return "No data";
+  }
+  return new Intl.NumberFormat("en-GB", {
+    currency: "GBP",
+    maximumFractionDigits: 2,
+    style: "currency",
+  }).format(value);
+}
+
+function formatCategoryLabel(value: string) {
+  return value
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/^\w/, (letter) => letter.toUpperCase());
+}
+
+function getRatingBand(rating: number | null | undefined) {
+  if (rating === null || rating === undefined) {
+    return "No rating";
+  }
+  if (rating >= 4) {
+    return "High rating (4-5)";
+  }
+  if (rating === 3) {
+    return "Mid rating (3)";
+  }
+  return "Low rating (1-2)";
+}
+
+function flattenTranscriptSignals(rows: TranscriptRow[]): SignalRow[] {
+  return rows.flatMap((row) =>
+    (Object.entries(row.signals) as [SignalCategory, Signal[]][]).flatMap(
+      ([category, signals]) =>
+        signals.map((signal, index) => ({
+          category,
+          id: `${row.reviewId}-${category}-${signal.label}-${index}`,
+          row,
+          signal,
+        }))
+    )
+  );
 }
 
 function MetricCard({
@@ -96,7 +154,7 @@ function RateBar({
         <span>{label}</span>
         <span>
           {formatPercent(value)}
-          {count !== null ? ` · ${count} mentions` : ""}
+          {count !== null ? ` - ${count} mentions` : ""}
         </span>
       </div>
       <div className="bar-track" aria-hidden="true">
@@ -129,7 +187,7 @@ function SignalList({
               {item.label}
             </span>
             <span className="signal-meta">
-              {item.count} · {formatPercent(item.shareOfReviews)}
+              {item.count} - {formatPercent(item.shareOfReviews)}
             </span>
           </div>
         ))}
@@ -322,7 +380,7 @@ function OverviewSection({ overview }: { overview: CommercialGroupRecord }) {
           value={topBenefit?.label ?? "No data"}
           detail={
             topBenefit
-              ? `${topBenefit.count} mentions · ${formatPercent(
+              ? `${topBenefit.count} mentions - ${formatPercent(
                   topBenefit.shareOfReviews
                 )}`
               : "No benefit signals available"
@@ -334,7 +392,7 @@ function OverviewSection({ overview }: { overview: CommercialGroupRecord }) {
           value={topPainPoint?.label ?? "No data"}
           detail={
             topPainPoint
-              ? `${topPainPoint.count} mentions · ${formatPercent(
+              ? `${topPainPoint.count} mentions - ${formatPercent(
                   topPainPoint.shareOfReviews
                 )}`
               : "No pain signals available"
@@ -407,9 +465,586 @@ function OverviewSection({ overview }: { overview: CommercialGroupRecord }) {
   );
 }
 
+function DetailStat({
+  label,
+  value,
+}: {
+  label: string;
+  value: string | number;
+}) {
+  return (
+    <div className="detail-stat">
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </div>
+  );
+}
+
+function ConsumerVoiceSection() {
+  const [selectedSignalId, setSelectedSignalId] = useState<string>("");
+  const [filters, setFilters] = useState({
+    ageBucket: "All",
+    archetype: "All",
+    brand: "All",
+    gender: "All",
+    region: "All",
+    subcategory: "All",
+    retailer: "All",
+    signalCategory: "All",
+    theme: "All",
+    sentiment: "All",
+    ratingBand: "All",
+    search: "",
+  });
+
+  const signalRows = useMemo(
+    () => flattenTranscriptSignals(dashboardData.transcriptUserEnriched),
+    []
+  );
+
+  const ratingBands = useMemo(
+    () =>
+      dashboardData.commercialAggregationLayer.byRatingBand.map(
+        (item) => item.group
+      ),
+    []
+  );
+
+  const genderOptions = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          dashboardData.transcriptUserEnriched
+            .map((row) => row.gender)
+            .filter(Boolean)
+        )
+      ).sort(),
+    []
+  );
+
+  const ageBucketOptions = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          dashboardData.transcriptUserEnriched
+            .map((row) => row.ageBucket)
+            .filter(Boolean)
+        )
+      ).sort(),
+    []
+  );
+
+  const brandGroupsByBrand = useMemo(
+    () =>
+      new Map(
+        dashboardData.commercialAggregationLayer.byBrand.map((brand) => [
+          brand.brand,
+          brand,
+        ])
+      ),
+    []
+  );
+
+  const productGroupsById = useMemo(
+    () =>
+      new Map(
+        dashboardData.commercialAggregationLayer.byProduct.map((product) => [
+          product.productId,
+          product,
+        ])
+      ),
+    []
+  );
+
+  const filteredSignalRows = useMemo(() => {
+    const search = filters.search.trim().toLowerCase();
+
+    return signalRows
+      .filter(({ category, row, signal }) => {
+        if (filters.brand !== "All" && row.brand !== filters.brand) {
+          return false;
+        }
+        if (filters.region !== "All" && row.region !== filters.region) {
+          return false;
+        }
+        if (filters.gender !== "All" && row.gender !== filters.gender) {
+          return false;
+        }
+        if (
+          filters.archetype !== "All" &&
+          row.primaryArchetype !== filters.archetype
+        ) {
+          return false;
+        }
+        if (
+          filters.ageBucket !== "All" &&
+          row.ageBucket !== filters.ageBucket
+        ) {
+          return false;
+        }
+        if (
+          filters.subcategory !== "All" &&
+          row.subcategory !== filters.subcategory
+        ) {
+          return false;
+        }
+        if (
+          filters.retailer !== "All" &&
+          !row.retailers.includes(filters.retailer)
+        ) {
+          return false;
+        }
+        if (
+          filters.signalCategory !== "All" &&
+          category !== filters.signalCategory
+        ) {
+          return false;
+        }
+        if (
+          filters.theme !== "All" &&
+          !row.themes.some((theme) => theme.theme === filters.theme)
+        ) {
+          return false;
+        }
+        if (filters.sentiment !== "All" && row.sentiment !== filters.sentiment) {
+          return false;
+        }
+        if (
+          filters.ratingBand !== "All" &&
+          getRatingBand(row.rating) !== filters.ratingBand
+        ) {
+          return false;
+        }
+        if (!search) {
+          return true;
+        }
+
+        const searchableText = [
+          row.brand,
+          row.productName,
+          row.subcategory,
+          row.summary,
+          row.transcriptText,
+          row.primaryArchetype,
+          row.region,
+          signal.label,
+          signal.snippet,
+          category,
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return searchableText.includes(search);
+      })
+      .sort((left, right) => {
+        if (right.signal.confidence !== left.signal.confidence) {
+          return right.signal.confidence - left.signal.confidence;
+        }
+        return (right.row.rating ?? 0) - (left.row.rating ?? 0);
+      });
+  }, [filters, signalRows]);
+
+  const visibleSignalRows = filteredSignalRows.slice(0, 80);
+  const selectedSignal =
+    filteredSignalRows.find((item) => item.id === selectedSignalId) ??
+    filteredSignalRows[0];
+  const selectedRow = selectedSignal?.row;
+  const selectedBrandContext = selectedRow
+    ? brandGroupsByBrand.get(selectedRow.brand)
+    : undefined;
+  const selectedProductContext = selectedRow
+    ? productGroupsById.get(selectedRow.productId)
+    : undefined;
+
+  const updateFilter = (key: keyof typeof filters, value: string) => {
+    setFilters((current) => ({ ...current, [key]: value }));
+  };
+
+  const clearFilters = () => {
+    setFilters({
+      ageBucket: "All",
+      archetype: "All",
+      brand: "All",
+      gender: "All",
+      ratingBand: "All",
+      region: "All",
+      retailer: "All",
+      search: "",
+      sentiment: "All",
+      signalCategory: "All",
+      subcategory: "All",
+      theme: "All",
+    });
+    setSelectedSignalId("");
+  };
+
+  return (
+    <section className="consumer-section" aria-labelledby="consumer-title">
+      <div className="section-title-row">
+        <div>
+          <span className="eyebrow">Consumer Voice</span>
+          <h1 id="consumer-title">Explore transcript-backed signals</h1>
+        </div>
+        <p>
+          Every row is backed by a deterministic transcript signal and evidence
+          snippet. Filters use the actual processed data contract.
+        </p>
+      </div>
+
+      <section className="card filter-card" aria-label="Consumer voice filters">
+        <label>
+          Brand
+          <select
+            value={filters.brand}
+            onChange={(event) => updateFilter("brand", event.target.value)}
+          >
+            <option>All</option>
+            {dashboardData.filters.reviewedBrands.map((brand) => (
+              <option key={brand}>{brand}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Region
+          <select
+            value={filters.region}
+            onChange={(event) => updateFilter("region", event.target.value)}
+          >
+            <option>All</option>
+            {dashboardData.filters.regions.map((region) => (
+              <option key={region}>{region}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Gender
+          <select
+            value={filters.gender}
+            onChange={(event) => updateFilter("gender", event.target.value)}
+          >
+            <option>All</option>
+            {genderOptions.map((gender) => (
+              <option key={gender}>{gender}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Archetype
+          <select
+            value={filters.archetype}
+            onChange={(event) => updateFilter("archetype", event.target.value)}
+          >
+            <option>All</option>
+            {dashboardData.filters.archetypes.map((archetype) => (
+              <option key={archetype}>{archetype}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Age bucket
+          <select
+            value={filters.ageBucket}
+            onChange={(event) => updateFilter("ageBucket", event.target.value)}
+          >
+            <option>All</option>
+            {ageBucketOptions.map((ageBucket) => (
+              <option key={ageBucket}>{ageBucket}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Subcategory
+          <select
+            value={filters.subcategory}
+            onChange={(event) => updateFilter("subcategory", event.target.value)}
+          >
+            <option>All</option>
+            {dashboardData.filters.subcategories.map((subcategory) => (
+              <option key={subcategory}>{subcategory}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Retailer availability
+          <select
+            value={filters.retailer}
+            onChange={(event) => updateFilter("retailer", event.target.value)}
+          >
+            <option>All</option>
+            {dashboardData.filters.retailers.map((retailer) => (
+              <option key={retailer}>{retailer}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Signal
+          <select
+            value={filters.signalCategory}
+            onChange={(event) =>
+              updateFilter("signalCategory", event.target.value)
+            }
+          >
+            <option>All</option>
+            {dashboardData.filters.signalCategories.map((category) => (
+              <option key={category} value={category}>
+                {formatCategoryLabel(category)}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Theme
+          <select
+            value={filters.theme}
+            onChange={(event) => updateFilter("theme", event.target.value)}
+          >
+            <option>All</option>
+            {dashboardData.filters.themes.map((theme) => (
+              <option key={theme}>{theme}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Sentiment
+          <select
+            value={filters.sentiment}
+            onChange={(event) => updateFilter("sentiment", event.target.value)}
+          >
+            <option>All</option>
+            {dashboardData.filters.sentiments.map((sentiment) => (
+              <option key={sentiment}>{sentiment}</option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Rating band
+          <select
+            value={filters.ratingBand}
+            onChange={(event) => updateFilter("ratingBand", event.target.value)}
+          >
+            <option>All</option>
+            {ratingBands.map((band) => (
+              <option key={band}>{band}</option>
+            ))}
+          </select>
+        </label>
+
+        <label className="search-label">
+          Search
+          <input
+            placeholder="Search transcript, product, signal..."
+            type="search"
+            value={filters.search}
+            onChange={(event) => updateFilter("search", event.target.value)}
+          />
+        </label>
+
+        <button className="clear-button" type="button" onClick={clearFilters}>
+          Clear
+        </button>
+      </section>
+
+      <div className="consumer-grid">
+        <section className="card signal-browser">
+          <div className="card-heading">
+            <div>
+              <span className="eyebrow">Signal List</span>
+              <h2>
+                Showing {visibleSignalRows.length} of {filteredSignalRows.length}{" "}
+                matching signals
+              </h2>
+            </div>
+          </div>
+
+          <div className="signal-row-list">
+            {visibleSignalRows.length ? (
+              visibleSignalRows.map((item) => (
+                <button
+                  className={
+                    item.id === selectedSignal?.id
+                      ? "signal-row active"
+                      : "signal-row"
+                  }
+                  key={item.id}
+                  onClick={() => setSelectedSignalId(item.id)}
+                  type="button"
+                >
+                  <span className="signal-row-top">
+                    <span className="category-pill">
+                      {formatCategoryLabel(item.category)}
+                    </span>
+                    <span>{item.signal.confidenceLabel}</span>
+                  </span>
+                  <strong>{item.signal.label}</strong>
+                  <span className="signal-snippet">
+                    {truncate(item.signal.snippet, 170)}
+                  </span>
+                  <span className="signal-row-meta">
+                    {item.row.brand} - {item.row.productName} - Rating{" "}
+                    {formatScore(item.row.rating)}
+                  </span>
+                </button>
+              ))
+            ) : (
+              <p className="empty-state">
+                No transcript signals match these filters.
+              </p>
+            )}
+          </div>
+        </section>
+
+        <section className="card transcript-detail">
+          {selectedSignal && selectedRow ? (
+            <>
+              <div className="card-heading">
+                <div>
+                  <span className="eyebrow">Evidence Detail</span>
+                  <h2>{selectedRow.productName}</h2>
+                </div>
+                <span className="category-pill">
+                  {formatCategoryLabel(selectedSignal.category)}
+                </span>
+              </div>
+
+              <div className="detail-stat-grid">
+                <DetailStat label="Brand" value={selectedRow.brand} />
+                <DetailStat
+                  label="Rating"
+                  value={formatScore(selectedRow.rating)}
+                />
+                <DetailStat label="Sentiment" value={selectedRow.sentiment} />
+                <DetailStat
+                  label="Would Buy"
+                  value={selectedRow.wouldBuyAfterTrying || "No data"}
+                />
+                <DetailStat
+                  label="Price Tier"
+                  value={selectedRow.priceTier || "No data"}
+                />
+                <DetailStat
+                  label="Price"
+                  value={formatCurrency(selectedRow.price)}
+                />
+              </div>
+
+              <blockquote>
+                <span>Selected signal evidence</span>
+                {selectedSignal.signal.snippet || "No snippet available."}
+              </blockquote>
+
+              <div className="detail-block">
+                <h3>Reviewer Context</h3>
+                <div className="chip-row">
+                  <span>{selectedRow.primaryArchetype}</span>
+                  <span>{selectedRow.region}</span>
+                  <span>{selectedRow.ageBucket}</span>
+                  <span>{selectedRow.videoReviewerTier}</span>
+                </div>
+              </div>
+
+              <div className="detail-block">
+                <h3>Product Context</h3>
+                <p>
+                  {selectedRow.subcategory} - {selectedRow.marketMaturity} -{" "}
+                  {selectedRow.retailers.length
+                    ? selectedRow.retailers.join(", ")
+                    : "No retailer metadata"}
+                </p>
+                <div className="chip-row">
+                  {selectedRow.productLabels.slice(0, 8).map((label) => (
+                    <span key={label.name}>{label.name}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="detail-block">
+                <h3>Themes</h3>
+                <div className="chip-row">
+                  {selectedRow.themes.map((theme) => (
+                    <span key={theme.theme}>
+                      {theme.theme} ({formatScore(theme.confidence)})
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="detail-block">
+                <h3>Grouped Signals</h3>
+                <div className="grouped-signal-list">
+                  {(
+                    Object.entries(selectedRow.signals) as [
+                      SignalCategory,
+                      Signal[]
+                    ][]
+                  )
+                    .filter(([, signals]) => signals.length)
+                    .map(([category, signals]) => (
+                      <div key={category}>
+                        <strong>{formatCategoryLabel(category)}</strong>
+                        <p>{signals.map((signal) => signal.label).join(", ")}</p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+
+              <div className="detail-block commercial-context-box">
+                <h3>Commercial Context</h3>
+                <div className="detail-stat-grid compact">
+                  <DetailStat
+                    label="Brand Benefit Rate"
+                    value={formatPercent(
+                      selectedBrandContext?.mentionRates.benefits
+                    )}
+                  />
+                  <DetailStat
+                    label="Brand Pain Rate"
+                    value={formatPercent(
+                      selectedBrandContext?.mentionRates.painPoints
+                    )}
+                  />
+                  <DetailStat
+                    label="Product Benefit Rate"
+                    value={formatPercent(
+                      selectedProductContext?.mentionRates.benefits
+                    )}
+                  />
+                  <DetailStat
+                    label="Product Pain Rate"
+                    value={formatPercent(
+                      selectedProductContext?.mentionRates.painPoints
+                    )}
+                  />
+                </div>
+              </div>
+
+              <div className="detail-block">
+                <h3>Transcript Summary</h3>
+                <p>{selectedRow.summary || "No summary available."}</p>
+              </div>
+            </>
+          ) : (
+            <p className="empty-state">Select a signal to inspect evidence.</p>
+          )}
+        </section>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const overview = dashboardData.commercialAggregationLayer.overview;
   const summary = `${dashboardData.kpis.transcripts} transcripts | ${dashboardData.kpis.products} products | ${dashboardData.kpis.brands} brands | ${dashboardData.kpis.reviewedProducts} reviewed products`;
+  const [activeSection, setActiveSection] = useState<ActiveSection>("Overview");
 
   return (
     <>
@@ -438,10 +1073,11 @@ export default function Home() {
           <nav className="tabs" aria-label="Dashboard sections">
             {tabs.map((tab) => (
               <button
-                aria-current={tab === "Overview" ? "page" : undefined}
-                className={tab === "Overview" ? "active" : ""}
-                disabled={tab !== "Overview"}
+                aria-current={tab === activeSection ? "page" : undefined}
+                className={tab === activeSection ? "active" : ""}
+                disabled={!implementedTabs.includes(tab)}
                 key={tab}
+                onClick={() => setActiveSection(tab)}
                 type="button"
               >
                 {tab}
@@ -450,7 +1086,11 @@ export default function Home() {
           </nav>
         </header>
 
-        <OverviewSection overview={overview} />
+        {activeSection === "Overview" ? (
+          <OverviewSection overview={overview} />
+        ) : (
+          <ConsumerVoiceSection />
+        )}
       </main>
 
       <style jsx>{`
@@ -481,7 +1121,8 @@ export default function Home() {
         }
 
         .app-header,
-        .overview-section {
+        .overview-section,
+        .consumer-section {
           width: min(1400px, 100%);
           margin: 0 auto;
         }
@@ -548,7 +1189,8 @@ export default function Home() {
         .sample-pill,
         .priority-pill,
         .score-pill,
-        .role-pill {
+        .role-pill,
+        .category-pill {
           display: inline-flex;
           align-items: center;
           min-height: 28px;
@@ -580,7 +1222,7 @@ export default function Home() {
           padding: 8px 14px;
           color: #9aa6b5;
           background: rgba(15, 23, 42, 0.66);
-          cursor: default;
+          cursor: pointer;
           white-space: nowrap;
         }
 
@@ -591,10 +1233,12 @@ export default function Home() {
         }
 
         .tabs button:disabled {
+          cursor: not-allowed;
           opacity: 0.64;
         }
 
-        .overview-section {
+        .overview-section,
+        .consumer-section {
           padding: 34px 0 56px;
         }
 
@@ -904,12 +1548,244 @@ export default function Home() {
           text-transform: uppercase;
         }
 
+        .filter-card {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+          gap: 12px;
+          align-items: end;
+          margin-bottom: 12px;
+        }
+
+        .filter-card label {
+          display: grid;
+          gap: 6px;
+          color: #8d99aa;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        .filter-card select,
+        .filter-card input {
+          width: 100%;
+          min-height: 40px;
+          border: 1px solid rgba(148, 163, 184, 0.18);
+          border-radius: 8px;
+          padding: 8px 10px;
+          color: #f8fafc;
+          background: rgba(2, 6, 23, 0.52);
+          outline: none;
+        }
+
+        .filter-card select:focus,
+        .filter-card input:focus {
+          border-color: rgba(65, 215, 231, 0.62);
+        }
+
+        .search-label {
+          grid-column: span 2;
+        }
+
+        .clear-button {
+          min-height: 40px;
+          border: 1px solid rgba(148, 163, 184, 0.18);
+          border-radius: 8px;
+          padding: 8px 14px;
+          color: #dbe4f0;
+          background: rgba(15, 23, 42, 0.88);
+          cursor: pointer;
+        }
+
+        .consumer-grid {
+          display: grid;
+          grid-template-columns: minmax(420px, 0.88fr) minmax(0, 1.12fr);
+          gap: 12px;
+          align-items: start;
+        }
+
+        .signal-browser,
+        .transcript-detail {
+          min-height: 640px;
+        }
+
+        .signal-row-list {
+          display: grid;
+          gap: 10px;
+          max-height: 760px;
+          overflow: auto;
+          padding-right: 4px;
+        }
+
+        .signal-row {
+          width: 100%;
+          display: grid;
+          gap: 8px;
+          border: 1px solid rgba(148, 163, 184, 0.14);
+          border-radius: 8px;
+          padding: 12px;
+          color: #dbe4f0;
+          background: rgba(2, 6, 23, 0.24);
+          text-align: left;
+          cursor: pointer;
+        }
+
+        .signal-row.active {
+          border-color: rgba(65, 215, 231, 0.5);
+          background: rgba(65, 215, 231, 0.09);
+        }
+
+        .signal-row-top,
+        .signal-row-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
+        .signal-row-top {
+          color: #9aa6b5;
+          font-size: 12px;
+          text-transform: uppercase;
+        }
+
+        .signal-row strong {
+          color: #f8fafc;
+          font-size: 15px;
+          line-height: 1.25;
+        }
+
+        .signal-snippet {
+          color: #a8b3c4;
+          font-size: 13px;
+          line-height: 1.45;
+        }
+
+        .signal-row-meta {
+          justify-content: flex-start;
+          color: #8d99aa;
+          font-size: 12px;
+        }
+
+        .category-pill {
+          min-height: 24px;
+          padding: 3px 8px;
+          color: #c9f6ff;
+          border-color: rgba(65, 215, 231, 0.32);
+          background: rgba(65, 215, 231, 0.08);
+          font-size: 12px;
+          text-transform: none;
+        }
+
+        .detail-stat-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .detail-stat-grid.compact {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .detail-stat {
+          border: 1px solid rgba(148, 163, 184, 0.12);
+          border-radius: 8px;
+          padding: 10px;
+          background: rgba(2, 6, 23, 0.24);
+        }
+
+        .detail-stat span {
+          display: block;
+          color: #8d99aa;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        .detail-stat strong {
+          display: block;
+          margin-top: 5px;
+          color: #f8fafc;
+          font-size: 14px;
+          line-height: 1.25;
+          overflow-wrap: anywhere;
+        }
+
+        .detail-block {
+          margin-top: 18px;
+          padding-top: 16px;
+          border-top: 1px solid rgba(148, 163, 184, 0.12);
+        }
+
+        .detail-block h3 {
+          margin: 0 0 10px;
+          color: #f8fafc;
+          font-size: 14px;
+        }
+
+        .detail-block p {
+          margin: 0;
+          color: #a8b3c4;
+          font-size: 14px;
+          line-height: 1.55;
+        }
+
+        .chip-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        .chip-row span {
+          border: 1px solid rgba(148, 163, 184, 0.16);
+          border-radius: 999px;
+          padding: 5px 9px;
+          color: #cbd5e1;
+          background: rgba(15, 23, 42, 0.68);
+          font-size: 12px;
+        }
+
+        .grouped-signal-list {
+          display: grid;
+          gap: 10px;
+        }
+
+        .grouped-signal-list div {
+          border: 1px solid rgba(148, 163, 184, 0.1);
+          border-radius: 8px;
+          padding: 10px;
+          background: rgba(2, 6, 23, 0.2);
+        }
+
+        .grouped-signal-list strong {
+          color: #f8fafc;
+          font-size: 13px;
+        }
+
+        .commercial-context-box {
+          border-top-color: rgba(65, 215, 231, 0.22);
+        }
+
+        .empty-state {
+          margin: 0;
+          color: #9aa6b5;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
         @media (max-width: 1180px) {
           .metric-grid {
             grid-template-columns: repeat(3, minmax(0, 1fr));
           }
 
           .overview-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .filter-card {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .consumer-grid {
             grid-template-columns: 1fr;
           }
         }
@@ -935,8 +1811,15 @@ export default function Home() {
 
           .metric-grid,
           .signal-summary-grid,
-          .opportunity-metrics {
+          .opportunity-metrics,
+          .filter-card,
+          .detail-stat-grid,
+          .detail-stat-grid.compact {
             grid-template-columns: 1fr;
+          }
+
+          .search-label {
+            grid-column: auto;
           }
 
           .metric-card strong {
