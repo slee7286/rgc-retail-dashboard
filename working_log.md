@@ -83,19 +83,19 @@
 **Next:** Set up project skeleton, data loading scripts, and preprocessing pipeline
 
 ### 00:00
-**Objective:** Set up repo and base application
-**What I did:** Created repository structure with app folder, data processing scripts, cached outputs, README stub, and working log file. Added environment setup, dependency file, and initial hosted-app scaffold.
-**Observations:** Having the skeleton in place reduces context switching tomorrow and helps ensure there is always something runnable.
-**Decision:** Build preprocessing as separate scripts that output cleaned tables for the app to read.
-**Why:** Keeps the app responsive and makes debugging easier than parsing raw JSON/CSV in the UI layer repeatedly.
+**Objective:** Set up repo and base application  
+**What I did:** Created repository structure with app folder, data processing scripts, cached outputs, README stub, and working log file. Added environment setup, dependency file, and initial hosted-app scaffold.  
+**Observations:** Having the skeleton in place reduces context switching tomorrow and helps ensure there is always something runnable.  
+**Decision:** Build preprocessing as separate scripts that output cleaned tables for the app to read.  
+**Why:** Keeps the app responsive and makes debugging easier than parsing raw JSON/CSV in the UI layer repeatedly.  
 **Next:** Deploy skeleton application
 
 ### 00:30
-**Objective:** Deploy hosted skeleton application
-**What I did:** Pushed the repo, configured deployment with Docker and Caddy.
-**Observations:** Deployment issues can eat the final hour if left too late.
-**Decision:** Treat deployment as mandatory before any cosmetic improvement.
-**Why:** A working hosted URL is a required deliverable.
+**Objective:** Deploy hosted skeleton application  
+**What I did:** Pushed the repo, configured deployment with Docker and Caddy.  
+**Observations:** Deployment issues can eat the final hour if left too late.  
+**Decision:** Treat deployment as mandatory before any cosmetic improvement.  
+**Why:** A working hosted URL is a required deliverable.  
 **Next:** Implement data cleaning and join pipeline.
 
 ### 00:45
@@ -115,7 +115,7 @@ Also create filter options, which will be used later on in the dashboard.
 ### 01:10
 **Objective:** Implement explainable transcript enrichment  
 **What I did:** Defined a small set of useful, commercial transcript-backed signals such as praise, pain points, usage occasions, purchase drivers, complaints, retailer mentions, and competitor/comparison mentions. Also includes themes such as . Used a rule-based keyword approach with confidence based on the number of matched keywords.  
-**Observations:** The brief does requires useful and explainable signal extraction. Basic signal extraction is sufficient for the task, and just requires reading the transcript data and finding patterns. Many limitations, however, exist.
+**Observations:** The brief does requires useful and explainable signal extraction. Basic signal extraction is sufficient for the task, and just requires reading the transcript data and finding patterns. Many limitations, however, exist.  
 **Decision:** Prefer deterministic heuristics and visible evidence over opaque scoring. Add confidence labels only where they can be justified simply.  
 **Why:** Easier to verify, easier to explain in notes, and safer within the timebox.  
 **Next:** Test the extracted signals on a sample of transcripts and refine false positives.
@@ -142,3 +142,20 @@ At the same time, I iterated the following to refine signals:
 
 **Next:** Create the dashboard UI
 
+### 02:20
+**Objective:** Finalize exact dashboard specification for UI build  
+**What I did:** Converted the brief, processed data contract, and earlier product decisions into a precise page spec covering layout, sections, cards, supported filters, allowed metrics, and feature limits. Grounded the app in the actual JSON outputs rather than a broader idealized product vision.  
+**Observations:** The strongest version of the app is a compact, evidence-led dashboard with three sections: Overview, Consumer Voice Explorer, and Commercial Context. The processed data supports distribution, rates, transcript evidence, positioning-gap analysis, and grouped commercial comparisons, but not real-time analytics or a true momentum model. Catalogue-only brands/products are intentional context and should remain visible without being misrepresented as zero-signal entities.  
+**Decision:** Keep the app as a single-page Next.js dashboard reading static JSON artifacts client-side. Use the header, KPI cards, transcript evidence workspace, brand comparison tables, positioning-vs-reviewer-reality feature, price/positioning checks, and a small recommendation area. Avoid features not supported by the data such as live analytics, backend querying, heavy NLP, complex charting, or fabricated retailer/sales intelligence.  
+**Why:** This preserves credibility, keeps the UI tightly aligned to the brief, and ensures that every visible insight is backed by sample size, rates, and transcript or metadata evidence. It also keeps scope manageable for a full build-to-deploy cycle within the timebox.  
+**Next:** Implement the dashboard components directly against `dashboard_data.json` and the commercial aggregation layer, then style the UI in a simplified Breakthrough Suite-inspired dark theme.
+
+### 02:40
+**Objective:** Build the default landing page and make the app visibly useful as early as possible  
+**What I did:** Implemented the first complete dashboard slice. Added the header with title, subtitle, processed-dataset status badge, dataset summary, and section tabs. Built the Overview section using real data, including KPI cards for transcript coverage, average rating, would-buy-after-trying, positive sentiment share, top benefit signal, and top pain point. Added consumer signal distribution bars, summary lists for top benefits/pain points/occasions/market context, a brand signal comparison table that correctly renders catalogue-only brands as no transcript evidence, and a Commercial Opportunity Signal card. Applied dark premium dashboard styling with responsive layout.  
+**Observations:** Building the overview first creates a credible landing state quickly and proves that the processed data contract is usable end-to-end in the frontend. The brand table and opportunity card already communicate the core commercial story, especially once catalogue-only context is shown explicitly instead of being flattened into zeros. One technical note is that importing `dashboard_data.json` directly increases first-load bundle size, though this is acceptable for the small assessment dataset.  
+**Decision:** Keep the initial page focused on the executive summary rather than trying to build all sections at once. Use direct JSON import for speed and reliability now, and defer client-side fetching or bundle optimization.  
+**Why:** This gives something immediately understandable and visually complete, while reducing integration risk before moving on to the deeper evidence and comparison views. It also keeps effort concentrated on the most important first impression of the app.  
+**Next:** Build the Consumer Voice Explorer section with filter controls, transcript-backed signal rows, and a selected-detail evidence panel.
+
+### 03:20
