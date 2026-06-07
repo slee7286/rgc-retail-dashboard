@@ -505,7 +505,6 @@ function CommercialRateTable({
               <th>Reviews</th>
               <th>Avg Rating</th>
               <th>Would Buy</th>
-              <th>Positive</th>
               <th>Neg/Mixed</th>
               <th>Positive</th>
               <th>Frustrations</th>
@@ -527,13 +526,6 @@ function CommercialRateTable({
                   <RateCell
                     label={`${row.group} would buy after trying rate`}
                     value={row.wouldBuyAfterTryingRate}
-                    hasEvidence={row.reviewCount > 0}
-                  />
-                </td>
-                <td>
-                  <RateCell
-                    label={`${row.group} positive sentiment share`}
-                    value={row.positiveSentimentShare}
                     hasEvidence={row.reviewCount > 0}
                   />
                 </td>
