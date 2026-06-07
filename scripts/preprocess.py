@@ -397,6 +397,135 @@ SIGNAL_CONFIDENCE_LABELS = [
     (0.0, "low"),
 ]
 
+COMMERCIAL_SIGNAL_GROUPS = {
+    "benefits": ["praiseThemes", "purchaseDrivers", "shopperNeeds", "productPreferences"],
+    "painPoints": ["painPoints", "complaints"],
+    "occasions": ["usageOccasions", "routines", "coConsumptionHabits"],
+    "marketContext": ["retailerMentions", "competitorMentions", "comparisonMentions"],
+}
+
+POSITIONING_DIMENSIONS = {
+    "Health and function": {
+        "structuredKeywords": [
+            "gut",
+            "probiotic",
+            "vitamin",
+            "immune",
+            "functional",
+            "wellness",
+            "cbd",
+            "kefir",
+            "kombucha",
+            "live cultures",
+            "low calorie",
+        ],
+        "signalCategories": ["shopperNeeds", "purchaseDrivers", "usageOccasions"],
+        "signalLabels": [
+            "Gut health support",
+            "Health and functional benefits",
+            "Health routine",
+            "Health-conscious swap",
+        ],
+    },
+    "Low sugar / clean label": {
+        "structuredKeywords": [
+            "low sugar",
+            "no added sugar",
+            "sugar free",
+            "natural",
+            "plant-based",
+            "plant based",
+            "vegan",
+            "dairy free",
+            "all natural",
+        ],
+        "signalCategories": ["purchaseDrivers", "shopperNeeds", "productPreferences"],
+        "signalLabels": [
+            "Low/no sugar proposition",
+            "Natural ingredients",
+            "Prefers less sweetness",
+            "Reduce sugar or soft drink dependency",
+        ],
+    },
+    "Premium mixer / adult serve": {
+        "structuredKeywords": [
+            "premium",
+            "mixer",
+            "cocktail",
+            "gin",
+            "vodka",
+            "spirit",
+            "home bartending",
+            "at-home cocktails",
+        ],
+        "signalCategories": ["usageOccasions", "purchaseDrivers", "shopperNeeds", "coConsumptionHabits"],
+        "signalLabels": [
+            "Mixer with spirits",
+            "Mixed with gin",
+            "Mixed with vodka",
+            "Premium home serve",
+            "Premium mixer role",
+        ],
+    },
+    "Taste and refreshment": {
+        "structuredKeywords": [
+            "refreshing",
+            "flavour",
+            "flavor",
+            "taste",
+            "citrus",
+            "ginger",
+            "fruit",
+            "sparkling",
+            "zesty",
+            "crisp",
+        ],
+        "signalCategories": ["praiseThemes", "productPreferences"],
+        "signalLabels": [
+            "Refreshing taste",
+            "Strong flavour appeal",
+            "Good fizz",
+            "Prefers bold flavour",
+            "Prefers high fizz",
+        ],
+    },
+    "Convenience and format": {
+        "structuredKeywords": [
+            "single-serve",
+            "single serve",
+            "on-the-go",
+            "on the go",
+            "can",
+            "bottle",
+            "pack",
+            "multipack",
+            "convenient",
+        ],
+        "signalCategories": ["praiseThemes", "shopperNeeds", "complaints"],
+        "signalLabels": [
+            "Appealing packaging",
+            "Convenient single serve",
+            "Format or serve issue",
+        ],
+    },
+    "Alcohol alternative": {
+        "structuredKeywords": [
+            "non-alcoholic",
+            "non alcoholic",
+            "alcohol alternative",
+            "standalone",
+            "sober",
+            "soft drink",
+        ],
+        "signalCategories": ["usageOccasions", "coConsumptionHabits", "comparisonMentions"],
+        "signalLabels": [
+            "Alcohol alternative",
+            "Alternative or substitute framing",
+            "Consumed instead of cola/soda",
+        ],
+    },
+}
+
 
 def read_json(path):
     with path.open("r", encoding="utf-8") as handle:
@@ -851,6 +980,555 @@ def top_signal_counts(rows, limit=6):
     return signal_summary
 
 
+def safe_rate(count, total):
+    return round(count / total, 3) if total else None
+
+
+def rating_band(rating):
+    if rating is None:
+        return "No rating"
+    if rating >= 4:
+        return "High rating (4-5)"
+    if rating == 3:
+        return "Mid rating (3)"
+    return "Low rating (1-2)"
+
+
+def row_signal_matches(row, categories, labels=None):
+    allowed_labels = set(labels or [])
+    for category in categories:
+        for signal in row.get("signals", {}).get(category, []):
+            if not allowed_labels or signal.get("label") in allowed_labels:
+                return True
+    return False
+
+
+def signal_counts_for_categories(rows, categories, limit=8):
+    counter = Counter()
+    examples = {}
+    for row in rows:
+        for category in categories:
+            for signal in row.get("signals", {}).get(category, []):
+                label = signal["label"]
+                counter[label] += 1
+                examples.setdefault(
+                    label,
+                    {
+                        "reviewId": row["reviewId"],
+                        "productName": row.get("productName"),
+                        "brand": row.get("brand"),
+                        "snippet": signal.get("snippet"),
+                        "confidenceLabel": signal.get("confidenceLabel"),
+                    },
+                )
+
+    return [
+        {
+            "label": label,
+            "count": count,
+            "shareOfReviews": safe_rate(count, len(rows)),
+            "example": examples.get(label),
+        }
+        for label, count in counter.most_common(limit)
+    ]
+
+
+def first_signal_evidence(rows, categories, labels=None):
+    allowed_labels = set(labels or [])
+    for row in rows:
+        for category in categories:
+            for signal in row.get("signals", {}).get(category, []):
+                if allowed_labels and signal.get("label") not in allowed_labels:
+                    continue
+                return {
+                    "reviewId": row["reviewId"],
+                    "brand": row.get("brand"),
+                    "productName": row.get("productName"),
+                    "rating": row.get("rating"),
+                    "sentiment": row.get("sentiment"),
+                    "signal": signal.get("label"),
+                    "category": category,
+                    "confidenceLabel": signal.get("confidenceLabel"),
+                    "snippet": signal.get("snippet"),
+                }
+    return None
+
+
+def build_commercial_group_record(group_name, rows, products=None):
+    products = products or []
+    review_count = len(rows)
+    product_ids_with_reviews = {row.get("productId") for row in rows if row.get("productId")}
+    sentiment_counts = Counter(row.get("sentiment") for row in rows if row.get("sentiment"))
+
+    mention_counts = {}
+    mention_rates = {}
+    for group_name_key, categories in COMMERCIAL_SIGNAL_GROUPS.items():
+        count = sum(row_signal_matches(row, categories) for row in rows)
+        mention_counts[group_name_key] = count
+        mention_rates[group_name_key] = safe_rate(count, review_count)
+
+    return {
+        "group": group_name,
+        "reviewCount": review_count,
+        "productCount": len(products) if products else len(product_ids_with_reviews),
+        "reviewedProductCount": len(product_ids_with_reviews),
+        "averageRating": average(row.get("rating") for row in rows),
+        "wouldBuyAfterTryingRate": yes_rate(row.get("wouldBuyAfterTrying") for row in rows),
+        "positiveSentimentShare": safe_rate(sentiment_counts.get("POSITIVE", 0), review_count),
+        "negativeOrMixedSentimentShare": safe_rate(
+            sentiment_counts.get("NEGATIVE", 0) + sentiment_counts.get("MIXED", 0),
+            review_count,
+        ),
+        "sentimentCounts": dict(sentiment_counts),
+        "mentionCounts": mention_counts,
+        "mentionRates": mention_rates,
+        "topBenefits": signal_counts_for_categories(
+            rows, COMMERCIAL_SIGNAL_GROUPS["benefits"], limit=8
+        ),
+        "topPainPoints": signal_counts_for_categories(
+            rows, COMMERCIAL_SIGNAL_GROUPS["painPoints"], limit=8
+        ),
+        "topOccasions": signal_counts_for_categories(
+            rows, COMMERCIAL_SIGNAL_GROUPS["occasions"], limit=8
+        ),
+        "topMarketContext": signal_counts_for_categories(
+            rows, COMMERCIAL_SIGNAL_GROUPS["marketContext"], limit=8
+        ),
+        "topThemes": top_theme_counts(rows, limit=8),
+        "evidence": [compact_evidence(row) for row in rows[:5]],
+    }
+
+
+def product_structured_text(product):
+    parts = [
+        product.get("brand"),
+        product.get("productName"),
+        product.get("subcategory"),
+        product.get("description"),
+        product.get("ingredients"),
+        product.get("packagingType"),
+        product.get("marketMaturity"),
+        product.get("priceTier"),
+        product.get("seasonality"),
+    ]
+    parts.extend(label.get("name") for label in product.get("labels", []))
+    parts.extend(user.get("segment") for user in product.get("targetUsers", []))
+    parts.extend(user.get("motivation") for user in product.get("targetUsers", []))
+    parts.extend(usage.get("scenario") for usage in product.get("usageOccasions", []))
+    parts.extend(usage.get("frequency") for usage in product.get("usageOccasions", []))
+    parts.extend(companion.get("type") for companion in product.get("companionProducts", []))
+    return clean_text(" ".join(part or "" for part in parts))
+
+
+def brand_structured_text(brand):
+    return clean_text(
+        " ".join(
+            [
+                brand.get("brandName") or "",
+                brand.get("description") or "",
+                brand.get("industry") or "",
+                brand.get("additionalContext") or "",
+                brand.get("archetypeAffinity") or "",
+                brand.get("researchOverallAssessment") or "",
+            ]
+        )
+    )
+
+
+def structured_matches_for_keywords(text, keywords):
+    text_lower = text.lower()
+    return sorted(set(matched_terms(text_lower, keywords)))
+
+
+def positioning_status(structured_score, reviewer_rate, baseline_rate, review_count):
+    if review_count == 0:
+        return "No transcript evidence"
+    delta_vs_positioning = reviewer_rate - structured_score
+    delta_vs_baseline = reviewer_rate - baseline_rate
+    if structured_score >= 0.45 and reviewer_rate < 0.2:
+        return "Positioned but under-discussed"
+    if structured_score < 0.25 and reviewer_rate >= 0.35:
+        return "Emergent reviewer-led signal"
+    if structured_score >= 0.35 and reviewer_rate >= 0.35:
+        return "Positioning validated in reviews"
+    if delta_vs_baseline >= 0.15:
+        return "Over-indexing vs reviewed category"
+    if delta_vs_baseline <= -0.15:
+        return "Under-indexing vs reviewed category"
+    if abs(delta_vs_positioning) >= 0.25:
+        return "Positioning/reviewer mismatch"
+    return "Aligned but lower-signal"
+
+
+def build_price_positioning_checks(brands, products, transcript_rows):
+    products_by_brand = defaultdict(list)
+    rows_by_brand = defaultdict(list)
+    for product in products:
+        products_by_brand[product["brand"]].append(product)
+    for row in transcript_rows:
+        rows_by_brand[row["brand"]].append(row)
+
+    baseline_benefit_rate = safe_rate(
+        sum(row_signal_matches(row, COMMERCIAL_SIGNAL_GROUPS["benefits"]) for row in transcript_rows),
+        len(transcript_rows),
+    ) or 0
+    baseline_pain_rate = safe_rate(
+        sum(row_signal_matches(row, COMMERCIAL_SIGNAL_GROUPS["painPoints"]) for row in transcript_rows),
+        len(transcript_rows),
+    ) or 0
+    baseline_would_buy_rate = yes_rate(
+        row.get("wouldBuyAfterTrying") for row in transcript_rows
+    ) or 0
+
+    checks = []
+    for brand in brands:
+        brand_name = brand["brandName"]
+        brand_products = products_by_brand.get(brand_name, [])
+        rows = rows_by_brand.get(brand_name, [])
+        price_tier_counts = Counter(
+            product.get("priceTier") or "Unknown" for product in brand_products
+        )
+        dominant_price_tier = (
+            price_tier_counts.most_common(1)[0][0] if price_tier_counts else "Unknown"
+        )
+        premium_share = safe_rate(price_tier_counts.get("premium", 0), len(brand_products)) or 0
+        benefit_rate = safe_rate(
+            sum(row_signal_matches(row, COMMERCIAL_SIGNAL_GROUPS["benefits"]) for row in rows),
+            len(rows),
+        ) or 0
+        pain_rate = safe_rate(
+            sum(row_signal_matches(row, COMMERCIAL_SIGNAL_GROUPS["painPoints"]) for row in rows),
+            len(rows),
+        ) or 0
+        would_buy_rate = yes_rate(row.get("wouldBuyAfterTrying") for row in rows)
+        average_price = average(product.get("price") for product in brand_products)
+
+        if not rows:
+            status = "Catalogue-only pricing context"
+            evidence = None
+        elif premium_share >= 0.5 and pain_rate >= baseline_pain_rate + 0.1:
+            status = "Premium tier with review friction"
+            evidence = first_signal_evidence(rows, COMMERCIAL_SIGNAL_GROUPS["painPoints"])
+        elif (
+            premium_share >= 0.5
+            and benefit_rate >= baseline_benefit_rate
+            and (would_buy_rate or 0) >= baseline_would_buy_rate
+        ):
+            status = "Premium position supported by reviews"
+            evidence = first_signal_evidence(rows, COMMERCIAL_SIGNAL_GROUPS["benefits"])
+        elif dominant_price_tier in ("budget", "mid-range") and benefit_rate >= baseline_benefit_rate:
+            status = "Value tier with strong benefit language"
+            evidence = first_signal_evidence(rows, COMMERCIAL_SIGNAL_GROUPS["benefits"])
+        elif pain_rate >= baseline_pain_rate + 0.15 and (would_buy_rate or 0) < baseline_would_buy_rate:
+            status = "Feedback risk vs purchase intent"
+            evidence = first_signal_evidence(rows, COMMERCIAL_SIGNAL_GROUPS["painPoints"])
+        else:
+            status = "No strong pricing mismatch"
+            evidence = first_signal_evidence(rows, COMMERCIAL_SIGNAL_GROUPS["benefits"])
+
+        checks.append(
+            {
+                "brand": brand_name,
+                "reviewCount": len(rows),
+                "productCount": len(brand_products),
+                "dominantPriceTier": dominant_price_tier,
+                "priceTierCounts": dict(price_tier_counts),
+                "premiumProductShare": premium_share,
+                "averagePrice": average_price,
+                "benefitMentionRate": benefit_rate if rows else None,
+                "painPointMentionRate": pain_rate if rows else None,
+                "wouldBuyAfterTryingRate": would_buy_rate,
+                "baselineRates": {
+                    "benefitMentionRate": baseline_benefit_rate,
+                    "painPointMentionRate": baseline_pain_rate,
+                    "wouldBuyAfterTryingRate": baseline_would_buy_rate,
+                },
+                "status": status,
+                "evidence": evidence,
+            }
+        )
+
+    return sorted(
+        checks,
+        key=lambda item: (
+            item["reviewCount"] > 0,
+            item["status"] != "No strong pricing mismatch",
+            item["reviewCount"],
+        ),
+        reverse=True,
+    )
+
+
+def build_positioning_vs_reviewer_reality(brands, products, transcript_rows):
+    products_by_brand = defaultdict(list)
+    rows_by_brand = defaultdict(list)
+    brands_by_name = {brand["brandName"]: brand for brand in brands}
+    for product in products:
+        products_by_brand[product["brand"]].append(product)
+    for row in transcript_rows:
+        rows_by_brand[row["brand"]].append(row)
+
+    baselines = {}
+    for dimension, config in POSITIONING_DIMENSIONS.items():
+        baselines[dimension] = safe_rate(
+            sum(
+                row_signal_matches(
+                    row,
+                    config["signalCategories"],
+                    labels=config["signalLabels"],
+                )
+                for row in transcript_rows
+            ),
+            len(transcript_rows),
+        ) or 0
+
+    brand_gaps = []
+    for brand_name, brand_products in products_by_brand.items():
+        rows = rows_by_brand.get(brand_name, [])
+        brand = brands_by_name.get(brand_name, {})
+        brand_text_matches_by_dimension = {
+            dimension: structured_matches_for_keywords(
+                brand_structured_text(brand), config["structuredKeywords"]
+            )
+            for dimension, config in POSITIONING_DIMENSIONS.items()
+        }
+
+        for dimension, config in POSITIONING_DIMENSIONS.items():
+            product_matches = []
+            for product in brand_products:
+                matches = structured_matches_for_keywords(
+                    product_structured_text(product), config["structuredKeywords"]
+                )
+                if matches:
+                    product_matches.append(
+                        {
+                            "productId": product["productId"],
+                            "productName": product["productName"],
+                            "matchedStructuredKeywords": matches[:8],
+                        }
+                    )
+
+            product_positioning_share = safe_rate(len(product_matches), len(brand_products)) or 0
+            brand_text_boost = 0.2 if brand_text_matches_by_dimension[dimension] else 0
+            structured_score = round(min(1.0, product_positioning_share + brand_text_boost), 3)
+            reviewer_count = sum(
+                row_signal_matches(
+                    row,
+                    config["signalCategories"],
+                    labels=config["signalLabels"],
+                )
+                for row in rows
+            )
+            reviewer_rate = safe_rate(reviewer_count, len(rows)) or 0
+            baseline_rate = baselines[dimension]
+            delta_vs_positioning = round(reviewer_rate - structured_score, 3)
+            delta_vs_baseline = round(reviewer_rate - baseline_rate, 3)
+            sample_confidence = min(1.0, len(rows) / 20) if rows else 0
+            priority_score = round(
+                (abs(delta_vs_positioning) * 0.6 + abs(delta_vs_baseline) * 0.4)
+                * sample_confidence,
+                3,
+            )
+
+            brand_gaps.append(
+                {
+                    "brand": brand_name,
+                    "dimension": dimension,
+                    "status": positioning_status(
+                        structured_score, reviewer_rate, baseline_rate, len(rows)
+                    ),
+                    "reviewCount": len(rows),
+                    "productCount": len(brand_products),
+                    "structuredPositioningScore": structured_score,
+                    "reviewerMentionCount": reviewer_count,
+                    "reviewerMentionRate": reviewer_rate,
+                    "reviewedCategoryBaselineRate": baseline_rate,
+                    "deltaVsStructuredPositioning": delta_vs_positioning,
+                    "deltaVsReviewedCategory": delta_vs_baseline,
+                    "priorityScore": priority_score,
+                    "structuredEvidence": {
+                        "productMatches": product_matches[:4],
+                        "brandTextMatches": brand_text_matches_by_dimension[dimension][:8],
+                    },
+                    "transcriptEvidence": first_signal_evidence(
+                        rows,
+                        config["signalCategories"],
+                        labels=config["signalLabels"],
+                    ),
+                }
+            )
+
+    return {
+        "featureName": "Positioning vs Reviewer Reality",
+        "description": (
+            "Compares structured product and brand positioning signals with transcript-backed "
+            "reviewer mentions. It highlights validated claims, under-discussed claims, "
+            "and emergent reviewer themes."
+        ),
+        "method": {
+            "structuredPositioningScore": (
+                "Share of a brand's products matching the dimension's structured keywords, "
+                "with a small boost when brand-level intelligence also matches."
+            ),
+            "reviewerMentionRate": (
+                "Share of transcript-backed reviews containing mapped explainable signals."
+            ),
+            "baseline": "All transcript-backed reviews in the dataset.",
+        },
+        "baselines": baselines,
+        "brandGaps": sorted(
+            brand_gaps,
+            key=lambda item: (
+                item["reviewCount"] > 0,
+                item["priorityScore"],
+                abs(item["deltaVsReviewedCategory"]),
+            ),
+            reverse=True,
+        ),
+        "topOpportunities": sorted(
+            [
+                item
+                for item in brand_gaps
+                if item["status"]
+                in (
+                    "Positioned but under-discussed",
+                    "Emergent reviewer-led signal",
+                    "Over-indexing vs reviewed category",
+                    "Positioning validated in reviews",
+                )
+                and item["reviewCount"] > 0
+            ],
+            key=lambda item: item["priorityScore"],
+            reverse=True,
+        )[:12],
+        "pricePositioningChecks": build_price_positioning_checks(
+            brands, products, transcript_rows
+        ),
+    }
+
+
+def build_commercial_aggregation_layer(products, brands, transcript_rows):
+    products_by_id = {product["productId"]: product for product in products}
+    products_by_brand = defaultdict(list)
+    rows_by_product = defaultdict(list)
+    rows_by_brand = defaultdict(list)
+    for product in products:
+        products_by_brand[product["brand"]].append(product)
+    for row in transcript_rows:
+        rows_by_product[row["productId"]].append(row)
+        rows_by_brand[row["brand"]].append(row)
+
+    by_product = [
+        build_commercial_group_record(
+            product["productName"],
+            rows_by_product.get(product["productId"], []),
+            products=[product],
+        )
+        | {
+            "productId": product["productId"],
+            "brand": product["brand"],
+            "subcategory": product["subcategory"],
+            "priceTier": product["priceTier"],
+        }
+        for product in products
+    ]
+
+    by_brand = [
+        build_commercial_group_record(
+            brand["brandName"],
+            rows_by_brand.get(brand["brandName"], []),
+            products=products_by_brand.get(brand["brandName"], []),
+        )
+        | {
+            "brand": brand["brandName"],
+            "breakthroughScore": brand.get("breakthroughScore"),
+            "transcriptCoverageRole": "Reviewed brand"
+            if rows_by_brand.get(brand["brandName"])
+            else "Competitive context",
+        }
+        for brand in brands
+    ]
+
+    retailer_products = defaultdict(list)
+    category_products = defaultdict(list)
+    attribute_products = {
+        "priceTier": defaultdict(list),
+        "marketMaturity": defaultdict(list),
+        "packagingType": defaultdict(list),
+        "productLabel": defaultdict(list),
+    }
+    for product in products:
+        for retailer in product.get("retailers", []):
+            retailer_products[retailer].append(product)
+        category_products[product.get("subcategory") or product.get("category") or "Unknown"].append(product)
+        attribute_products["priceTier"][product.get("priceTier") or "Unknown"].append(product)
+        attribute_products["marketMaturity"][product.get("marketMaturity") or "Unknown"].append(product)
+        attribute_products["packagingType"][product.get("packagingType") or "Unknown"].append(product)
+        for label in product.get("labels", []):
+            attribute_products["productLabel"][label.get("name") or "Unknown"].append(product)
+
+    by_retailer = []
+    for retailer, retailer_product_rows in sorted(retailer_products.items()):
+        product_ids = {product["productId"] for product in retailer_product_rows}
+        rows = [row for row in transcript_rows if row["productId"] in product_ids]
+        by_retailer.append(
+            build_commercial_group_record(retailer, rows, products=retailer_product_rows)
+        )
+
+    by_category = []
+    for category, category_product_rows in sorted(category_products.items()):
+        product_ids = {product["productId"] for product in category_product_rows}
+        rows = [row for row in transcript_rows if row["productId"] in product_ids]
+        by_category.append(
+            build_commercial_group_record(category, rows, products=category_product_rows)
+        )
+
+    rows_by_rating_band = defaultdict(list)
+    for row in transcript_rows:
+        rows_by_rating_band[rating_band(row.get("rating"))].append(row)
+
+    by_rating_band = [
+        build_commercial_group_record(
+            band,
+            rows,
+            products=[
+                products_by_id[product_id]
+                for product_id in {row["productId"] for row in rows}
+                if product_id in products_by_id
+            ],
+        )
+        for band, rows in sorted(rows_by_rating_band.items())
+    ]
+
+    by_structured_attributes = {}
+    for attribute, groups in attribute_products.items():
+        by_structured_attributes[attribute] = []
+        for value, attribute_product_rows in sorted(groups.items()):
+            product_ids = {product["productId"] for product in attribute_product_rows}
+            rows = [row for row in transcript_rows if row["productId"] in product_ids]
+            by_structured_attributes[attribute].append(
+                build_commercial_group_record(value, rows, products=attribute_product_rows)
+            )
+
+    return {
+        "overview": build_commercial_group_record(
+            "All transcript-backed reviews", transcript_rows, products=products
+        ),
+        "byProduct": sorted(by_product, key=lambda item: item["reviewCount"], reverse=True),
+        "byBrand": sorted(by_brand, key=lambda item: item["reviewCount"], reverse=True),
+        "byRetailer": sorted(by_retailer, key=lambda item: item["reviewCount"], reverse=True),
+        "byCategory": sorted(by_category, key=lambda item: item["reviewCount"], reverse=True),
+        "byRatingBand": sorted(by_rating_band, key=lambda item: item["reviewCount"], reverse=True),
+        "byStructuredAttributes": {
+            attribute: sorted(groups, key=lambda item: item["reviewCount"], reverse=True)
+            for attribute, groups in by_structured_attributes.items()
+        },
+        "insightFeature": build_positioning_vs_reviewer_reality(
+            brands, products, transcript_rows
+        ),
+    }
+
+
 def compact_evidence(row):
     first_theme = row.get("themes", [{}])[0] if row.get("themes") else {}
     first_signal = None
@@ -1031,6 +1709,22 @@ def make_filter_options(products, brand_aggregates, transcript_rows):
             category: sorted(rule["label"] for rule in rules)
             for category, rules in SIGNAL_RULES.items()
         },
+        "commercialSignalGroups": {
+            group: sorted(categories)
+            for group, categories in COMMERCIAL_SIGNAL_GROUPS.items()
+        },
+        "aggregationDimensions": [
+            "brand",
+            "product",
+            "retailer",
+            "category",
+            "ratingBand",
+            "priceTier",
+            "marketMaturity",
+            "packagingType",
+            "productLabel",
+        ],
+        "positioningDimensions": sorted(POSITIONING_DIMENSIONS.keys()),
         "regions": sorted({row["region"] for row in transcript_rows if row.get("region")}),
         "archetypes": sorted(
             {row["primaryArchetype"] for row in transcript_rows if row.get("primaryArchetype")}
@@ -1089,6 +1783,8 @@ def build_validation(raw_counts, users, products, brands, transcript_rows):
             "Theme extraction is transparent keyword matching over transcript text, not a model-inferred truth label.",
             "Transcript signals are deterministic phrase matches with evidence snippets across praise, pain points, occasions, shopper needs, product preferences, routines, co-consumption, purchase drivers, complaints, retailers, competitors, and comparisons.",
             "Signal confidence combines matched phrase count with simple supporting evidence from rating, sentiment, and would-buy response.",
+            "Commercial aggregates report both raw mention counts and normalized rates so groups with different transcript coverage can be compared cautiously.",
+            "Positioning vs Reviewer Reality compares structured product/brand keywords with mapped transcript signals; it should be read as directional evidence, not statistical proof.",
         ],
     }
 
@@ -1143,6 +1839,9 @@ def main():
 
     product_aggregates = build_product_aggregates(products, transcript_user_enriched)
     brand_aggregates = build_brand_aggregates(brands, products, transcript_user_enriched)
+    commercial_aggregation_layer = build_commercial_aggregation_layer(
+        products, brands, transcript_user_enriched
+    )
 
     raw_counts = {
         "transcripts": len(raw_transcripts),
@@ -1179,12 +1878,13 @@ def main():
         "metadata": {
             "generatedAt": validation["generatedAt"],
             "sourceDirectory": str(DATA_DIR.relative_to(ROOT_DIR)),
-            "artifactVersion": 2,
+            "artifactVersion": 3,
         },
         "kpis": kpis,
         "filters": filter_options,
         "brandAggregates": brand_aggregates,
         "productAggregates": product_aggregates,
+        "commercialAggregationLayer": commercial_aggregation_layer,
         "transcriptUserEnriched": transcript_user_enriched,
         "validation": validation,
     }
@@ -1194,6 +1894,7 @@ def main():
         "transcript_product_aggregates.json": product_aggregates,
         "brand_level_aggregates.json": brand_aggregates,
         "filter_options.json": filter_options,
+        "commercial_aggregation_layer.json": commercial_aggregation_layer,
         "validation_report.json": validation,
         "dashboard_data.json": dashboard_data,
     }

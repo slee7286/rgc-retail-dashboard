@@ -210,6 +210,47 @@
       "Preference or winner language"
     ]
   },
+  "commercialSignalGroups": {
+    "benefits": [
+      "praiseThemes",
+      "productPreferences",
+      "purchaseDrivers",
+      "shopperNeeds"
+    ],
+    "painPoints": [
+      "complaints",
+      "painPoints"
+    ],
+    "occasions": [
+      "coConsumptionHabits",
+      "routines",
+      "usageOccasions"
+    ],
+    "marketContext": [
+      "comparisonMentions",
+      "competitorMentions",
+      "retailerMentions"
+    ]
+  },
+  "aggregationDimensions": [
+    "brand",
+    "product",
+    "retailer",
+    "category",
+    "ratingBand",
+    "priceTier",
+    "marketMaturity",
+    "packagingType",
+    "productLabel"
+  ],
+  "positioningDimensions": [
+    "Alcohol alternative",
+    "Convenience and format",
+    "Health and function",
+    "Low sugar / clean label",
+    "Premium mixer / adult serve",
+    "Taste and refreshment"
+  ],
   "regions": [
     "East Midlands",
     "East of England",

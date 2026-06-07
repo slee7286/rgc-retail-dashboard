@@ -129,3 +129,16 @@ At the same time, I iterated the following to refine signals:
 **Decision:** Keep only the strongest signal families that produce believable evidence. Drop anything that feels speculative.  
 **Why:** The submission will be judged on clear thinking and explainability, not maximum feature count.  
 **Next:** Create commercial aggregations linking signals to products, brands, retailers, ratings, and attributes.
+
+### 01:40
+**Objective:** Build the commercial aggregation layer and define at least one brand-facing insight feature.  
+**What I did:** Aggregated transcript-derived theme signals by product, brand, retailer, category, rating band, and selected structured attributes. Calculated both raw counts and normalized rates such as share of reviews mentioning a pain point, share mentioning a benefit, and most common positive/negative themes by brand. I also started shaping a comparison layer between what products/brands appear to be positioned around in structured data and what reviewers actually talk about in transcripts.  
+**Observations:** Relative rates are more decision-useful than raw counts because transcript coverage varies a lot across products and brands. Transcript data also becomes much more commercially interesting when placed next to brand/product context rather than shown in isolation. A simple transcript frequency chart is descriptive, but a “claim/positioning vs. reviewer reality” comparison is much closer to something a brand, insights, or retail team could act on.  
+**Decision:** Use both counts and rates, show transcript sample size prominently, and prioritize one insight feature that joins qualitative reviewer signals with structured brand/product intelligence. The main commercial angle will be to highlight where reviewer discussion appears to over-index or under-index relative to brand/product positioning, category norms, or competitor context.  
+**Why:** This better answers practical stakeholder questions like:
+- Are consumers actually talking about the things a brand seems to be competing on?
+- Which pain points or benefits are disproportionately associated with a brand versus competitors?
+- Are there pricing or category-positioning mismatches between catalogue context and lived consumer feedback?
+
+**Next:** Create the dashboard UI
+

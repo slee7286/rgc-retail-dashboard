@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-07T00:21:56.279292+00:00",
+  "generatedAt": "2026-06-07T01:01:08.799900+00:00",
   "rawCounts": {
     "transcripts": 130,
     "users": 130,
@@ -41,6 +41,8 @@
     "Brands with no reviews are labelled Competitive context rather than treated as data-quality failures.",
     "Theme extraction is transparent keyword matching over transcript text, not a model-inferred truth label.",
     "Transcript signals are deterministic phrase matches with evidence snippets across praise, pain points, occasions, shopper needs, product preferences, routines, co-consumption, purchase drivers, complaints, retailers, competitors, and comparisons.",
-    "Signal confidence combines matched phrase count with simple supporting evidence from rating, sentiment, and would-buy response."
+    "Signal confidence combines matched phrase count with simple supporting evidence from rating, sentiment, and would-buy response.",
+    "Commercial aggregates report both raw mention counts and normalized rates so groups with different transcript coverage can be compared cautiously.",
+    "Positioning vs Reviewer Reality compares structured product/brand keywords with mapped transcript signals; it should be read as directional evidence, not statistical proof."
   ]
 }
